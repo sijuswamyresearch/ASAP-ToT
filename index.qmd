@@ -22,10 +22,6 @@ author:
         postal-code: 686532
 ---
 
-<div style="text-align: center;">
-  <img src="images\ToT-poster.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;">
-</div>
-
 
 ## About the ToT
 
