@@ -1,0 +1,282 @@
+---
+title: "Session 2 — Linear Algebra - The Language of Data and Transformations"
+subtitle: <a href="slides-ML.html" target="_blank"></a>
+author: 
+  - name:
+      given: Siju
+      family: Swamy
+    #orcid: 0000-0001-8925-424X
+    email: siju.swamy@saintgits.org
+    affiliations:
+      - name: Saintgits College of Engineering (Autonomous)
+        city: Kottayam
+        country: India
+        postal-code: 686532
+    attributes:
+        equal-contributor: False
+format:
+  html:
+    mermaid:
+      theme: dark
+    
+  revealjs:
+    output-file: slides-ML.html
+    width: 960
+    height: 700
+    css: assets/style.css
+    mermaid:
+      theme: dark
+jupyter: python3
+execute: 
+  enabled: true
+---
+
+<div style="text-align: center;">
+  <img src="ToT-linear.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;">
+</div>
+
+
+## The Unseen Architecture of Intelligence
+
+Welcome to our deep exploration of Linear Algebra, the first and most fundamental pillar of artificial intelligence. If we consider AI as a new form of architecture, then linear algebra provides both the blueprint and the building materials. Every intelligent system, from the simplest classifier to the most complex large language model, is fundamentally built upon the principles we will explore today.
+
+Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI.
+
+## The Vector: The Fundamental Unit of Intelligence
+
+### Best introduction of vectors from data science
+
+```{python}
+import pandas as pd
+from sklearn.datasets import load_iris
+
+# Load the Iris dataset
+iris = load_iris()
+
+# Create a Pandas DataFrame for better readability
+# The 'data' attribute contains the features, and 'feature_names' are the column labels
+df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
+
+# Add the target variable (species) to the DataFrame
+# 'target' contains numerical labels (0, 1, 2), and 'target_names' maps them to species names
+df['species'] = iris.target_names[iris.target]
+
+# Display the first few rows of the DataFrame
+print(df.head())
+```
+
+### Data as Points in Space
+
+Consider our familiar Iris dataset. Each flower, with its four measurements, becomes a point in a four-dimensional space:
+
+```python
+iris_flower = [5.1, 3.5, 1.4, 0.2] # A vector in R^4
+```
+This representation is profound. We can now measure similarity between flowers using Euclidean distance:
+
+$$
+d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
+$$
+
+We can compute centroids for each species:
+
+$$
+\mathbf{\mu}_{\text{setosa}} = \frac{1}{50} \sum_{i=1}^{50} \mathbf{x}_i
+$$
+
+And we can measure how spread out each species is around its center. This geometric perspective transforms abstract statistics into spatial intuition.
+
+### The Dot Product: Measuring Alignment and Similarity
+
+The dot product between two vectors reveals their alignment:
+
+$$
+\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i b_i = \|\mathbf{a}\|\|\mathbf{b}\|\cos\theta
+$$
+
+This simple operation underpins:
+
+- **Cosine similarity** in recommendation systems
+- **Attention mechanisms** in transformers
+- **Feature correlations** in data analysis
+
+When two vectors point in similar directions, their dot product is large. When they're perpendicular, it's zero. This geometric insight helps students understand why certain mathematical operations work the way they do.
+
+## Matrices: The Engines of Transformation
+
+### Data as Organized Information
+
+Our entire Iris dataset forms a matrix:
+
+$$
+\mathbf{X} = \begin{bmatrix}
+5.1 & 3.5 & 1.4 & 0.2 \\
+4.9 & 3.0 & 1.4 & 0.2 \\
+4.7 & 3.2 & 1.3 & 0.2 \\
+\vdots & \vdots & \vdots & \vdots \\
+\end{bmatrix}
+$$
+
+This matrix representation enables powerful operations. We can center our data by subtracting the mean vector, scale features to comparable ranges, and compute the covariance matrix that reveals how features vary together.
+
+### Matrix Multiplication as Transformation
+
+When we multiply a data matrix by a weight matrix, we're performing a linear transformation:
+
+$$
+\mathbf{Z} = \mathbf{X}\mathbf{W}
+$$
+
+Each column of $\mathbf{W}$ defines a new "direction" or "feature" in our transformed space. In neural networks, these transformations are followed by non-linear activations, but the linear component provides the fundamental structure.
+
+### The Covariance Matrix: Revealing Data Structure
+
+The covariance matrix:
+
+$$
+\mathbf{\Sigma} = \frac{1}{n}\mathbf{X}^T\mathbf{X}
+$$
+
+encodes how our features co-vary. Its eigenvectors point in directions of maximum variance, and its eigenvalues tell us how much variance lies in each direction. This is the mathematical foundation of Principal Component Analysis (PCA).
+
+## Eigen Decomposition: Finding Natural Directions
+
+### The Eigenvalue Equation
+
+The fundamental equation:
+
+$$
+\mathbf{A}\mathbf{v} = \lambda\mathbf{v}
+$$
+
+tells us that certain vectors (eigenvectors) only get stretched, not rotated, when transformed by a matrix. The stretching factor is the eigenvalue.
+
+For our Iris dataset, the eigenvectors of the covariance matrix point in the "natural directions" of the data—the directions where the flowers show the most variation. The corresponding eigenvalues tell us how much variation exists in each natural direction.
+
+### Principal Component Analysis: Dimensionality Reduction in Action
+
+PCA finds these natural directions and projects our data onto them:
+
+1. Center the data: $\mathbf{X}_{\text{centered}} = \mathbf{X} - \mathbf{\mu}$
+2. Compute covariance: $\mathbf{\Sigma} = \frac{1}{n}\mathbf{X}_{\text{centered}}^T\mathbf{X}_{\text{centered}}$
+3. Find eigenvectors: $\mathbf{\Sigma}\mathbf{v}_i = \lambda_i\mathbf{v}_i$
+4. Project data: $\mathbf{Z} = \mathbf{X}_{\text{centered}}\mathbf{V}$
+
+where $\mathbf{V}$ contains the top-k eigenvectors. This transformation often reveals that our four-dimensional Iris data actually lives in a lower-dimensional subspace where the species separate naturally.
+
+## Singular Value Decomposition: The Ultimate Factorization
+
+### The SVD Theorem
+
+Any matrix can be decomposed as:
+
+$$
+\mathbf{X} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T
+$$
+
+where:
+- $\mathbf{U}$ contains the left singular vectors (patterns in rows/observations)
+- $\mathbf{\\Sigma}$ is diagonal with singular values (importance of each pattern)
+- $\mathbf{V}$ contains the right singular vectors (patterns in columns/features)
+
+For our Iris data, SVD reveals that we can reconstruct the entire dataset using only a few important patterns. The singular values tell us how much each pattern contributes to the overall structure.
+
+### SVD in Machine Learning
+
+SVD appears throughout machine learning:
+
+- **Recommendation systems** (collaborative filtering)
+- **Word embeddings** (Latent Semantic Analysis)
+- **Matrix completion** (filling in missing values)
+- **Dimensionality reduction** (PCA is a special case of SVD)
+
+## Teaching Linear Algebra with Intuition
+
+### The "Blind Sculptor" Analogy for Eigenvectors
+
+Imagine a sculptor working blindfolded. She can only feel the shape by poking it and seeing how it deforms. Eigenvectors are like the directions where poking just makes the shape uniformly larger or smaller, without changing its essential form. Eigenvalues tell her how much each poke stretches the shape.
+
+### Matrix Multiplication as "Recipe Combination"
+
+Think of a matrix as a recipe book. Each column is a recipe for creating a new feature. Matrix multiplication is like applying all these recipes to your ingredients (data) simultaneously to create a transformed meal (new representation).
+
+### The "Data Compass" for PCA
+
+Principal components are like a compass for your data. The first principal component points toward the direction of greatest variation—the "north" of your dataset. The second points toward the next most important direction, and so on. By following this compass, we can navigate high-dimensional spaces effectively.
+
+## Linear Algebra in Neural Networks
+
+### The Fundamental Operation
+
+Every layer in a neural network performs:
+
+$$
+\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}
+$$
+
+followed by a non-linear activation $\sigma(\mathbf{Z})$. This linear transformation:
+
+- **Mixes features** to create new representations
+- **Learns patterns** through the weight matrix
+- **Enables hierarchical learning** through multiple layers
+
+### Convolution as Matrix Multiplication
+
+Convolutional layers in neural networks can be viewed as matrix multiplications with sparse, structured weight matrices. This perspective helps students understand that CNNs are fundamentally linear algebra with additional constraints.
+
+### Attention Mechanisms as Weighted Combinations
+
+The attention mechanism in transformers computes:
+
+$$
+\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}
+$$
+
+This is fundamentally linear algebra: we compute similarities (dot products), normalize them (softmax), and use them to form weighted combinations of values.
+
+## Common Student Challenges and Solutions
+
+### Challenge 1: "Why do we need matrices instead of just doing things one point at a time?"
+
+**Solution:** Use the "orchestra analogy." Working with individual data points is like listening to each musician separately. Working with matrices is like hearing the entire orchestra—you understand how all the parts work together to create something greater than the sum of its parts.
+
+### Challenge 2: "Eigenvalues and eigenvectors seem too abstract."
+
+**Solution:** Connect them to concrete examples. In the Iris dataset, the first eigenvector might point in the "petal size" direction, and its eigenvalue tells us how much the flowers vary in petal size compared to other characteristics.
+
+### Challenge 3: "When would I use SVD in real applications?"
+
+**Solution:** Show how Netflix might use SVD for recommendations, or how Google uses it for understanding word meanings in different contexts.
+
+##  Mission: Bilding Linear Algebra Intuition
+
+### Assignment 1: The Geometric Interpreter
+
+Choose one algorithm from your teaching module that uses linear algebra extensively. Create a visual explanation showing:
+
+- How the data is represented as vectors/matrices
+- What linear transformations occur
+- How eigenvalues/eigenvectors or SVD components appear
+- What the geometric interpretation of the algorithm is
+
+### Assignment 2: The Analogy Architect
+
+Develop three teaching analogies for linear algebra concepts:
+
+1. One for matrix multiplication
+2. One for eigenvectors/eigenvalues
+3. One for dimensionality reduction
+
+Each analogy should be accessible to students with minimal mathematical background yet mathematically precise enough to build correct intuition.
+
+### Assignment 3: The Connection Map
+
+Create a diagram showing how linear algebra concepts connect across different AI domains:
+
+- Neural networks
+- Computer vision
+- Natural language processing
+- Recommendation systems
+
+Identify where the same mathematical concept (e.g., dot products, matrix factorization) appears in different contexts.
+

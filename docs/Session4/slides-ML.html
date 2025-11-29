@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.31">
+
+  <meta name="author" content="Siju Swamy">
+  <title>Training of Trainees Master Class – Session 4: Probability &amp; Statistics - The Science of Uncertainty</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Session 4: Probability &amp; Statistics - The Science of Uncertainty</h1>
+  <p class="subtitle"><a href="slides-ML.html" target="_blank"></a></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Siju Swamy <a href="https://orcid.org/0009-0004-1983-5574" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:siju.swamy@saintgits.org">siju.swamy@saintgits.org</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Saintgits College of Engineering (Autonomous)
+          </p>
+    </div>
+</div>
+
+</section>
+<section class="slide level2">
+
+<div style="text-align: center;">
+<p><img src="ToT_day4.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;"></p>
+</div>
+</section>
+<section id="the-foundation-of-intelligent-decision-making" class="slide level2">
+<h2>The Foundation of Intelligent Decision-Making</h2>
+<p>Welcome to our exploration of probability and statistics, the third pillar of artificial intelligence that provides the mathematical framework for reasoning under uncertainty. While linear algebra gives us the language to describe data and calculus provides the mechanism for learning, probability and statistics give us the wisdom to understand the limits of our knowledge and make intelligent decisions in the face of incomplete information.</p>
+<p>In a world filled with noisy measurements, imperfect models, and inherent randomness, probability theory allows us to quantify uncertainty, while statistics enables us to draw meaningful conclusions from limited data. This session will reveal how these ancient mathematical disciplines form the bedrock of modern AI systems that must operate reliably in an uncertain world.</p>
+</section>
+<section id="probability-theory-the-mathematics-of-uncertainty" class="slide level2">
+<h2>Probability Theory: The Mathematics of Uncertainty</h2>
+<h3 id="foundations-of-probability">Foundations of Probability</h3>
+<p>Probability provides a formal language for quantifying uncertainty. The basic axioms:</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(A) &amp;\geq 0 \quad \text{for any event } A \\\\
+P(\Omega) &amp;= 1 \quad \text{where } \Omega \text{ is the sample space} \\\\
+P\left(\bigcup_{i=1}^\infty A_i\right) &amp;= \sum_{i=1}^\infty P(A_i) \quad \text{for disjoint events}
+\end{aligned}
+\]</span></p>
+<p>These simple rules form the foundation for all probabilistic reasoning in AI.</p>
+<h3 id="random-variables-and-distributions">Random Variables and Distributions</h3>
+<p>A random variable <span class="math inline">\(X\)</span> assigns numerical values to outcomes. For our Iris dataset, we can model each feature as a random variable:</p>
+<ul>
+<li>Sepal length <span class="math inline">\(S_L \sim \text{Some Distribution}\)</span></li>
+<li>Petal width <span class="math inline">\(P_W \sim \text{Some Distribution}\)</span></li>
+</ul>
+<p>Common distributions in machine learning include:</p>
+<p><strong>Gaussian Distribution:</strong> <span class="math display">\[
+p(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\]</span></p>
+<p><strong>Bernoulli Distribution:</strong> <span class="math display">\[
+p(x|p) = p^x(1-p)^{1-x} \quad \text{for } x \in \\{0,1\\}
+\]</span></p>
+<p><strong>Categorical Distribution:</strong> <span class="math display">\[
+p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
+\]</span></p>
+<h3 id="joint-marginal-and-conditional-probabilities">Joint, Marginal, and Conditional Probabilities</h3>
+<p>For multiple random variables, we have:</p>
+<p><strong>Joint Probability:</strong> <span class="math inline">\(P(X=x, Y=y)\)</span> - probability of both events occurring <strong>Marginal Probability:</strong> <span class="math inline">\(P(X=x) = \sum_y P(X=x, Y=y)\)</span> - probability of one event regardless of others <strong>Conditional Probability:</strong> <span class="math inline">\(P(X=x|Y=y) = \frac{P(X=x, Y=y)}{P(Y=y)}\)</span> - probability of one event given another</p>
+</section>
+<section id="bayesian-inference-updating-beliefs-with-evidence" class="slide level2">
+<h2>Bayesian Inference: Updating Beliefs with Evidence</h2>
+<h3 id="bayes-theorem-the-foundation-of-learning">Bayes’ Theorem: The Foundation of Learning</h3>
+<p>Bayes’ theorem provides the mathematical framework for updating beliefs in light of new evidence:</p>
+<p><span class="math display">\[
+P(\theta|\mathcal{D}) = \frac{P(\mathcal{D}|\theta)P(\theta)}{P(\mathcal{D})}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(P(\theta|\mathcal{D})\)</span> is the posterior - our updated belief about parameters <span class="math inline">\(\theta\)</span> after seeing data <span class="math inline">\(\mathcal{D}\)</span></li>
+<li><span class="math inline">\(P(\mathcal{D}|\theta)\)</span> is the likelihood - how probable the data is under different parameters</li>
+<li><span class="math inline">\(P(\theta)\)</span> is the prior - our belief about parameters before seeing data</li>
+<li><span class="math inline">\(P(\mathcal{D})\)</span> is the evidence - a normalizing constant</li>
+</ul>
+<h3 id="bayesian-classification-for-iris-data">Bayesian Classification for Iris Data</h3>
+<p>For classifying Iris flowers, we can use Bayes’ theorem:</p>
+<p><span class="math display">\[
+P(\text{species}=k|\mathbf{x}) = \frac{p(\mathbf{x}|\text{species}=k)P(\text{species}=k)}{\sum_{j=1}^3 p(\mathbf{x}|\text{species}=j)P(\text{species}=j)}
+\]</span></p>
+<p>If we assume each class has a Gaussian distribution:</p>
+<p><span class="math display">\[
+p(\mathbf{x}|\text{species}=k) = \mathcal{N}(\mathbf{x}|\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)
+\]</span></p>
+<p>This gives us a principled probabilistic classifier that naturally handles uncertainty.</p>
+<h3 id="conjugate-priors-and-computational-efficiency">Conjugate Priors and Computational Efficiency</h3>
+<p>Some prior-likelihood pairs have nice mathematical properties called conjugacy:</p>
+<ul>
+<li><strong>Gaussian-Gaussian:</strong> If likelihood is Gaussian and prior is Gaussian, posterior is Gaussian</li>
+<li><strong>Beta-Bernoulli:</strong> If likelihood is Bernoulli and prior is Beta, posterior is Beta</li>
+<li><strong>Dirichlet-Multinomial:</strong> If likelihood is Multinomial and prior is Dirichlet, posterior is Dirichlet</li>
+</ul>
+<p>These conjugacies enable efficient Bayesian updating and are widely used in practice.</p>
+</section>
+<section id="statistical-inference-drawing-conclusions-from-data" class="slide level2">
+<h2>Statistical Inference: Drawing Conclusions from Data</h2>
+<h3 id="maximum-likelihood-estimation-mle">Maximum Likelihood Estimation (MLE)</h3>
+<p>MLE finds parameters that make the observed data most probable:</p>
+<p><span class="math display">\[
+\hat{\theta}_{\text{MLE}} = \arg\max_\theta P(\mathcal{D}|\theta)
+\]</span></p>
+<p>For Gaussian distributions, MLE gives us familiar results:</p>
+<ul>
+<li><span class="math inline">\(\hat{\mu} = \frac{1}{n}\sum_{i=1}^n x_i\)</span></li>
+<li><span class="math inline">\(\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (x_i - \hat{\mu})^2\)</span></li>
+</ul>
+<h3 id="maximum-a-posteriori-map-estimation">Maximum A Posteriori (MAP) Estimation</h3>
+<p>MAP estimation incorporates prior knowledge:</p>
+<p><span class="math display">\[
+\hat{\theta}_{\text{MAP}} = \arg\max_\theta P(\theta|\mathcal{D}) = \arg\max_\theta P(\mathcal{D}|\theta)P(\theta)
+\]</span></p>
+<p>This provides a Bayesian alternative to MLE that can prevent overfitting.</p>
+<h3 id="hypothesis-testing-and-confidence-intervals">Hypothesis Testing and Confidence Intervals</h3>
+<p>Frequentist statistics provides tools for making inferences:</p>
+<ul>
+<li><strong>Confidence Intervals:</strong> An interval that would contain the true parameter 95% of the time in repeated sampling</li>
+<li><strong>p-values:</strong> The probability of observing data as extreme as what we saw, assuming the null hypothesis is true</li>
+</ul>
+<p>While these concepts have limitations, they remain important for model evaluation and comparison.</p>
+</section>
+<section id="distributions-in-machine-learning" class="slide level2">
+<h2>Distributions in Machine Learning</h2>
+<h3 id="exponential-family-distributions">Exponential Family Distributions</h3>
+<p>Many important distributions belong to the exponential family:</p>
+<p><span class="math display">\[
+p(x|\eta) = h(x) \exp(\eta^T T(x) - A(\eta))
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\eta\)</span> are natural parameters</li>
+<li><span class="math inline">\(T(x)\)</span> are sufficient statistics</li>
+<li><span class="math inline">\(A(\eta)\)</span> is the log-normalizer</li>
+</ul>
+<p>This family includes Gaussian, Bernoulli, Poisson, Gamma, and many other distributions, enabling unified treatment and efficient computation.</p>
+<h3 id="mixture-models-and-latent-variables">Mixture Models and Latent Variables</h3>
+<p>Mixture models combine multiple distributions to model complex data:</p>
+<p><span class="math display">\[
+p(\mathbf{x}) = \sum_{k=1}^K \pi_k p_k(\mathbf{x})
+\]</span></p>
+<p>Where <span class="math inline">\(\pi_k\)</span> are mixing weights and <span class="math inline">\(p_k\)</span> are component distributions. The EM algorithm provides an efficient way to learn mixture models.</p>
+</section>
+<section id="probabilistic-graphical-models" class="slide level2">
+<h2>Probabilistic Graphical Models</h2>
+<h3 id="representing-complex-dependencies">Representing Complex Dependencies</h3>
+<p>Graphical models use graphs to represent probabilistic relationships:</p>
+<ul>
+<li><strong>Bayesian Networks:</strong> Directed acyclic graphs representing causal relationships</li>
+<li><strong>Markov Random Fields:</strong> Undirected graphs representing symmetric dependencies</li>
+</ul>
+<p>These models enable efficient computation and intuitive representation of complex probabilistic systems.</p>
+<h3 id="inference-in-graphical-models">Inference in Graphical Models</h3>
+<p>Key inference tasks include:</p>
+<ul>
+<li><strong>Marginal inference:</strong> <span class="math inline">\(P(X_i) = \sum_{\mathbf{x}_{\setminus i}} P(\mathbf{x})\)</span></li>
+<li><strong>Maximum a posteriori (MAP):</strong> <span class="math inline">\(\arg\max_{\mathbf{x}} P(\mathbf{x})\)</span></li>
+<li><strong>Posterior inference:</strong> <span class="math inline">\(P(\text{hidden}|\text{observed})\)</span></li>
+</ul>
+<p>Algorithms like belief propagation, junction trees, and variational methods enable efficient inference.</p>
+</section>
+<section id="uncertainty-quantification-in-deep-learning" class="slide level2">
+<h2>Uncertainty Quantification in Deep Learning</h2>
+<h3 id="bayesian-neural-networks">Bayesian Neural Networks</h3>
+<p>Traditional neural networks provide point estimates. Bayesian neural networks model uncertainty in weights:</p>
+<p><span class="math display">\[
+P(\mathbf{y}|\mathbf{x}, \mathcal{D}) = \int P(\mathbf{y}|\mathbf{x}, \mathbf{w})P(\mathbf{w}|\mathcal{D}) d\mathbf{w}
+\]</span></p>
+<p>This provides uncertainty estimates for predictions, crucial for safety-critical applications.</p>
+<h3 id="monte-carlo-dropout">Monte Carlo Dropout</h3>
+<p>A practical approximation for Bayesian neural networks uses dropout at test time:</p>
+<p><span class="math display">\[
+P(\mathbf{y}|\mathbf{x}) \approx \frac{1}{T} \sum_{t=1}^T P(\mathbf{y}|\mathbf{x}, \mathbf{w}_t)
+\]</span></p>
+<p>Where <span class="math inline">\(\mathbf{w}_t\)</span> are different dropout masks, providing an ensemble of predictions.</p>
+<h3 id="calibration-and-reliability">Calibration and Reliability</h3>
+<p>Well-calibrated models should satisfy:</p>
+<p><span class="math display">\[
+P(\hat{Y} = Y | \hat{P} = p) = p
+\]</span></p>
+<p>Where <span class="math inline">\(\hat{P}\)</span> is the predicted probability. Modern neural networks often need calibration techniques like temperature scaling.</p>
+</section>
+<section id="teaching-probability-with-intuition" class="slide level2">
+<h2>Teaching Probability with Intuition</h2>
+<h3 id="the-weather-forecast-analogy-for-bayesian-updates">The “Weather Forecast” Analogy for Bayesian Updates</h3>
+<p>Think of Bayesian updating like a weather forecast. Your prior is yesterday’s forecast. New data is today’s weather observations. The posterior is tomorrow’s updated forecast. Each day, you combine old predictions with new evidence to improve future forecasts.</p>
+<h3 id="the-medical-test-example-for-conditional-probability">The “Medical Test” Example for Conditional Probability</h3>
+<p>A medical test with 99% accuracy sounds reliable, but if the disease is rare (1 in 10,000), a positive test might only have ~1% chance of being correct. This counterintuitive result demonstrates why we need Bayesian reasoning and can’t just look at test accuracy alone.</p>
+<h3 id="the-polling-analogy-for-confidence-intervals">The “Polling” Analogy for Confidence Intervals</h3>
+<p>A political poll might show a candidate with 52% support ±3%. This doesn’t mean exactly 52% of voters support them, but that if we conducted the poll many times, 95% of the intervals would contain the true percentage. The uncertainty is about the method, not the candidate’s support.</p>
+</section>
+<section id="statistical-evaluation-of-models" class="slide level2">
+<h2>Statistical Evaluation of Models</h2>
+<h3 id="beyond-accuracy-comprehensive-metrics">Beyond Accuracy: Comprehensive Metrics</h3>
+<p>For classification, we need more than just accuracy:</p>
+<ul>
+<li><strong>Precision:</strong> <span class="math inline">\(\frac{\text{TP}}{\text{TP} + \text{FP}}\)</span> - When we predict positive, how often are we correct?</li>
+<li><strong>Recall:</strong> <span class="math inline">\(\frac{\text{TP}}{\text{TP} + \text{FN}}\)</span> - How many actual positives do we catch?</li>
+<li><strong>F1-score:</strong> Harmonic mean of precision and recall</li>
+<li><strong>ROC curves:</strong> Trade-off between true positive and false positive rates</li>
+<li><strong>AUC:</strong> Area under ROC curve, overall performance measure</li>
+</ul>
+<h3 id="cross-validation-and-generalization">Cross-Validation and Generalization</h3>
+<p>K-fold cross-validation provides better estimates of generalization error:</p>
+<ol type="1">
+<li>Split data into K folds</li>
+<li>For each fold: train on K-1 folds, test on held-out fold</li>
+<li>Average performance across all folds</li>
+</ol>
+<p>This helps detect overfitting and provides more reliable performance estimates.</p>
+<h3 id="statistical-significance-testing">Statistical Significance Testing</h3>
+<p>When comparing models, we need to determine if differences are statistically significant:</p>
+<ul>
+<li><strong>Paired t-test:</strong> Compare performance across multiple datasets/folds</li>
+<li><strong>McNemar’s test:</strong> Compare classifiers on the same test set</li>
+<li><strong>Wilcoxon signed-rank test:</strong> Non-parametric alternative to t-test</li>
+</ul>
+</section>
+<section id="common-student-challenges-and-solutions" class="slide level2">
+<h2>Common Student Challenges and Solutions</h2>
+<h3 id="challenge-1-why-do-we-need-probability-cant-we-just-use-the-most-likely-answer">Challenge 1: “Why do we need probability? Can’t we just use the most likely answer?”</h3>
+<p><strong>Solution:</strong> Use the “self-driving car” analogy. A car that’s 51% sure the road is clear might proceed, while one that’s only 51% sure might wait for more evidence. Probability gives us the confidence level needed for different decisions.</p>
+<h3 id="challenge-2-bayes-theorem-seems-too-abstract-and-mathematical.">Challenge 2: “Bayes’ theorem seems too abstract and mathematical.”</h3>
+<p><strong>Solution:</strong> Start with concrete examples like medical testing or spam filtering. Show how prior knowledge (disease prevalence, typical spam patterns) combines with new evidence (test results, email content) to update beliefs.</p>
+<h3 id="challenge-3-how-do-we-choose-priors-in-bayesian-methods">Challenge 3: “How do we choose priors in Bayesian methods?”</h3>
+<p><strong>Solution:</strong> Explain that priors can be:</p>
+<ul>
+<li><strong>Informative:</strong> Based on domain knowledge</li>
+<li><strong>Weakly informative:</strong> Gently regularize without strong assumptions<br>
+</li>
+<li><strong>Non-informative:</strong> Maximally conservative (like uniform priors)</li>
+<li><strong>Empirical Bayes:</strong> Learned from data</li>
+</ul>
+</section>
+<section id="hands-on-exploration-quantifying-uncertainty" class="slide level2">
+<h2>Hands-On Exploration: Quantifying Uncertainty</h2>
+<h3 id="bayesian-linear-regression">Bayesian Linear Regression</h3>
+<p>Implement Bayesian linear regression on Iris data:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(\mathbf{w}|\alpha) &amp;= \mathcal{N}(\mathbf{0}, \alpha^{-1}\mathbf{I}) \\\\
+p(\mathbf{y}|\mathbf{X}, \mathbf{w}, \beta) &amp;= \mathcal{N}(\mathbf{X}\mathbf{w}, \beta^{-1}\mathbf{I})
+\end{aligned}
+\]</span></p>
+<p>The posterior distribution over weights is Gaussian, and we can compute predictive distributions that include uncertainty estimates.</p>
+<h3 id="confidence-intervals-for-predictions">Confidence Intervals for Predictions</h3>
+<p>For any model, we can bootstrap to get confidence intervals:</p>
+<ol type="1">
+<li>Resample data with replacement many times</li>
+<li>Train model on each resample</li>
+<li>Make predictions and compute percentiles</li>
+</ol>
+<p>This provides empirical confidence intervals without distributional assumptions.</p>
+<h3 id="calibration-plots">Calibration Plots</h3>
+<p>Plot actual frequency vs predicted probability to assess calibration:</p>
+<ul>
+<li>Perfect calibration: Points lie on diagonal</li>
+<li>Overconfident: Points below diagonal (predict too extreme probabilities)</li>
+<li>Underconfident: Points above diagonal (predict too moderate probabilities)</li>
+</ul>
+</section>
+<section id="mission-mastering-uncertainty" class="slide level2">
+<h2>Mission: Mastering Uncertainty</h2>
+<h3 id="assignment-1-the-bayesian-investigator">Assignment 1: The Bayesian Investigator</h3>
+<p>Implement a Bayesian classifier for the Iris dataset. Compare:</p>
+<ul>
+<li>Maximum Likelihood Estimation (MLE)</li>
+<li>Maximum A Posteriori (MAP) with different priors</li>
+<li>Full Bayesian inference with posterior predictive distribution</li>
+</ul>
+<p>Analyze how priors affect results and uncertainty estimates.</p>
+<h3 id="assignment-2-the-uncertainty-quantifier">Assignment 2: The Uncertainty Quantifier</h3>
+<p>Take a standard neural network classifier and add uncertainty quantification using:</p>
+<ul>
+<li>Monte Carlo dropout</li>
+<li>Ensemble methods</li>
+<li>Temperature scaling for calibration</li>
+</ul>
+<p>Compare the uncertainty estimates and their reliability.</p>
+<h3 id="assignment-3-the-statistical-evaluator">Assignment 3: The Statistical Evaluator</h3>
+<p>Compare two classification algorithms using proper statistical testing:</p>
+<ul>
+<li>Compute multiple performance metrics</li>
+<li>Use cross-validation for reliable estimates</li>
+<li>Perform statistical significance tests</li>
+<li>Create confidence intervals for performance differences</li>
+</ul>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 960,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/github\.com\/sijuswamyresearch\/Graph-Theory-Workshop-SBCE");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>

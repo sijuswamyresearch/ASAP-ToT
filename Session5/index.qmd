@@ -1,0 +1,450 @@
+---
+title: " Session 5: Optimization - The Strategy of Search"
+subtitle: <a href="slides-ML.html" target="_blank"></a>
+author: 
+  - name:
+      given: Siju
+      family: Swamy
+    orcid: 0009-0004-1983-5574
+    email: siju.swamy@saintgits.org
+    affiliations:
+      - name: Saintgits College of Engineering (Autonomous)
+        city: Kottayam
+        country: India
+        postal-code: 686532
+    attributes:
+        equal-contributor: False
+format:
+  html:
+    mermaid:
+      theme: dark
+    
+  revealjs:
+    output-file: slides-ML.html
+    width: 960
+    height: 700
+    css: assets/style.css
+    mermaid:
+      theme: dark
+jupyter: python3
+execute: 
+  enabled: true
+---
+
+
+<div style="text-align: center;">
+  <img src="ToT_day5.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;">
+</div>
+
+
+## The Art and Science of Finding the Best
+
+Welcome to our exploration of optimization, the fourth and final pillar of artificial intelligence. While linear algebra provides the language, calculus the learning mechanism, and probability the framework for uncertainty, optimization provides the strategic intelligence for finding the best solutions in complex, high-dimensional spaces. Optimization is the mathematical discipline that transforms the question "How can we improve?" into the actionable strategy "Here's how to find the best improvement."
+
+In this session, we will uncover how optimization theory provides the algorithms and strategies that enable AI systems to navigate complex landscapes, balance competing objectives, and converge toward optimal solutions. From the simple elegance of gradient descent to the sophisticated strategies of constrained optimization, we will see how mathematical optimization forms the strategic backbone of all learning systems.
+
+## The Optimization Framework
+
+### The General Optimization Problem
+
+Most machine learning problems can be framed as optimization problems:
+
+$$
+\min_{\mathbf{w} \in \mathcal{W}} f(\mathbf{w})
+$$
+
+where:
+
+- $\mathbf{w}$ are the parameters we want to optimize
+- $f(\mathbf{w})$ is the objective function (typically loss function)
+- $\mathcal{W}$ is the feasible set (possible parameter values)
+
+For our Iris classification problem, this becomes:
+
+$$
+\min_{\mathbf{w}} \frac{1}{n}\sum_{i=1}^n \ell(y_i, \mathbf{w}^T\mathbf{x}_i) + \lambda R(\mathbf{w})
+$$
+
+where $\ell$ is the loss function and $R(\mathbf{w})$ is a regularization term.
+
+### Convex vs Non-Convex Optimization
+
+The nature of the optimization landscape dramatically affects our strategy:
+
+**Convex Optimization:**
+
+- $f(\mathbf{w})$ is convex: $f(\theta\mathbf{w} + (1-\theta)\mathbf{v}) \leq \theta f(\mathbf{w}) + (1-\theta)f(\mathbf{v})$
+- Has single global minimum
+- Guaranteed convergence to optimum
+- Examples: Linear regression, logistic regression
+
+**Non-Convex Optimization:**
+
+- Multiple local minima
+- No convergence guarantees to global optimum
+- Requires careful initialization and strategies
+- Examples: Neural networks, mixture models
+
+## First-Order Methods: Following the Gradient
+
+### Gradient Descent and Its Variants
+
+The foundation of first-order methods is gradient descent:
+
+**Batch Gradient Descent:**
+$$
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \nabla f(\mathbf{w}^{(t)})
+$$
+
+**Stochastic Gradient Descent (SGD):**
+$$
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \nabla f_i(\mathbf{w}^{(t)})
+$$
+where $f_i$ is the loss for a single data point
+
+**Mini-batch Gradient Descent:**
+$$
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \frac{1}{B} \sum_{i=1}^B \nabla f_i(\mathbf{w}^{(t)})
+$$
+
+### Momentum Methods
+
+Momentum helps accelerate convergence and dampen oscillations:
+
+**Classical Momentum:**
+$$
+\begin{aligned}
+\mathbf{v}^{(t+1)} &= \gamma \mathbf{v}^{(t)} + \eta \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{w}^{(t+1)} &= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
+\end{aligned}
+$$
+
+**Nesterov Accelerated Gradient:**
+$$
+\begin{aligned}
+\mathbf{v}^{(t+1)} &= \gamma \mathbf{v}^{(t)} + \eta \nabla f(\mathbf{w}^{(t)} - \gamma \mathbf{v}^{(t)}) \\\\
+\mathbf{w}^{(t+1)} &= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
+\end{aligned}
+$$
+
+### Adaptive Learning Rate Methods
+
+These methods adapt learning rates per parameter:
+
+**AdaGrad:**
+$$
+\begin{aligned}
+\mathbf{g}^{(t)} &= \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{G}^{(t)} &= \mathbf{G}^{(t-1)} + \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
+\mathbf{w}^{(t+1)} &= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\mathbf{G}^{(t)} + \epsilon}} \odot \mathbf{g}^{(t)}
+\end{aligned}
+$$
+
+**RMSProp:**
+$$
+\begin{aligned}
+\mathbf{g}^{(t)} &= \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{G}^{(t)} &= \beta \mathbf{G}^{(t-1)} + (1-\beta) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
+\mathbf{w}^{(t+1)} &= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\mathbf{G}^{(t)} + \epsilon}} \odot \mathbf{g}^{(t)}
+\end{aligned}
+$$
+
+**Adam (Adaptive Moment Estimation):**
+$$
+\begin{aligned}
+\mathbf{m}^{(t)} &= \beta_1 \mathbf{m}^{(t-1)} + (1-\beta_1) \mathbf{g}^{(t)} \\\\
+\mathbf{v}^{(t)} &= \beta_2 \mathbf{v}^{(t-1)} + (1-\beta_2) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
+\hat{\mathbf{m}}^{(t)} &= \frac{\mathbf{m}^{(t)}}{1-\beta_1^t}, \quad \hat{\mathbf{v}}^{(t)} = \frac{\mathbf{v}^{(t)}}{1-\beta_2^t} \\\\
+\mathbf{w}^{(t+1)} &= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\hat{\mathbf{v}}^{(t)}} + \epsilon} \hat{\mathbf{m}}^{(t)}
+\end{aligned}
+$$
+
+## Second-Order Methods: Using Curvature Information
+
+### Newton's Method
+
+Newton's method uses second derivative information for faster convergence:
+
+$$
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta [\nabla^2 f(\mathbf{w}^{(t)})]^{-1} \nabla f(\mathbf{w}^{(t)})
+$$
+
+Where $\nabla^2 f(\mathbf{w})$ is the Hessian matrix containing second derivatives.
+
+### Quasi-Newton Methods
+
+Since computing the full Hessian is expensive, quasi-Newton methods approximate it:
+
+**BFGS (Broyden-Fletcher-Goldfarb-Shanno):**
+$$
+\begin{aligned}
+\mathbf{s}^{(t)} &= \mathbf{w}^{(t+1)} - \mathbf{w}^{(t)} \\\\
+\mathbf{y}^{(t)} &= \nabla f(\mathbf{w}^{(t+1)}) - \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{B}^{(t+1)} &= \mathbf{B}^{(t)} + \frac{\mathbf{y}^{(t)} \mathbf{y}^{(t)^T}}{\mathbf{y}^{(t)^T} \mathbf{s}^{(t)}} - \frac{\mathbf{B}^{(t)} \mathbf{s}^{(t)} \mathbf{s}^{(t)^T} \mathbf{B}^{(t)}}{\mathbf{s}^{(t)^T} \mathbf{B}^{(t)} \mathbf{s}^{(t)}}
+\end{aligned}
+$$
+
+**L-BFGS (Limited-memory BFGS):** Stores only last m vectors to approximate inverse Hessian
+
+## Constrained Optimization
+
+### Lagrange Multipliers
+
+For problems with constraints, we use Lagrange multipliers:
+
+$$
+\mathcal{L}(\mathbf{w}, \lambda) = f(\mathbf{w}) + \lambda^T g(\mathbf{w})
+$$
+
+where $g(\mathbf{w}) \leq 0$ are the constraints.
+
+### Karush-Kuhn-Tucker (KKT) Conditions
+
+The necessary conditions for optimality in constrained optimization:
+
+1. **Stationarity:** $\nabla f(\mathbf{w}^*) + \sum \lambda_i \nabla g_i(\mathbf{w}^*) = 0$
+2. **Primal feasibility:** $g_i(\mathbf{w}^*) \leq 0$
+3. **Dual feasibility:** $\lambda_i \geq 0$
+4. **Complementary slackness:** $\lambda_i g_i(\mathbf{w}^*) = 0$
+
+## Regularization and Constrained Formulations
+
+### L1 and L2 Regularization
+
+Regularization can be viewed as constrained optimization:
+
+**L2 Regularization (Ridge):**
+$$
+\min_{\mathbf{w}} f(\mathbf{w}) + \lambda \|\mathbf{w}\|_2^2
+$$
+Equivalent to: $\min_{\mathbf{w}} f(\mathbf{w})$ subject to $\|\mathbf{w}\|_2^2 \leq C$
+
+**L1 Regularization (Lasso):**
+$$
+\min_{\mathbf{w}} f(\mathbf{w}) + \lambda \|\mathbf{w}\|_1
+$$
+Equivalent to: $\min_{\mathbf{w}} f(\mathbf{w})$ subject to $\|\mathbf{w}\|_1 \leq C$
+
+### Proximal Operators
+
+For non-smooth optimization problems like L1 regularization:
+
+$$
+\text{prox}_{\lambda h}(\mathbf{w}) = \arg\min_{\mathbf{z}} \left\{ h(\mathbf{z}) + \frac{1}{2\lambda} \|\mathbf{z} - \mathbf{w}\|_2^2 \right\}
+$$
+
+For L1 regularization: $\text{prox}_{\lambda \|\cdot\|_1}(\mathbf{w}) = \text{sign}(\mathbf{w}) \max(|\mathbf{w}| - \lambda, 0)$
+
+## Global Optimization Methods
+
+### When Local Methods Fail
+
+For highly non-convex problems, we need global optimization strategies:
+
+**Simulated Annealing:**
+
+- Inspired by metallurgical annealing
+- Occasionally accepts worse solutions to escape local minima
+- Temperature parameter controls exploration vs exploitation
+
+**Genetic Algorithms:**
+
+- Population-based search
+- Uses crossover and mutation operators
+- Maintains diversity to explore search space
+
+**Bayesian Optimization:**
+
+- Builds probabilistic model of objective function
+- Uses acquisition function to decide where to sample next
+- Particularly useful for expensive black-box functions
+
+## Hyperparameter Optimization
+
+### The Outer Optimization Loop
+
+While model parameters are learned via gradient descent, hyperparameters require different strategies:
+
+- **Grid Search:** Exhaustive search over predefined hyperparameter grid
+- **Random Search:** More efficient than grid search for high dimensions
+- **Bayesian Optimization:** Adaptive sampling based on previous results
+
+### Multi-Fidelity Optimization
+
+Using cheaper approximations to guide search:
+
+- **Learning curve extrapolation:** Predict final performance from early training
+- **Successive halving:** Allocate more resources to promising configurations
+- **Hyperband:** Adaptive resource allocation strategy
+
+## Optimization in Deep Learning
+
+### Challenges in Deep Learning Optimization
+
+Deep neural networks present unique optimization challenges:
+
+**Vanishing/Exploding Gradients:**
+
+- Gradients become extremely small or large through many layers
+- Solved with careful initialization, batch normalization, residual connections
+
+**Saddle Points:**
+
+- More problematic than local minima in high dimensions
+- Second-order methods can help identify and escape
+
+**Ill-conditioning:**
+
+- Hessian matrix has large condition number
+- Adaptive methods like Adam help mitigate this
+
+### Optimization for Specific Architectures
+
+- **CNNs:** Spatial structure enables efficient convolutional operations
+- **RNNs:** Backpropagation through time, gradient clipping for stability
+- **Transformers:** Careful initialization, learning rate warmup
+
+## Teaching Optimization with Intuition
+
+### The "Mountain Descent" Analogy for Optimization Methods
+
+- **Gradient Descent:** Like walking straight downhill, following the steepest slope
+- **Momentum:** Like a ball rolling downhill - builds speed in consistent directions
+- **Adam:** Like an experienced hiker with different step sizes for different terrains
+- **Newton's Method:** Like using a topographic map to find the valley directly
+
+### The "Restaurant Menu" Analogy for Regularization
+
+Think of model complexity like a restaurant menu:
+
+- **No regularization:** Huge menu with every possible dish (overfits to customer preferences)
+- **L2 regularization:** Reasonable-sized menu with popular dishes
+- **L1 regularization:** Small menu with only essential, popular dishes (feature selection)
+
+### The "Resource Allocation" Analogy for Hyperparameter Optimization
+
+Like a venture capitalist funding startups:
+
+- **Grid search:** Fund every possible combination equally
+- **Random search:** Fund random combinations, see which show promise
+- **Bayesian optimization:** Learn from previous investments, fund most promising directions
+
+## Convergence Analysis
+
+### Rates of Convergence
+
+Different algorithms have different convergence guarantees:
+
+- **Gradient Descent:** $O(1/\epsilon)$ iterations for $\epsilon$-accuracy on smooth convex functions
+- **Accelerated Gradient:** $O(1/\sqrt{\epsilon})$ iterations
+- **Newton's Method:** Quadratic convergence near optimum
+
+### Practical Convergence Diagnostics
+
+In practice, we monitor:
+
+- **Loss curve:** Should decrease and stabilize
+- **Gradient norm:** Should approach zero
+- **Parameter changes:** Should become small
+- **Validation performance:** Should improve then stabilize
+
+## Common Student Challenges and Solutions
+
+### Challenge 1: "Which optimizer should I use?"
+
+**Solution:** Provide a decision framework:
+
+- Start with Adam for most problems (robust, little tuning needed)
+- Use SGD with momentum if you need the best possible performance (with careful tuning)
+- Consider second-order methods for small-to-medium convex problems
+- Use specialized optimizers for specific architectures
+
+### Challenge 2: "How do I set the learning rate?"
+
+**Solution:** Recommend strategies:
+
+- Use learning rate finder (train with increasing learning rates, find where loss decreases fastest)
+- Use cyclical learning rates
+- Start with common defaults (Adam: 0.001, SGD: 0.1) and adjust based on loss curve
+- Use learning rate scheduling (step decay, cosine annealing)
+
+### Challenge 3: "My model isn't converging - what's wrong?"
+
+**Solution:** Systematic debugging:
+
+1. Check gradient flow (vanishing/exploding gradients)
+2. Verify data pipeline (shuffling, normalization)
+3. Try overfitting a small batch (if can't overfit, model is too small or data有问题)
+4. Monitor gradient norms and parameter updates
+5. Check for implementation bugs
+
+## Hands-On Exploration: Optimization in Practice
+
+### Comparing Optimization Algorithms
+
+Implement and compare on Iris classification:
+
+- SGD with and without momentum
+- Adam, RMSProp, AdaGrad
+- Visualize optimization paths in 2D parameter space
+- Compare convergence rates and final performance
+
+### Hyperparameter Optimization Demo
+
+Set up Bayesian optimization for a neural network:
+
+- Define search space for learning rate, hidden units, regularization
+- Use tools like Optuna or Hyperopt
+- Compare with random search and grid search
+- Analyze trade-off between computation time and performance
+
+### Regularization Effects Visualization
+
+Show how different regularization strategies affect:
+
+- Decision boundaries
+- Feature weights
+- Generalization performance
+- Model simplicity vs complexity trade-off
+
+## Mission: Mastering Optimization Strategies
+
+### Assignment 1: The Optimization Explorer
+
+Implement three different optimization algorithms from scratch:
+
+- Vanilla gradient descent
+- Momentum
+- Adam
+
+Apply them to logistic regression on Iris data and:
+
+- Plot convergence curves
+- Visualize optimization paths
+- Compare sensitivity to learning rate
+- Analyze when each method works best
+
+### Assignment 2: The Regularization Analyst
+
+Compare L1, L2, and elastic net regularization:
+
+- Implement proximal gradient descent for L1
+- Analyze effect on feature selection
+- Compare generalization performance
+- Create visualizations of regularization paths
+
+### Assignment 3: The Hyperparameter Strategist
+
+Optimize hyperparameters for a neural network using:
+
+- Grid search
+- Random search  
+- Bayesian optimization
+
+Compare:
+
+- Time to find good configurations
+- Best performance found
+- Resource requirements
+- Practical recommendations for different scenarios
+

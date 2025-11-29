@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Siju Swamy">
+
+<title>Session 2 — Linear Algebra - The Language of Data and Transformations – Training of Trainees Master Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-39215514760178ed112050fe99eae155.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Training of Trainees Master Class</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About the ToT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../feedback.html"> 
+<span class="menu-text">Feed Back</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Session2/index.html">The Language of AI</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src=".././images/workshop_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Four Pillers of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session2/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The Language of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Engine of Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Science of Uncertainty</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Strategy of Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pillars in Practice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synthesis &amp; Teaching Excellence</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images//ASAP.jfif" class="img-fluid figure-img"></p>
+<figcaption>Sharing Innovations</figcaption>
+</figure>
+</div>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-unseen-architecture-of-intelligence" id="toc-the-unseen-architecture-of-intelligence" class="nav-link active" data-scroll-target="#the-unseen-architecture-of-intelligence">The Unseen Architecture of Intelligence</a></li>
+  <li><a href="#the-vector-the-fundamental-unit-of-intelligence" id="toc-the-vector-the-fundamental-unit-of-intelligence" class="nav-link" data-scroll-target="#the-vector-the-fundamental-unit-of-intelligence">The Vector: The Fundamental Unit of Intelligence</a>
+  <ul class="collapse">
+  <li><a href="#best-introduction-of-vectors-from-data-science" id="toc-best-introduction-of-vectors-from-data-science" class="nav-link" data-scroll-target="#best-introduction-of-vectors-from-data-science">Best introduction of vectors from data science</a></li>
+  <li><a href="#data-as-points-in-space" id="toc-data-as-points-in-space" class="nav-link" data-scroll-target="#data-as-points-in-space">Data as Points in Space</a></li>
+  <li><a href="#the-dot-product-measuring-alignment-and-similarity" id="toc-the-dot-product-measuring-alignment-and-similarity" class="nav-link" data-scroll-target="#the-dot-product-measuring-alignment-and-similarity">The Dot Product: Measuring Alignment and Similarity</a></li>
+  </ul></li>
+  <li><a href="#matrices-the-engines-of-transformation" id="toc-matrices-the-engines-of-transformation" class="nav-link" data-scroll-target="#matrices-the-engines-of-transformation">Matrices: The Engines of Transformation</a>
+  <ul class="collapse">
+  <li><a href="#data-as-organized-information" id="toc-data-as-organized-information" class="nav-link" data-scroll-target="#data-as-organized-information">Data as Organized Information</a></li>
+  <li><a href="#matrix-multiplication-as-transformation" id="toc-matrix-multiplication-as-transformation" class="nav-link" data-scroll-target="#matrix-multiplication-as-transformation">Matrix Multiplication as Transformation</a></li>
+  <li><a href="#the-covariance-matrix-revealing-data-structure" id="toc-the-covariance-matrix-revealing-data-structure" class="nav-link" data-scroll-target="#the-covariance-matrix-revealing-data-structure">The Covariance Matrix: Revealing Data Structure</a></li>
+  </ul></li>
+  <li><a href="#eigen-decomposition-finding-natural-directions" id="toc-eigen-decomposition-finding-natural-directions" class="nav-link" data-scroll-target="#eigen-decomposition-finding-natural-directions">Eigen Decomposition: Finding Natural Directions</a>
+  <ul class="collapse">
+  <li><a href="#the-eigenvalue-equation" id="toc-the-eigenvalue-equation" class="nav-link" data-scroll-target="#the-eigenvalue-equation">The Eigenvalue Equation</a></li>
+  <li><a href="#principal-component-analysis-dimensionality-reduction-in-action" id="toc-principal-component-analysis-dimensionality-reduction-in-action" class="nav-link" data-scroll-target="#principal-component-analysis-dimensionality-reduction-in-action">Principal Component Analysis: Dimensionality Reduction in Action</a></li>
+  </ul></li>
+  <li><a href="#singular-value-decomposition-the-ultimate-factorization" id="toc-singular-value-decomposition-the-ultimate-factorization" class="nav-link" data-scroll-target="#singular-value-decomposition-the-ultimate-factorization">Singular Value Decomposition: The Ultimate Factorization</a>
+  <ul class="collapse">
+  <li><a href="#the-svd-theorem" id="toc-the-svd-theorem" class="nav-link" data-scroll-target="#the-svd-theorem">The SVD Theorem</a></li>
+  <li><a href="#svd-in-machine-learning" id="toc-svd-in-machine-learning" class="nav-link" data-scroll-target="#svd-in-machine-learning">SVD in Machine Learning</a></li>
+  </ul></li>
+  <li><a href="#teaching-linear-algebra-with-intuition" id="toc-teaching-linear-algebra-with-intuition" class="nav-link" data-scroll-target="#teaching-linear-algebra-with-intuition">Teaching Linear Algebra with Intuition</a>
+  <ul class="collapse">
+  <li><a href="#the-blind-sculptor-analogy-for-eigenvectors" id="toc-the-blind-sculptor-analogy-for-eigenvectors" class="nav-link" data-scroll-target="#the-blind-sculptor-analogy-for-eigenvectors">The “Blind Sculptor” Analogy for Eigenvectors</a></li>
+  <li><a href="#matrix-multiplication-as-recipe-combination" id="toc-matrix-multiplication-as-recipe-combination" class="nav-link" data-scroll-target="#matrix-multiplication-as-recipe-combination">Matrix Multiplication as “Recipe Combination”</a></li>
+  <li><a href="#the-data-compass-for-pca" id="toc-the-data-compass-for-pca" class="nav-link" data-scroll-target="#the-data-compass-for-pca">The “Data Compass” for PCA</a></li>
+  </ul></li>
+  <li><a href="#linear-algebra-in-neural-networks" id="toc-linear-algebra-in-neural-networks" class="nav-link" data-scroll-target="#linear-algebra-in-neural-networks">Linear Algebra in Neural Networks</a>
+  <ul class="collapse">
+  <li><a href="#the-fundamental-operation" id="toc-the-fundamental-operation" class="nav-link" data-scroll-target="#the-fundamental-operation">The Fundamental Operation</a></li>
+  <li><a href="#convolution-as-matrix-multiplication" id="toc-convolution-as-matrix-multiplication" class="nav-link" data-scroll-target="#convolution-as-matrix-multiplication">Convolution as Matrix Multiplication</a></li>
+  <li><a href="#attention-mechanisms-as-weighted-combinations" id="toc-attention-mechanisms-as-weighted-combinations" class="nav-link" data-scroll-target="#attention-mechanisms-as-weighted-combinations">Attention Mechanisms as Weighted Combinations</a></li>
+  </ul></li>
+  <li><a href="#common-student-challenges-and-solutions" id="toc-common-student-challenges-and-solutions" class="nav-link" data-scroll-target="#common-student-challenges-and-solutions">Common Student Challenges and Solutions</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time" id="toc-challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time" class="nav-link" data-scroll-target="#challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time">Challenge 1: “Why do we need matrices instead of just doing things one point at a time?”</a></li>
+  <li><a href="#challenge-2-eigenvalues-and-eigenvectors-seem-too-abstract." id="toc-challenge-2-eigenvalues-and-eigenvectors-seem-too-abstract." class="nav-link" data-scroll-target="#challenge-2-eigenvalues-and-eigenvectors-seem-too-abstract.">Challenge 2: “Eigenvalues and eigenvectors seem too abstract.”</a></li>
+  <li><a href="#challenge-3-when-would-i-use-svd-in-real-applications" id="toc-challenge-3-when-would-i-use-svd-in-real-applications" class="nav-link" data-scroll-target="#challenge-3-when-would-i-use-svd-in-real-applications">Challenge 3: “When would I use SVD in real applications?”</a></li>
+  </ul></li>
+  <li><a href="#mission-bilding-linear-algebra-intuition" id="toc-mission-bilding-linear-algebra-intuition" class="nav-link" data-scroll-target="#mission-bilding-linear-algebra-intuition">Mission: Bilding Linear Algebra Intuition</a>
+  <ul class="collapse">
+  <li><a href="#assignment-1-the-geometric-interpreter" id="toc-assignment-1-the-geometric-interpreter" class="nav-link" data-scroll-target="#assignment-1-the-geometric-interpreter">Assignment 1: The Geometric Interpreter</a></li>
+  <li><a href="#assignment-2-the-analogy-architect" id="toc-assignment-2-the-analogy-architect" class="nav-link" data-scroll-target="#assignment-2-the-analogy-architect">Assignment 2: The Analogy Architect</a></li>
+  <li><a href="#assignment-3-the-connection-map" id="toc-assignment-3-the-connection-map" class="nav-link" data-scroll-target="#assignment-3-the-connection-map">Assignment 3: The Connection Map</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 2 — Linear Algebra - The Language of Data and Transformations</h1>
+<p class="subtitle lead"><a href="slides-ML.html" target="_blank"></a></p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Siju Swamy <a href="mailto:siju.swamy@saintgits.org" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Saintgits College of Engineering (Autonomous)
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div style="text-align: center;">
+<p><img src="ToT-linear.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;"></p>
+</div>
+<section id="the-unseen-architecture-of-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="the-unseen-architecture-of-intelligence">The Unseen Architecture of Intelligence</h2>
+<p>Welcome to our deep exploration of Linear Algebra, the first and most fundamental pillar of artificial intelligence. If we consider AI as a new form of architecture, then linear algebra provides both the blueprint and the building materials. Every intelligent system, from the simplest classifier to the most complex large language model, is fundamentally built upon the principles we will explore today.</p>
+<p>Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI.</p>
+</section>
+<section id="the-vector-the-fundamental-unit-of-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="the-vector-the-fundamental-unit-of-intelligence">The Vector: The Fundamental Unit of Intelligence</h2>
+<section id="best-introduction-of-vectors-from-data-science" class="level3">
+<h3 class="anchored" data-anchor-id="best-introduction-of-vectors-from-data-science">Best introduction of vectors from data science</h3>
+<div id="31cd0f5a" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the Iris dataset</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> load_iris()</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a Pandas DataFrame for better readability</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'data' attribute contains the features, and 'feature_names' are the column labels</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>iris.data, columns<span class="op">=</span>iris.feature_names)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Add the target variable (species) to the DataFrame</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 'target' contains numerical labels (0, 1, 2), and 'target_names' maps them to species names</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'species'</span>] <span class="op">=</span> iris.target_names[iris.target]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows of the DataFrame</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)  \
+0                5.1               3.5                1.4               0.2   
+1                4.9               3.0                1.4               0.2   
+2                4.7               3.2                1.3               0.2   
+3                4.6               3.1                1.5               0.2   
+4                5.0               3.6                1.4               0.2   
+
+  species  
+0  setosa  
+1  setosa  
+2  setosa  
+3  setosa  
+4  setosa  </code></pre>
+</div>
+</div>
+</section>
+<section id="data-as-points-in-space" class="level3">
+<h3 class="anchored" data-anchor-id="data-as-points-in-space">Data as Points in Space</h3>
+<p>Consider our familiar Iris dataset. Each flower, with its four measurements, becomes a point in a four-dimensional space:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris_flower <span class="op">=</span> [<span class="fl">5.1</span>, <span class="fl">3.5</span>, <span class="fl">1.4</span>, <span class="fl">0.2</span>] <span class="co"># A vector in R^4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This representation is profound. We can now measure similarity between flowers using Euclidean distance:</p>
+<p><span class="math display">\[
+d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
+\]</span></p>
+<p>We can compute centroids for each species:</p>
+<p><span class="math display">\[
+\mathbf{\mu}_{\text{setosa}} = \frac{1}{50} \sum_{i=1}^{50} \mathbf{x}_i
+\]</span></p>
+<p>And we can measure how spread out each species is around its center. This geometric perspective transforms abstract statistics into spatial intuition.</p>
+</section>
+<section id="the-dot-product-measuring-alignment-and-similarity" class="level3">
+<h3 class="anchored" data-anchor-id="the-dot-product-measuring-alignment-and-similarity">The Dot Product: Measuring Alignment and Similarity</h3>
+<p>The dot product between two vectors reveals their alignment:</p>
+<p><span class="math display">\[
+\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i b_i = \|\mathbf{a}\|\|\mathbf{b}\|\cos\theta
+\]</span></p>
+<p>This simple operation underpins:</p>
+<ul>
+<li><strong>Cosine similarity</strong> in recommendation systems</li>
+<li><strong>Attention mechanisms</strong> in transformers</li>
+<li><strong>Feature correlations</strong> in data analysis</li>
+</ul>
+<p>When two vectors point in similar directions, their dot product is large. When they’re perpendicular, it’s zero. This geometric insight helps students understand why certain mathematical operations work the way they do.</p>
+</section>
+</section>
+<section id="matrices-the-engines-of-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="matrices-the-engines-of-transformation">Matrices: The Engines of Transformation</h2>
+<section id="data-as-organized-information" class="level3">
+<h3 class="anchored" data-anchor-id="data-as-organized-information">Data as Organized Information</h3>
+<p>Our entire Iris dataset forms a matrix:</p>
+<p><span class="math display">\[
+\mathbf{X} = \begin{bmatrix}
+5.1 &amp; 3.5 &amp; 1.4 &amp; 0.2 \\
+4.9 &amp; 3.0 &amp; 1.4 &amp; 0.2 \\
+4.7 &amp; 3.2 &amp; 1.3 &amp; 0.2 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+\end{bmatrix}
+\]</span></p>
+<p>This matrix representation enables powerful operations. We can center our data by subtracting the mean vector, scale features to comparable ranges, and compute the covariance matrix that reveals how features vary together.</p>
+</section>
+<section id="matrix-multiplication-as-transformation" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-multiplication-as-transformation">Matrix Multiplication as Transformation</h3>
+<p>When we multiply a data matrix by a weight matrix, we’re performing a linear transformation:</p>
+<p><span class="math display">\[
+\mathbf{Z} = \mathbf{X}\mathbf{W}
+\]</span></p>
+<p>Each column of <span class="math inline">\(\mathbf{W}\)</span> defines a new “direction” or “feature” in our transformed space. In neural networks, these transformations are followed by non-linear activations, but the linear component provides the fundamental structure.</p>
+</section>
+<section id="the-covariance-matrix-revealing-data-structure" class="level3">
+<h3 class="anchored" data-anchor-id="the-covariance-matrix-revealing-data-structure">The Covariance Matrix: Revealing Data Structure</h3>
+<p>The covariance matrix:</p>
+<p><span class="math display">\[
+\mathbf{\Sigma} = \frac{1}{n}\mathbf{X}^T\mathbf{X}
+\]</span></p>
+<p>encodes how our features co-vary. Its eigenvectors point in directions of maximum variance, and its eigenvalues tell us how much variance lies in each direction. This is the mathematical foundation of Principal Component Analysis (PCA).</p>
+</section>
+</section>
+<section id="eigen-decomposition-finding-natural-directions" class="level2">
+<h2 class="anchored" data-anchor-id="eigen-decomposition-finding-natural-directions">Eigen Decomposition: Finding Natural Directions</h2>
+<section id="the-eigenvalue-equation" class="level3">
+<h3 class="anchored" data-anchor-id="the-eigenvalue-equation">The Eigenvalue Equation</h3>
+<p>The fundamental equation:</p>
+<p><span class="math display">\[
+\mathbf{A}\mathbf{v} = \lambda\mathbf{v}
+\]</span></p>
+<p>tells us that certain vectors (eigenvectors) only get stretched, not rotated, when transformed by a matrix. The stretching factor is the eigenvalue.</p>
+<p>For our Iris dataset, the eigenvectors of the covariance matrix point in the “natural directions” of the data—the directions where the flowers show the most variation. The corresponding eigenvalues tell us how much variation exists in each natural direction.</p>
+</section>
+<section id="principal-component-analysis-dimensionality-reduction-in-action" class="level3">
+<h3 class="anchored" data-anchor-id="principal-component-analysis-dimensionality-reduction-in-action">Principal Component Analysis: Dimensionality Reduction in Action</h3>
+<p>PCA finds these natural directions and projects our data onto them:</p>
+<ol type="1">
+<li>Center the data: <span class="math inline">\(\mathbf{X}_{\text{centered}} = \mathbf{X} - \mathbf{\mu}\)</span></li>
+<li>Compute covariance: <span class="math inline">\(\mathbf{\Sigma} = \frac{1}{n}\mathbf{X}_{\text{centered}}^T\mathbf{X}_{\text{centered}}\)</span></li>
+<li>Find eigenvectors: <span class="math inline">\(\mathbf{\Sigma}\mathbf{v}_i = \lambda_i\mathbf{v}_i\)</span></li>
+<li>Project data: <span class="math inline">\(\mathbf{Z} = \mathbf{X}_{\text{centered}}\mathbf{V}\)</span></li>
+</ol>
+<p>where <span class="math inline">\(\mathbf{V}\)</span> contains the top-k eigenvectors. This transformation often reveals that our four-dimensional Iris data actually lives in a lower-dimensional subspace where the species separate naturally.</p>
+</section>
+</section>
+<section id="singular-value-decomposition-the-ultimate-factorization" class="level2">
+<h2 class="anchored" data-anchor-id="singular-value-decomposition-the-ultimate-factorization">Singular Value Decomposition: The Ultimate Factorization</h2>
+<section id="the-svd-theorem" class="level3">
+<h3 class="anchored" data-anchor-id="the-svd-theorem">The SVD Theorem</h3>
+<p>Any matrix can be decomposed as:</p>
+<p><span class="math display">\[
+\mathbf{X} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T
+\]</span></p>
+<p>where: - <span class="math inline">\(\mathbf{U}\)</span> contains the left singular vectors (patterns in rows/observations) - <span class="math inline">\(\mathbf{\\Sigma}\)</span> is diagonal with singular values (importance of each pattern) - <span class="math inline">\(\mathbf{V}\)</span> contains the right singular vectors (patterns in columns/features)</p>
+<p>For our Iris data, SVD reveals that we can reconstruct the entire dataset using only a few important patterns. The singular values tell us how much each pattern contributes to the overall structure.</p>
+</section>
+<section id="svd-in-machine-learning" class="level3">
+<h3 class="anchored" data-anchor-id="svd-in-machine-learning">SVD in Machine Learning</h3>
+<p>SVD appears throughout machine learning:</p>
+<ul>
+<li><strong>Recommendation systems</strong> (collaborative filtering)</li>
+<li><strong>Word embeddings</strong> (Latent Semantic Analysis)</li>
+<li><strong>Matrix completion</strong> (filling in missing values)</li>
+<li><strong>Dimensionality reduction</strong> (PCA is a special case of SVD)</li>
+</ul>
+</section>
+</section>
+<section id="teaching-linear-algebra-with-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-linear-algebra-with-intuition">Teaching Linear Algebra with Intuition</h2>
+<section id="the-blind-sculptor-analogy-for-eigenvectors" class="level3">
+<h3 class="anchored" data-anchor-id="the-blind-sculptor-analogy-for-eigenvectors">The “Blind Sculptor” Analogy for Eigenvectors</h3>
+<p>Imagine a sculptor working blindfolded. She can only feel the shape by poking it and seeing how it deforms. Eigenvectors are like the directions where poking just makes the shape uniformly larger or smaller, without changing its essential form. Eigenvalues tell her how much each poke stretches the shape.</p>
+</section>
+<section id="matrix-multiplication-as-recipe-combination" class="level3">
+<h3 class="anchored" data-anchor-id="matrix-multiplication-as-recipe-combination">Matrix Multiplication as “Recipe Combination”</h3>
+<p>Think of a matrix as a recipe book. Each column is a recipe for creating a new feature. Matrix multiplication is like applying all these recipes to your ingredients (data) simultaneously to create a transformed meal (new representation).</p>
+</section>
+<section id="the-data-compass-for-pca" class="level3">
+<h3 class="anchored" data-anchor-id="the-data-compass-for-pca">The “Data Compass” for PCA</h3>
+<p>Principal components are like a compass for your data. The first principal component points toward the direction of greatest variation—the “north” of your dataset. The second points toward the next most important direction, and so on. By following this compass, we can navigate high-dimensional spaces effectively.</p>
+</section>
+</section>
+<section id="linear-algebra-in-neural-networks" class="level2">
+<h2 class="anchored" data-anchor-id="linear-algebra-in-neural-networks">Linear Algebra in Neural Networks</h2>
+<section id="the-fundamental-operation" class="level3">
+<h3 class="anchored" data-anchor-id="the-fundamental-operation">The Fundamental Operation</h3>
+<p>Every layer in a neural network performs:</p>
+<p><span class="math display">\[
+\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}
+\]</span></p>
+<p>followed by a non-linear activation <span class="math inline">\(\sigma(\mathbf{Z})\)</span>. This linear transformation:</p>
+<ul>
+<li><strong>Mixes features</strong> to create new representations</li>
+<li><strong>Learns patterns</strong> through the weight matrix</li>
+<li><strong>Enables hierarchical learning</strong> through multiple layers</li>
+</ul>
+</section>
+<section id="convolution-as-matrix-multiplication" class="level3">
+<h3 class="anchored" data-anchor-id="convolution-as-matrix-multiplication">Convolution as Matrix Multiplication</h3>
+<p>Convolutional layers in neural networks can be viewed as matrix multiplications with sparse, structured weight matrices. This perspective helps students understand that CNNs are fundamentally linear algebra with additional constraints.</p>
+</section>
+<section id="attention-mechanisms-as-weighted-combinations" class="level3">
+<h3 class="anchored" data-anchor-id="attention-mechanisms-as-weighted-combinations">Attention Mechanisms as Weighted Combinations</h3>
+<p>The attention mechanism in transformers computes:</p>
+<p><span class="math display">\[
+\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}
+\]</span></p>
+<p>This is fundamentally linear algebra: we compute similarities (dot products), normalize them (softmax), and use them to form weighted combinations of values.</p>
+</section>
+</section>
+<section id="common-student-challenges-and-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="common-student-challenges-and-solutions">Common Student Challenges and Solutions</h2>
+<section id="challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time">Challenge 1: “Why do we need matrices instead of just doing things one point at a time?”</h3>
+<p><strong>Solution:</strong> Use the “orchestra analogy.” Working with individual data points is like listening to each musician separately. Working with matrices is like hearing the entire orchestra—you understand how all the parts work together to create something greater than the sum of its parts.</p>
+</section>
+<section id="challenge-2-eigenvalues-and-eigenvectors-seem-too-abstract." class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2-eigenvalues-and-eigenvectors-seem-too-abstract.">Challenge 2: “Eigenvalues and eigenvectors seem too abstract.”</h3>
+<p><strong>Solution:</strong> Connect them to concrete examples. In the Iris dataset, the first eigenvector might point in the “petal size” direction, and its eigenvalue tells us how much the flowers vary in petal size compared to other characteristics.</p>
+</section>
+<section id="challenge-3-when-would-i-use-svd-in-real-applications" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3-when-would-i-use-svd-in-real-applications">Challenge 3: “When would I use SVD in real applications?”</h3>
+<p><strong>Solution:</strong> Show how Netflix might use SVD for recommendations, or how Google uses it for understanding word meanings in different contexts.</p>
+</section>
+</section>
+<section id="mission-bilding-linear-algebra-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="mission-bilding-linear-algebra-intuition">Mission: Bilding Linear Algebra Intuition</h2>
+<section id="assignment-1-the-geometric-interpreter" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-1-the-geometric-interpreter">Assignment 1: The Geometric Interpreter</h3>
+<p>Choose one algorithm from your teaching module that uses linear algebra extensively. Create a visual explanation showing:</p>
+<ul>
+<li>How the data is represented as vectors/matrices</li>
+<li>What linear transformations occur</li>
+<li>How eigenvalues/eigenvectors or SVD components appear</li>
+<li>What the geometric interpretation of the algorithm is</li>
+</ul>
+</section>
+<section id="assignment-2-the-analogy-architect" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-2-the-analogy-architect">Assignment 2: The Analogy Architect</h3>
+<p>Develop three teaching analogies for linear algebra concepts:</p>
+<ol type="1">
+<li>One for matrix multiplication</li>
+<li>One for eigenvectors/eigenvalues</li>
+<li>One for dimensionality reduction</li>
+</ol>
+<p>Each analogy should be accessible to students with minimal mathematical background yet mathematically precise enough to build correct intuition.</p>
+</section>
+<section id="assignment-3-the-connection-map" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-3-the-connection-map">Assignment 3: The Connection Map</h3>
+<p>Create a diagram showing how linear algebra concepts connect across different AI domains:</p>
+<ul>
+<li>Neural networks</li>
+<li>Computer vision</li>
+<li>Natural language processing</li>
+<li>Recommendation systems</li>
+</ul>
+<p>Identify where the same mathematical concept (e.g., dot products, matrix factorization) appears in different contexts.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/github\.com\/sijuswamyresearch\/Graph-Theory-Workshop-SBCE");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

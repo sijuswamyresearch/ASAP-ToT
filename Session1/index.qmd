@@ -1,0 +1,155 @@
+---
+title: "The Foundation Framework - Introducing the Four Pillars of AI/ML"
+subtitle: <a href="slides-quarto.html" target="_blank"></a>
+author: 
+  - name:
+      given: Siju
+      family: Swamy
+    #orcid: 0000-0001-8925-424X
+    email: siju.swamy@saintgits.org
+    affiliations:
+      - name: Saintgits
+        city: Kottayam
+        country: India
+        postal-code: 686572
+    attributes:
+        equal-contributor: False
+format:
+  html:
+    mermaid:
+      theme: dark
+  revealjs:
+    output-file: slides-quarto.html
+    width: 960
+    height: 700
+    css: assets/style.css
+    mermaid:
+      theme: dark
+---
+
+
+<div style="text-align: center;">
+  <img src="ToT_day2.png" alt="A detailed infographic about Quarto webpage contents" style="width: 650px; height: auto; display: block; margin: 0 auto;">
+</div>
+
+## Key points
+
+- Architectural Vision of the Course
+- Four Pillers of AI
+- The Linear Algebra Perspective: Data as Mathematical Objects
+- The Statistical Foundation: Measuring and Modeling Uncertainty
+- The Calculus Engine: The Mathematics of Improvement
+- The Optimization Process: The Journey to Better Solutions
+
+:::: {.content-hidden when-format="revealjs"}
+## The Architectural Vision of Artificial Intelligence
+
+Welcome to our journey into the fundamental architecture of artificial intelligence and machine learning. Today, we lay the groundwork for understanding not just how AI algorithms work, but why they work. We begin by exploring the four mathematical pillars that support every artificial intelligence system, from the simplest linear regression to the most complex large language model.
+
+Imagine constructing a magnificent cathedral. Before the first stone is laid, the architects must understand the fundamental principles of physics, materials science, and structural engineering. Similarly, before we can truly understand artificial intelligence, we must grasp the mathematical principles that make it possible. These principles are organized into four interconnected disciplines that form the foundation of all AI systems.
+
+## The Four Pillars: A Cohesive Framework
+
+The edifice of artificial intelligence stands firmly on four mathematical pillars: Linear Algebra, Calculus, Probability and Statistics, and Optimization. These are not isolated domains of knowledge but rather interconnected disciplines that work in concert to create intelligent systems.
+
+**Linear Algebra** provides the language and structure for representing data and transformations. It gives us the vocabulary to describe the world in terms of vectors, matrices, and linear transformations. When we work with images, text, or any form of data, we are essentially working with multidimensional mathematical objects that linear algebra helps us manipulate and understand.
+
+**Calculus** serves as the engine of learning in artificial intelligence. It provides the mechanisms for understanding change and sensitivity through derivatives and gradients. Just as a hiker navigates unfamiliar terrain by sensing the slope beneath their feet, machine learning algorithms navigate complex mathematical landscapes by following gradients toward optimal solutions.
+
+**Probability and Statistics** form the science of uncertainty and inference. In a world filled with noisy data and imperfect measurements, these disciplines provide the tools for reasoning under uncertainty, making inferences from limited information, and quantifying the reliability of our predictions. They transform raw data into meaningful patterns and insights.
+
+**Optimization** represents the art and science of finding the best possible solutions. It provides the strategies and algorithms for systematically improving models and converging toward optimal configurations. Where calculus tells us which direction to move, optimization tells us how far to step and when we have arrived at a good enough solution.
+
+Together, these four pillars create a complete framework for building, understanding, and improving artificial intelligence systems.
+::::
+
+## Deconstructing a Simple Model: Linear Regression Through the Four Lenses
+
+- Data as Mathematical Objects
+- Measuring and Modeling Uncertainty
+- The Mathematics of Improvement
+- The Journey to Better Solutions
+
+:::: {.content-hidden when-format="revealjs"}
+### Linear Regression Through the Four Lenses
+
+Let us examine how these four pillars work together by analyzing one of the simplest machine learning algorithms: linear regression. This deconstruction will reveal the hidden mathematical structure that powers even the most sophisticated AI systems.
+
+*The Linear Algebra Perspective:* Data as Mathematical Objects
+Linear algebra transforms our understanding of data from mere numbers to structured mathematical objects. In linear regression, we represent our input features as a design matrix where each row corresponds to an observation and each column to a feature. The target values become a vector in a high-dimensional space.
+
+The fundamental operation of linear regression—making predictions—is essentially a linear transformation. The model parameters form a weight vector that, when multiplied with the input matrix, produces predictions. This matrix-vector multiplication represents a sophisticated way of combining features through weighted sums, demonstrating how linear algebra provides the mathematical language for data representation and transformation.
+
+*The Statistical Foundation:* Measuring and Modeling Uncertainty
+Statistics provides the framework for understanding what makes a model "good" or "bad." The core of linear regression from a statistical perspective is the concept of a loss function—specifically, the mean squared error. This function measures the average squared difference between our predictions and the actual values, giving us a quantitative way to assess model performance.
+
+Beyond mere error measurement, statistics helps us understand the assumptions behind our models. Linear regression assumes that errors are normally distributed and that relationships between variables are linear. Statistical inference allows us to test these assumptions, compute confidence intervals for our predictions, and understand the limitations of our models in real-world applications.
+
+*The Calculus Engine:* Calculus provides the mechanism for learning and improvement through the concept of gradients. The gradient of the loss function with respect to the model parameters tells us the direction of steepest ascent—or, if we reverse it, the direction of steepest descent. Each component of this gradient vector indicates how much the loss would change if we made a small adjustment to the corresponding parameter.
+
+This mathematical insight transforms the problem of finding optimal parameters from a guessing game into a systematic process. By repeatedly computing gradients and taking small steps in the negative gradient direction, we can navigate the complex landscape of possible models toward regions of better performance. This process, known as gradient descent, exemplifies how calculus powers the learning in machine learning.
+
+*The Optimization Process:* Optimization provides the strategy and methodology for the learning journey. While calculus gives us the direction to move, optimization determines how far we should step (the learning rate), when we should stop (convergence criteria), and how to handle obstacles like local minima.
+
+In linear regression, the optimization process involves iteratively updating parameters based on gradient information until we reach a point where further improvements become negligible. Optimization theory helps us choose appropriate learning rates, implement momentum to navigate flat regions, and design stopping conditions that balance computation time with model quality.
+
+::::
+
+## Mapping Our Curriculum to the Four Pillars
+
+- Core Machine Learning module draws equally from all four pillars
+- The Deep Learning module places particular emphasis on linear algebra and calculus
+- Bayesian Methods highlights the power of probability and statistics
+- Optimization Theory and Cloud Deployment complete the picture by focusing on the practical aspects of making AI work in real-world scenarios
+
+:::: {.content-hidden when-format="revealjs"}
+As we progress through this course, you will discover that every topic, every algorithm, and every technique connects back to these four fundamental pillars. Let us preview how different modules of our curriculum emphasize different aspects of this mathematical foundation.
+
+Our Core Machine Learning module draws equally from all four pillars. Supervised learning algorithms like logistic regression and support vector machines require linear algebra for feature representation, calculus for gradient computation, statistics for model evaluation, and optimization for parameter tuning. Unsupervised methods like clustering and dimensionality reduction similarly integrate all four mathematical disciplines.
+
+The Deep Learning module places particular emphasis on linear algebra and calculus. Neural networks are essentially chains of linear transformations followed by nonlinear activations—a concept deeply rooted in linear algebra. The backpropagation algorithm that trains these networks is an elegant application of the chain rule from calculus, allowing gradients to flow backward through multiple layers of computation.
+
+Our exploration of Bayesian Methods highlights the power of probability and statistics. Bayesian inference provides a coherent framework for updating beliefs in light of new evidence, while probabilistic programming allows us to build models that explicitly account for uncertainty. These approaches demonstrate how statistical thinking enables more robust and interpretable AI systems.
+
+Finally, our studies in Optimization Theory and Cloud Deployment complete the picture by focusing on the practical aspects of making AI work in real-world scenarios. From hyperparameter tuning to distributed training, these advanced topics show how optimization principles scale from simple algorithms to enterprise-level systems.
+::::
+
+## The Art of Explanation
+
+- Finding the right analogies and explanations that bridge abstract mathematics and concrete understanding
+- Intuitive illustration of Linear Algebra
+- Calculus as a tool for analysis
+- Probability as a refinement of belief
+- Optimization as a quest for better -not the best
+
+
+:::: {.content-hidden when-format="revealjs"}
+
+## Making Mathematics Accessible
+
+Our responsibility as educators extends beyond understanding these mathematical foundations ourselves—we must make them accessible and intuitive for our students. The key to effective teaching lies in finding the right analogies and explanations that bridge abstract mathematics and concrete understanding.
+
+When explaining linear algebra, we might compare vectors to arrows with direction and magnitude, and matrices as machines that stretch, rotate, or skew space. The concept of eigenvectors becomes more intuitive when described as "natural directions" in data that remain unchanged by certain transformations.
+
+For calculus, the gradient descent algorithm can be visualized as a hiker trying to find the valley in thick fog by feeling the slope beneath their feet. Each step is determined by the steepness of the terrain, with smaller steps on steeper slopes to avoid overshooting the target.
+
+Probability concepts come alive when connected to everyday experiences. Bayesian updating can be explained as the process of revising our beliefs about a friend's punctuality based on whether they arrive on time for meetings. Each observation either strengthens or weakens our initial assessment.
+
+Optimization strategies can be framed as resource allocation problems. Just as a project manager must allocate limited time and budget across competing tasks, optimization algorithms must allocate "improvement effort" across different parameters to achieve the best overall results.
+::::
+
+## This Week's Mission
+
+- Solidify your understanding of these fundamental concepts
+- prepare a two-minute "elevator pitch" that explains the four pillars framework to someone with minimal technical background
+
+:::: {.content-hidden when-format="revealjs"}
+## Building Your Foundation
+To solidify your understanding of these fundamental concepts, your assignment this week focuses on developing both depth of understanding and clarity of explanation.
+
+First, create a comprehensive pillar mapping for the topics you will be teaching. For each major algorithm or technique, identify which mathematical pillars are most relevant and write a brief explanation of how each pillar contributes to the algorithm's operation. This exercise will help you see the hidden mathematical structure in every AI method you teach.
+
+Second, prepare a two-minute "elevator pitch" that explains the four pillars framework to someone with minimal technical background. Your explanation should use a consistent analogy that makes abstract concepts concrete and memorable. Consider comparing the four pillars to the foundation, framework, construction techniques, and finishing work in building a house, or to the ingredients, cooking techniques, taste testing, and recipe refinement in culinary arts.
+
+The success of this week will be measured by your ability to see the four pillars in any AI algorithm and to explain their importance in clear, accessible language.
+::::

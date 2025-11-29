@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Siju Swamy">
+
+<title>Session 6: Pillars in Practice - Advanced Architectures and Integrated Thinking – Training of Trainees Master Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-39215514760178ed112050fe99eae155.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Training of Trainees Master Class</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About the ToT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../feedback.html"> 
+<span class="menu-text">Feed Back</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Session6/index.html">Pillars in Practice</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src=".././images/workshop_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Four Pillers of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Language of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Engine of Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Science of Uncertainty</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Strategy of Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session6/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Pillars in Practice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 7</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images//ASAP.jfif" class="img-fluid figure-img"></p>
+<figcaption>Sharing Innovations</figcaption>
+</figure>
+</div>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-symphony-of-mathematical-foundations" id="toc-the-symphony-of-mathematical-foundations" class="nav-link active" data-scroll-target="#the-symphony-of-mathematical-foundations">The Symphony of Mathematical Foundations</a></li>
+  <li><a href="#transformers-a-case-study-in-mathematical-integration" id="toc-transformers-a-case-study-in-mathematical-integration" class="nav-link" data-scroll-target="#transformers-a-case-study-in-mathematical-integration">Transformers: A Case Study in Mathematical Integration</a>
+  <ul class="collapse">
+  <li><a href="#the-transformer-architecture-overview" id="toc-the-transformer-architecture-overview" class="nav-link" data-scroll-target="#the-transformer-architecture-overview">The Transformer Architecture Overview</a></li>
+  <li><a href="#linear-algebra-the-structural-foundation" id="toc-linear-algebra-the-structural-foundation" class="nav-link" data-scroll-target="#linear-algebra-the-structural-foundation">Linear Algebra: The Structural Foundation</a></li>
+  <li><a href="#the-attention-mechanism-linear-algebra-meets-probability" id="toc-the-attention-mechanism-linear-algebra-meets-probability" class="nav-link" data-scroll-target="#the-attention-mechanism-linear-algebra-meets-probability">The Attention Mechanism: Linear Algebra Meets Probability</a></li>
+  <li><a href="#calculus-the-learning-mechanism" id="toc-calculus-the-learning-mechanism" class="nav-link" data-scroll-target="#calculus-the-learning-mechanism">Calculus: The Learning Mechanism</a></li>
+  <li><a href="#optimization-the-training-strategy" id="toc-optimization-the-training-strategy" class="nav-link" data-scroll-target="#optimization-the-training-strategy">Optimization: The Training Strategy</a></li>
+  <li><a href="#transformer-dissection--hands-on-architecture-analysis" id="toc-transformer-dissection--hands-on-architecture-analysis" class="nav-link" data-scroll-target="#transformer-dissection--hands-on-architecture-analysis">Transformer Dissection- Hands-On Architecture Analysis</a></li>
+  </ul></li>
+  <li><a href="#convolutional-neural-networks-spatial-intelligence" id="toc-convolutional-neural-networks-spatial-intelligence" class="nav-link" data-scroll-target="#convolutional-neural-networks-spatial-intelligence">Convolutional Neural Networks: Spatial Intelligence</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-foundations-of-convolution" id="toc-mathematical-foundations-of-convolution" class="nav-link" data-scroll-target="#mathematical-foundations-of-convolution">Mathematical Foundations of Convolution</a></li>
+  <li><a href="#calculus-in-cnns" id="toc-calculus-in-cnns" class="nav-link" data-scroll-target="#calculus-in-cnns">Calculus in CNNs</a></li>
+  <li><a href="#optimization-considerations" id="toc-optimization-considerations" class="nav-link" data-scroll-target="#optimization-considerations">Optimization Considerations</a></li>
+  </ul></li>
+  <li><a href="#generative-models-probability-in-action" id="toc-generative-models-probability-in-action" class="nav-link" data-scroll-target="#generative-models-probability-in-action">Generative Models: Probability in Action</a>
+  <ul class="collapse">
+  <li><a href="#variational-autoencoders-vaes" id="toc-variational-autoencoders-vaes" class="nav-link" data-scroll-target="#variational-autoencoders-vaes">Variational Autoencoders (VAEs)</a></li>
+  <li><a href="#generative-adversarial-networks-gans" id="toc-generative-adversarial-networks-gans" class="nav-link" data-scroll-target="#generative-adversarial-networks-gans">Generative Adversarial Networks (GANs)</a></li>
+  </ul></li>
+  <li><a href="#graph-neural-networks-relational-intelligence" id="toc-graph-neural-networks-relational-intelligence" class="nav-link" data-scroll-target="#graph-neural-networks-relational-intelligence">Graph Neural Networks: Relational Intelligence</a>
+  <ul class="collapse">
+  <li><a href="#message-passing-framework" id="toc-message-passing-framework" class="nav-link" data-scroll-target="#message-passing-framework">Message Passing Framework</a></li>
+  </ul></li>
+  <li><a href="#reinforcement-learning-sequential-decision-making" id="toc-reinforcement-learning-sequential-decision-making" class="nav-link" data-scroll-target="#reinforcement-learning-sequential-decision-making">Reinforcement Learning: Sequential Decision Making</a>
+  <ul class="collapse">
+  <li><a href="#markov-decision-processes" id="toc-markov-decision-processes" class="nav-link" data-scroll-target="#markov-decision-processes">Markov Decision Processes</a></li>
+  <li><a href="#policy-gradient-methods" id="toc-policy-gradient-methods" class="nav-link" data-scroll-target="#policy-gradient-methods">Policy Gradient Methods</a></li>
+  </ul></li>
+  <li><a href="#mathematical-patterns-across-architectures" id="toc-mathematical-patterns-across-architectures" class="nav-link" data-scroll-target="#mathematical-patterns-across-architectures">Mathematical Patterns Across Architectures</a>
+  <ul class="collapse">
+  <li><a href="#common-mathematical-motifs" id="toc-common-mathematical-motifs" class="nav-link" data-scroll-target="#common-mathematical-motifs">Common Mathematical Motifs</a></li>
+  </ul></li>
+  <li><a href="#teaching-integrated-thinking" id="toc-teaching-integrated-thinking" class="nav-link" data-scroll-target="#teaching-integrated-thinking">Teaching Integrated Thinking</a>
+  <ul class="collapse">
+  <li><a href="#the-orchestra-analogy" id="toc-the-orchestra-analogy" class="nav-link" data-scroll-target="#the-orchestra-analogy">The “Orchestra” Analogy</a></li>
+  <li><a href="#the-building-construction-metaphor" id="toc-the-building-construction-metaphor" class="nav-link" data-scroll-target="#the-building-construction-metaphor">The “Building Construction” Metaphor</a></li>
+  <li><a href="#case-study-approach" id="toc-case-study-approach" class="nav-link" data-scroll-target="#case-study-approach">Case Study Approach</a></li>
+  </ul></li>
+  <li><a href="#advanced-mathematical-concepts-in-modern-ai" id="toc-advanced-mathematical-concepts-in-modern-ai" class="nav-link" data-scroll-target="#advanced-mathematical-concepts-in-modern-ai">Advanced Mathematical Concepts in Modern AI</a>
+  <ul class="collapse">
+  <li><a href="#manifold-learning" id="toc-manifold-learning" class="nav-link" data-scroll-target="#manifold-learning">Manifold Learning</a></li>
+  <li><a href="#information-theory-in-deep-learning" id="toc-information-theory-in-deep-learning" class="nav-link" data-scroll-target="#information-theory-in-deep-learning">Information Theory in Deep Learning</a></li>
+  <li><a href="#geometric-deep-learning" id="toc-geometric-deep-learning" class="nav-link" data-scroll-target="#geometric-deep-learning">Geometric Deep Learning</a></li>
+  </ul></li>
+  <li><a href="#ethical-ai-mathematical-foundations-of-fairness" id="toc-ethical-ai-mathematical-foundations-of-fairness" class="nav-link" data-scroll-target="#ethical-ai-mathematical-foundations-of-fairness">Ethical AI: Mathematical Foundations of Fairness</a>
+  <ul class="collapse">
+  <li><a href="#mathematical-definitions-of-fairness" id="toc-mathematical-definitions-of-fairness" class="nav-link" data-scroll-target="#mathematical-definitions-of-fairness">Mathematical Definitions of Fairness</a></li>
+  <li><a href="#optimization-with-fairness-constraints" id="toc-optimization-with-fairness-constraints" class="nav-link" data-scroll-target="#optimization-with-fairness-constraints">Optimization with Fairness Constraints</a></li>
+  </ul></li>
+  <li><a href="#mathematical-pattern-recognition" id="toc-mathematical-pattern-recognition" class="nav-link" data-scroll-target="#mathematical-pattern-recognition">Mathematical Pattern Recognition</a></li>
+  <li><a href="#common-integration-challenges-and-solutions" id="toc-common-integration-challenges-and-solutions" class="nav-link" data-scroll-target="#common-integration-challenges-and-solutions">Common Integration Challenges and Solutions</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1-the-math-seems-disconnected-from-implementation" id="toc-challenge-1-the-math-seems-disconnected-from-implementation" class="nav-link" data-scroll-target="#challenge-1-the-math-seems-disconnected-from-implementation">Challenge 1: “The math seems disconnected from implementation”</a></li>
+  <li><a href="#challenge-2-how-do-i-know-which-mathematical-concept-to-apply" id="toc-challenge-2-how-do-i-know-which-mathematical-concept-to-apply" class="nav-link" data-scroll-target="#challenge-2-how-do-i-know-which-mathematical-concept-to-apply">Challenge 2: “How do I know which mathematical concept to apply?”</a></li>
+  <li><a href="#challenge-3-the-architectures-keep-changing" id="toc-challenge-3-the-architectures-keep-changing" class="nav-link" data-scroll-target="#challenge-3-the-architectures-keep-changing">Challenge 3: “The architectures keep changing”</a></li>
+  </ul></li>
+  <li><a href="#mission-architectural-thinking" id="toc-mission-architectural-thinking" class="nav-link" data-scroll-target="#mission-architectural-thinking">Mission: Architectural Thinking</a>
+  <ul class="collapse">
+  <li><a href="#assignment-1-the-mathematical-archeologist" id="toc-assignment-1-the-mathematical-archeologist" class="nav-link" data-scroll-target="#assignment-1-the-mathematical-archeologist">Assignment 1: The Mathematical Archeologist</a></li>
+  <li><a href="#assignment-2-the-integrated-explainer" id="toc-assignment-2-the-integrated-explainer" class="nav-link" data-scroll-target="#assignment-2-the-integrated-explainer">Assignment 2: The Integrated Explainer</a></li>
+  <li><a href="#assignment-3-the-architecture-designer" id="toc-assignment-3-the-architecture-designer" class="nav-link" data-scroll-target="#assignment-3-the-architecture-designer">Assignment 3: The Architecture Designer</a></li>
+  </ul></li>
+  <li><a href="#looking-ahead-teaching-excellence" id="toc-looking-ahead-teaching-excellence" class="nav-link" data-scroll-target="#looking-ahead-teaching-excellence">Looking Ahead: Teaching Excellence</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 6: Pillars in Practice - Advanced Architectures and Integrated Thinking</h1>
+<p class="subtitle lead"><a href="slides-ML.html" target="_blank"></a></p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Siju Swamy <a href="mailto:siju.swamy@saintgits.org" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0004-1983-5574" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Saintgits College of Engineering (Autonomous)
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="the-symphony-of-mathematical-foundations" class="level2">
+<h2 class="anchored" data-anchor-id="the-symphony-of-mathematical-foundations">The Symphony of Mathematical Foundations</h2>
+<p>Welcome to our synthesis session, where we witness the beautiful integration of all four mathematical pillars working in concert within modern AI architectures. We have explored each pillar individually—linear algebra as our language, calculus as our learning engine, probability as our framework for uncertainty, and optimization as our strategic guide. Now, we observe how these disciplines combine to create the remarkable capabilities of contemporary AI systems.</p>
+<p>In this session, we will deconstruct advanced architectures to reveal their mathematical foundations, understand how different pillars dominate different components, and develop the integrated thinking needed to design, analyze, and explain complex AI systems. This is where abstract mathematics transforms into practical intelligence.</p>
+</section>
+<section id="transformers-a-case-study-in-mathematical-integration" class="level2">
+<h2 class="anchored" data-anchor-id="transformers-a-case-study-in-mathematical-integration">Transformers: A Case Study in Mathematical Integration</h2>
+<section id="the-transformer-architecture-overview" class="level3">
+<h3 class="anchored" data-anchor-id="the-transformer-architecture-overview">The Transformer Architecture Overview</h3>
+<p>Transformers have revolutionized natural language processing and beyond. Let’s examine how each mathematical pillar contributes:</p>
+<p><strong>Input:</strong> <span class="math inline">\(\mathbf{X} \in \mathbb{R}^{n \times d}\)</span> (sequence of n tokens, each d-dimensional)</p>
+</section>
+<section id="linear-algebra-the-structural-foundation" class="level3">
+<h3 class="anchored" data-anchor-id="linear-algebra-the-structural-foundation">Linear Algebra: The Structural Foundation</h3>
+<p><strong>Token Embeddings:</strong> <span class="math display">\[
+\mathbf{E} = \mathbf{X}\mathbf{W}_e + \mathbf{b}_e
+\]</span> where <span class="math inline">\(\mathbf{W}_e \in \mathbb{R}^{d \times d_{model}}\)</span> creates dense representations</p>
+<p><strong>Positional Encoding:</strong> <span class="math display">\[
+PE(pos, 2i) = \sin\left(\frac{pos}{10000^{2i/d_{model}}}\right)
+\]</span> <span class="math display">\[
+PE(pos, 2i+1) = \cos\left(\frac{pos}{10000^{2i/d_{model}}}\right)
+\]</span></p>
+</section>
+<section id="the-attention-mechanism-linear-algebra-meets-probability" class="level3">
+<h3 class="anchored" data-anchor-id="the-attention-mechanism-linear-algebra-meets-probability">The Attention Mechanism: Linear Algebra Meets Probability</h3>
+<p><strong>Query, Key, Value Projections:</strong> <span class="math display">\[
+\mathbf{Q} = \mathbf{X}\mathbf{W}_Q, \quad \mathbf{K} = \mathbf{X}\mathbf{W}_K, \quad \mathbf{V} = \mathbf{X}\mathbf{W}_V
+\]</span></p>
+<p><strong>Attention Scores (Linear Algebra):</strong> <span class="math display">\[
+\mathbf{S} = \frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}
+\]</span></p>
+<p><strong>Attention Weights (Probability):</strong> <span class="math display">\[
+\mathbf{A} = \text{softmax}(\mathbf{S}) = \frac{\exp(\mathbf{S}_{ij})}{\sum_k \exp(\mathbf{S}_{ik})}
+\]</span></p>
+<p><strong>Output (Integration):</strong> <span class="math display">\[
+\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \mathbf{A}\mathbf{V}
+\]</span></p>
+</section>
+<section id="calculus-the-learning-mechanism" class="level3">
+<h3 class="anchored" data-anchor-id="calculus-the-learning-mechanism">Calculus: The Learning Mechanism</h3>
+<p><strong>Backpropagation through Attention:</strong> The gradients flow through the softmax and matrix multiplications:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \mathbf{W}_Q} = \frac{\partial \mathcal{L}}{\partial \mathbf{Q}} \frac{\partial \mathbf{Q}}{\partial \mathbf{W}_Q}
+\]</span></p>
+<p>The chain rule enables learning across all parameters simultaneously.</p>
+</section>
+<section id="optimization-the-training-strategy" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-the-training-strategy">Optimization: The Training Strategy</h3>
+<p><strong>Adam Optimization with Warmup:</strong> Transformers typically use Adam with learning rate scheduling:</p>
+<p><span class="math display">\[
+\eta_t = \eta_{\text{min}} + \frac{1}{2}(\eta_{\text{max}} - \eta_{\text{min}})\left(1 + \cos\left(\frac{t}{T}\pi\right)\right)
+\]</span></p>
+</section>
+<section id="transformer-dissection--hands-on-architecture-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="transformer-dissection--hands-on-architecture-analysis">Transformer Dissection- Hands-On Architecture Analysis</h3>
+<p>Let’s analyze a small transformer step-by-step:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Input: "The cat sat"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> [<span class="st">"The"</span>, <span class="st">"cat"</span>, <span class="st">"sat"</span>]</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>embeddings <span class="op">=</span> embedding_matrix[tokens]  <span class="co"># Linear Algebra</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>positional_encoding <span class="op">=</span> sin_cos_encoding(positions)  <span class="co"># Trigonometry</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>input_vectors <span class="op">=</span> embeddings <span class="op">+</span> positional_encoding  <span class="co"># Linear Algebra</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Self-attention</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>Q <span class="op">=</span> input_vectors <span class="op">@</span> W_Q  <span class="co"># Linear Algebra</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>K <span class="op">=</span> input_vectors <span class="op">@</span> W_K  <span class="co"># Linear Algebra</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> input_vectors <span class="op">@</span> W_V  <span class="co"># Linear Algebra</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>attention_scores <span class="op">=</span> Q <span class="op">@</span> K.T <span class="op">/</span> sqrt(d_k)  <span class="co"># Linear Algebra</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>attention_weights <span class="op">=</span> softmax(attention_scores)  <span class="co"># Probability</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>context_vectors <span class="op">=</span> attention_weights <span class="op">@</span> V  <span class="co"># Linear Algebra</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Training</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>loss <span class="op">=</span> cross_entropy(predictions, labels)  <span class="co"># Probability + Calculus</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>gradients <span class="op">=</span> backpropagate(loss)  <span class="co"># Calculus</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>optimizer.step(gradients)  <span class="co"># Optimization</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="convolutional-neural-networks-spatial-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="convolutional-neural-networks-spatial-intelligence">Convolutional Neural Networks: Spatial Intelligence</h2>
+<section id="mathematical-foundations-of-convolution" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-foundations-of-convolution">Mathematical Foundations of Convolution</h3>
+<p><strong>Discrete Convolution (Linear Algebra):</strong> <span class="math display">\[
+(\mathbf{I} * \mathbf{K})_{ij} = \sum_{m=0}^{M-1}\sum_{n=0}^{N-1} \mathbf{I}_{i+m,j+n} \mathbf{K}_{m,n}
+\]</span></p>
+<p>This can be represented as a matrix multiplication with a sparse, structured weight matrix.</p>
+</section>
+<section id="calculus-in-cnns" class="level3">
+<h3 class="anchored" data-anchor-id="calculus-in-cnns">Calculus in CNNs</h3>
+<p><strong>Backpropagation through Convolution:</strong> The gradient with respect to kernel weights:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \mathbf{K}_{m,n}} = \sum_{i,j} \frac{\partial \mathcal{L}}{\partial (\mathbf{I} * \mathbf{K})_{ij}} \mathbf{I}_{i+m,j+n}
+\]</span></p>
+</section>
+<section id="optimization-considerations" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-considerations">Optimization Considerations</h3>
+<p><strong>Weight Initialization:</strong> He initialization for ReLU networks: <span class="math display">\[
+\mathbf{W} \sim \mathcal{N}\left(0, \frac{2}{n_l}\right)
+\]</span></p>
+</section>
+</section>
+<section id="generative-models-probability-in-action" class="level2">
+<h2 class="anchored" data-anchor-id="generative-models-probability-in-action">Generative Models: Probability in Action</h2>
+<section id="variational-autoencoders-vaes" class="level3">
+<h3 class="anchored" data-anchor-id="variational-autoencoders-vaes">Variational Autoencoders (VAEs)</h3>
+<p><strong>Probabilistic Framework:</strong> <span class="math display">\[
+p_\theta(\mathbf{x}) = \int p_\theta(\mathbf{x}|\mathbf{z})p(\mathbf{z})d\mathbf{z}
+\]</span></p>
+<p><strong>Variational Inference (Probability + Optimization):</strong> We maximize the Evidence Lower Bound (ELBO):</p>
+<p><span class="math display">\[
+\mathcal{L}(\theta, \phi; \mathbf{x}) = \mathbb{E}_{q_\phi(\mathbf{z}|\mathbf{x})}[\log p_\theta(\mathbf{x}|\mathbf{z})] - D_{KL}(q_\phi(\mathbf{z}|\mathbf{x}) \| p(\mathbf{z}))
+\]</span></p>
+<p><strong>Reparameterization Trick (Calculus):</strong> <span class="math display">\[
+\mathbf{z} = \boldsymbol{\mu} + \boldsymbol{\sigma} \odot \boldsymbol{\epsilon}, \quad \boldsymbol{\epsilon} \sim \mathcal{N}(0, \mathbf{I})
+\]</span></p>
+<p>This enables gradient flow through stochastic nodes.</p>
+</section>
+<section id="generative-adversarial-networks-gans" class="level3">
+<h3 class="anchored" data-anchor-id="generative-adversarial-networks-gans">Generative Adversarial Networks (GANs)</h3>
+<p><strong>Game Theoretic Optimization:</strong> <span class="math display">\[
+\min_G \max_D V(D, G) = \mathbb{E}_{\mathbf{x} \sim p_{data}}[\log D(\mathbf{x})] + \mathbb{E}_{\mathbf{z} \sim p(\mathbf{z})}[\log(1 - D(G(\mathbf{z})))]
+\]</span></p>
+<p><strong>Training Dynamics (Calculus + Optimization):</strong> Alternating gradient updates:</p>
+<p><span class="math display">\[
+\theta_D^{(t+1)} = \theta_D^{(t)} + \eta \nabla_{\theta_D} V(D, G)
+\]</span> <span class="math display">\[
+\theta_G^{(t+1)} = \theta_G^{(t)} - \eta \nabla_{\theta_G} V(D, G)
+\]</span></p>
+</section>
+</section>
+<section id="graph-neural-networks-relational-intelligence" class="level2">
+<h2 class="anchored" data-anchor-id="graph-neural-networks-relational-intelligence">Graph Neural Networks: Relational Intelligence</h2>
+<section id="message-passing-framework" class="level3">
+<h3 class="anchored" data-anchor-id="message-passing-framework">Message Passing Framework</h3>
+<p><strong>Linear Algebra for Graph Structure:</strong> Adjacency matrix <span class="math inline">\(\mathbf{A}\)</span> and node features <span class="math inline">\(\mathbf{X}\)</span></p>
+<p><strong>Message Passing (Linear Algebra + Calculus):</strong> <span class="math display">\[
+\mathbf{H}^{(l+1)} = \sigma\left(\mathbf{A}\mathbf{H}^{(l)}\mathbf{W}^{(l)}\right)
+\]</span></p>
+<p><strong>Graph Attention (Integration):</strong> <span class="math display">\[
+\alpha_{ij} = \frac{\exp(\text{LeakyReLU}(\mathbf{a}^T[\mathbf{W}\mathbf{h}_i \| \mathbf{W}\mathbf{h}_j]))}{\sum_{k \in \mathcal{N}(i)} \exp(\text{LeakyReLU}(\mathbf{a}^T[\mathbf{W}\mathbf{h}_i \| \mathbf{W}\mathbf{h}_k]))}
+\]</span></p>
+</section>
+</section>
+<section id="reinforcement-learning-sequential-decision-making" class="level2">
+<h2 class="anchored" data-anchor-id="reinforcement-learning-sequential-decision-making">Reinforcement Learning: Sequential Decision Making</h2>
+<section id="markov-decision-processes" class="level3">
+<h3 class="anchored" data-anchor-id="markov-decision-processes">Markov Decision Processes</h3>
+<p><strong>Probabilistic State Transitions:</strong> <span class="math display">\[
+P(s_{t+1} | s_t, a_t)
+\]</span></p>
+<p><strong>Value Functions (Probability + Optimization):</strong> Bellman equation:</p>
+<p><span class="math display">\[
+V^\pi(s) = \mathbb{E}_\pi\left[\sum_{t=0}^\infty \gamma^t r_t | s_0 = s\right]
+\]</span></p>
+</section>
+<section id="policy-gradient-methods" class="level3">
+<h3 class="anchored" data-anchor-id="policy-gradient-methods">Policy Gradient Methods</h3>
+<p><strong>Score Function Gradient (Calculus):</strong> <span class="math display">\[
+\nabla_\theta J(\theta) = \mathbb{E}_\pi\left[\nabla_\theta \log \pi_\theta(a|s) Q^\pi(s,a)\right]
+\]</span></p>
+</section>
+</section>
+<section id="mathematical-patterns-across-architectures" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-patterns-across-architectures">Mathematical Patterns Across Architectures</h2>
+<section id="common-mathematical-motifs" class="level3">
+<h3 class="anchored" data-anchor-id="common-mathematical-motifs">Common Mathematical Motifs</h3>
+<p><strong>Composition of Functions:</strong> All deep learning architectures are compositions: <span class="math display">\[
+f(\mathbf{x}) = f_L(f_{L-1}(\dots f_1(\mathbf{x})\dots))
+\]</span></p>
+<p><strong>Optimization Landscapes:</strong> Different architectures create different loss landscapes:</p>
+<ul>
+<li>CNNs: Relatively smooth due to weight sharing</li>
+<li>Transformers: High-dimensional, many saddle points</li>
+<li>GANs: Non-convex, non-concave minimax games</li>
+</ul>
+<p><strong>Information Flow:</strong> Mathematics describes how information transforms through networks:</p>
+<ul>
+<li>Linear transformations change representations</li>
+<li>Non-linearities enable complex functions</li>
+<li>Skip connections preserve information</li>
+</ul>
+</section>
+</section>
+<section id="teaching-integrated-thinking" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-integrated-thinking">Teaching Integrated Thinking</h2>
+<section id="the-orchestra-analogy" class="level3">
+<h3 class="anchored" data-anchor-id="the-orchestra-analogy">The “Orchestra” Analogy</h3>
+<p>Each mathematical pillar is like a section in an orchestra:</p>
+<ul>
+<li><strong>Linear Algebra:</strong> String section - provides foundation and structure</li>
+<li><strong>Calculus:</strong> Percussion section - drives rhythm and progression</li>
+<li><strong>Probability:</strong> Woodwinds - adds color and nuance</li>
+<li><strong>Optimization:</strong> Conductor - coordinates and directs</li>
+</ul>
+<p>Beautiful music emerges only when all sections work together harmoniously.</p>
+</section>
+<section id="the-building-construction-metaphor" class="level3">
+<h3 class="anchored" data-anchor-id="the-building-construction-metaphor">The “Building Construction” Metaphor</h3>
+<ul>
+<li><strong>Linear Algebra:</strong> Blueprints and materials</li>
+<li><strong>Calculus:</strong> Construction techniques and processes</li>
+<li><strong>Probability:</strong> Safety factors and uncertainty margins</li>
+<li><strong>Optimization:</strong> Project management and resource allocation</li>
+</ul>
+</section>
+<section id="case-study-approach" class="level3">
+<h3 class="anchored" data-anchor-id="case-study-approach">Case Study Approach</h3>
+<p>Analyze real architectures by asking:</p>
+<ol type="1">
+<li><strong>Linear Algebra:</strong> How is data represented and transformed?</li>
+<li><strong>Calculus:</strong> How does learning happen?</li>
+<li><strong>Probability:</strong> How is uncertainty handled?</li>
+<li><strong>Optimization:</strong> What strategy finds good solutions?</li>
+</ol>
+</section>
+</section>
+<section id="advanced-mathematical-concepts-in-modern-ai" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-mathematical-concepts-in-modern-ai">Advanced Mathematical Concepts in Modern AI</h2>
+<section id="manifold-learning" class="level3">
+<h3 class="anchored" data-anchor-id="manifold-learning">Manifold Learning</h3>
+<ul>
+<li><p><strong>Mathematical Insight:</strong> High-dimensional data often lies on low-dimensional manifolds</p></li>
+<li><p><strong>Linear Algebra Perspective:</strong> Tangent spaces and embeddings</p></li>
+<li><p><strong>Probability Perspective:</strong> Density estimation on manifolds</p></li>
+<li><p><strong>Optimization Perspective:</strong> Preserving local and global structure</p></li>
+</ul>
+</section>
+<section id="information-theory-in-deep-learning" class="level3">
+<h3 class="anchored" data-anchor-id="information-theory-in-deep-learning">Information Theory in Deep Learning</h3>
+<p><strong>Mutual Information:</strong> <span class="math display">\[
+I(X; Y) = \mathbb{E}_{p(x,y)}\left[\log\frac{p(x,y)}{p(x)p(y)}\right]
+\]</span></p>
+<p>Used in:</p>
+<ul>
+<li>Information bottlenecks</li>
+<li>Disentangled representations</li>
+<li>Contrastive learning</li>
+</ul>
+</section>
+<section id="geometric-deep-learning" class="level3">
+<h3 class="anchored" data-anchor-id="geometric-deep-learning">Geometric Deep Learning</h3>
+<p>Extending neural networks to non-Euclidean domains using:</p>
+<ul>
+<li>Group theory (symmetries)</li>
+<li>Differential geometry (manifolds)</li>
+<li>Algebraic topology (connectivity)</li>
+</ul>
+</section>
+</section>
+<section id="ethical-ai-mathematical-foundations-of-fairness" class="level2">
+<h2 class="anchored" data-anchor-id="ethical-ai-mathematical-foundations-of-fairness">Ethical AI: Mathematical Foundations of Fairness</h2>
+<section id="mathematical-definitions-of-fairness" class="level3">
+<h3 class="anchored" data-anchor-id="mathematical-definitions-of-fairness">Mathematical Definitions of Fairness</h3>
+<p><strong>Demographic Parity:</strong> <span class="math display">\[
+P(\hat{Y} = 1 | A = a) = P(\hat{Y} = 1 | A = b) \quad \forall a,b
+\]</span></p>
+<p><strong>Equalized Odds:</strong> <span class="math display">\[
+P(\hat{Y} = 1 | A = a, Y = y) = P(\hat{Y} = 1 | A = b, Y = y) \quad \forall a,b,y
+\]</span></p>
+</section>
+<section id="optimization-with-fairness-constraints" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-with-fairness-constraints">Optimization with Fairness Constraints</h3>
+<p><strong>Constrained Optimization:</strong> <span class="math display">\[
+\min_\theta \mathcal{L}(\theta) \quad \text{subject to} \quad \text{Fairness}(\theta) \leq \epsilon
+\]</span></p>
+<p><strong>Lagrangian Approach:</strong> <span class="math display">\[
+\mathcal{L}(\theta, \lambda) = \mathcal{L}(\theta) + \lambda \cdot \text{Fairness}(\theta)
+\]</span></p>
+</section>
+</section>
+<section id="mathematical-pattern-recognition" class="level2">
+<h2 class="anchored" data-anchor-id="mathematical-pattern-recognition">Mathematical Pattern Recognition</h2>
+<p>Identify these patterns in different architectures:</p>
+<ol type="1">
+<li><strong>Matrix Factorization Pattern:</strong> Autoencoders, PCA, embeddings</li>
+<li><strong>Message Passing Pattern:</strong> GNNs, transformers, CNNs</li>
+<li><strong>Composition Pattern:</strong> All deep networks</li>
+<li><strong>Optimization Pattern:</strong> All learning algorithms</li>
+</ol>
+</section>
+<section id="common-integration-challenges-and-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="common-integration-challenges-and-solutions">Common Integration Challenges and Solutions</h2>
+<section id="challenge-1-the-math-seems-disconnected-from-implementation" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1-the-math-seems-disconnected-from-implementation">Challenge 1: “The math seems disconnected from implementation”</h3>
+<p><strong>Solution:</strong> Use mathematical tracing:</p>
+<ul>
+<li>Start with forward pass equations</li>
+<li>Map each equation to code</li>
+<li>Track dimensions through transformations</li>
+<li>Visualize intermediate representations</li>
+</ul>
+</section>
+<section id="challenge-2-how-do-i-know-which-mathematical-concept-to-apply" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2-how-do-i-know-which-mathematical-concept-to-apply">Challenge 2: “How do I know which mathematical concept to apply?”</h3>
+<p><strong>Solution:</strong> Develop diagnostic questions:</p>
+<ul>
+<li>Is this about representation? → Linear Algebra</li>
+<li>Is this about learning? → Calculus</li>
+<li>Is this about uncertainty? → Probability</li>
+<li>Is this about search? → Optimization</li>
+</ul>
+</section>
+<section id="challenge-3-the-architectures-keep-changing" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3-the-architectures-keep-changing">Challenge 3: “The architectures keep changing”</h3>
+<p><strong>Solution:</strong> Focus on mathematical principles:</p>
+<ul>
+<li>New architectures are combinations of known mathematical patterns</li>
+<li>Understand the fundamental operations</li>
+<li>Learn to recognize mathematical motifs</li>
+</ul>
+</section>
+</section>
+<section id="mission-architectural-thinking" class="level2">
+<h2 class="anchored" data-anchor-id="mission-architectural-thinking">Mission: Architectural Thinking</h2>
+<section id="assignment-1-the-mathematical-archeologist" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-1-the-mathematical-archeologist">Assignment 1: The Mathematical Archeologist</h3>
+<p>Choose one modern architecture (Vision Transformer, Diffusion Models, etc.) and:</p>
+<ul>
+<li>Identify all four mathematical pillars in its design</li>
+<li>Trace how information flows mathematically</li>
+<li>Analyze the optimization strategy</li>
+<li>Create a “mathematical map” of the architecture</li>
+</ul>
+</section>
+<section id="assignment-2-the-integrated-explainer" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-2-the-integrated-explainer">Assignment 2: The Integrated Explainer</h3>
+<p>Take a complex AI concept and explain it using integrated mathematical thinking:</p>
+<ul>
+<li>Use analogies from multiple pillars</li>
+<li>Show how different mathematical disciplines interact</li>
+<li>Create visual explanations connecting the mathematics</li>
+<li>Demonstrate why all pillars are necessary</li>
+</ul>
+</section>
+<section id="assignment-3-the-architecture-designer" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-3-the-architecture-designer">Assignment 3: The Architecture Designer</h3>
+<p>Design a simple novel architecture for a specific problem:</p>
+<ul>
+<li>Specify the mathematical components from each pillar</li>
+<li>Justify your design choices mathematically</li>
+<li>Predict the optimization challenges</li>
+<li>Propose evaluation methods</li>
+</ul>
+</section>
+</section>
+<section id="looking-ahead-teaching-excellence" class="level2">
+<h2 class="anchored" data-anchor-id="looking-ahead-teaching-excellence">Looking Ahead: Teaching Excellence</h2>
+<p>In our final session, we will focus on pedagogical excellence—how to effectively teach these integrated mathematical concepts, create engaging learning experiences, and build a community of mathematically-grounded AI educators. We’ll practice micro-teaching, develop assessment strategies, and create sustainable teaching practices.</p>
+<p>Prepare by considering: How will you explain these integrated concepts to your students? What analogies and examples work best? How can you make abstract mathematics feel concrete and relevant? How will you assess true understanding rather than memorization?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Remember: The ultimate goal is not just to understand these mathematical foundations ourselves, but to become educators who can illuminate these concepts for others. The future of AI education depends on teachers who can reveal the mathematical beauty underlying the technological marvels.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/github\.com\/sijuswamyresearch\/Graph-Theory-Workshop-SBCE");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

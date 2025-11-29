@@ -1,0 +1,150 @@
+---
+title: "Foundations of Intelligence"
+subtitle: "A Mathematical ToT for AI/ML Educators"
+
+author: 
+  - name:
+      given: Siju
+      family: Swamy
+    orcid: 0009-0004-1983-5574
+    email: siju.swamy@saintgits.org
+    affiliations:
+      - name: Saintgits College of Engineering (Autonomous)
+        city: Kottayam
+        country: India
+        postal-code: 686532
+  - name: Merina Aruja
+    email: merina.aruja@saintgits.org
+    affiliations:
+      - name: Saintgits College of Engineering (Autonomous)
+        city: Kottayam
+        country: India
+        postal-code: 686532
+---
+
+<div style="text-align: center;">
+  <img src="images\ToT-poster.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;">
+</div>
+
+
+## About the ToT
+
+We are pleased to announce that the ASAP AI/ML Program is hosting a comprehensive Training of Trainers (ToT) series to establish strong mathematical foundations in artificial intelligence and machine learning education.
+
+Artificial Intelligence and Machine Learning represent the convergence of centuries of mathematical development across multiple disciplines. What appears as technological magic is fundamentally built upon four mathematical pillars: Linear Algebra, Calculus, Probability & Statistics, and Optimization. This expert-led series explores how these foundational disciplines work in concert to create intelligent systems, moving beyond superficial code implementation to deep conceptual understanding. Through interactive demonstrations, mathematical derivations, real-world applications, and pedagogical strategies, we will equip trainers to deliver the revamped AI/ML curriculum with scientific rigor and mathematical integrity.
+
+
+
+### Agenda
+
+:::: {.columns}
+
+::: {.column width="45%"}
+**7-Session ToT Program**
+
+**Session 1 — The Foundation Framework**
+- *Introduction to Four Mathematical Pillars*
+  - Linear Algebra, Calculus, Probability & Statistics, Optimization
+- *Architectural Vision of AI Systems*
+- *Computational vs Analytical Mathematics*
+- *Assignment:* Pillar Mapping & Conceptual Explanations
+
+**Session 2 — Linear Algebra: The Language of Data**
+- *Data Representation as Mathematical Objects*
+- *Matrix Operations & Geometric Interpretations*
+- *Eigenvalues, PCA & Dimensionality Reduction*
+- *Teaching Strategies for Abstract Concepts*
+- *Hands-On:* Matrix Decomposition Visualizations
+
+**Session 3 — Calculus: The Engine of Learning**
+- *Derivatives, Gradients & Sensitivity Analysis*
+- *Gradient Descent: Theory & Intuition*
+- *Backpropagation Demystified*
+- *Loss Landscapes & Convergence*
+- *Hands-On:* Gradient Visualization Tools
+
+**Session 4 — Probability & Statistics: Reasoning with Uncertainty**
+- *Statistical Inference & Bayesian Thinking*
+- *Probability Distributions in ML*
+- *Model Evaluation & Uncertainty Quantification*
+- *Statistical Testing & Confidence Intervals*
+- *Hands-On:* Probabilistic Programming Examples
+
+**Session 5 — Optimization: The Strategy of Search**
+- *Convex vs Non-Convex Optimization*
+- *Optimization Algorithms & Convergence*
+- *Hyperparameter Tuning Strategies*
+- *Constraints & Regularization*
+- *Hands-On:* Optimization Landscape Exploration
+
+**Session 6 — Pillars in Practice: Advanced Architectures**
+- *Neural Networks Through Mathematical Lenses*
+- *Transformers & Attention Mechanisms*
+- *Generative Models & Statistical Physics Connections*
+- *Ethical AI & Mathematical Fairness*
+- *Case Study:* End-to-End Mathematical Deconstruction
+
+**Session 7 — Synthesis & Teaching Excellence**
+- *Micro-Teaching Lab*
+- *Curriculum Integration Strategies*
+- *Assessment Design for Conceptual Understanding*
+- *Community Building & Resource Sharing*
+- *Final Commitments & Action Plans*
+
+:::
+
+::: {.column width="10%"}
+:::
+
+::: {.column width="45%"}
+**Core Teaching Methodologies**
+
+- **The 5-Step Framework:** Concept → Intuition → Mathematics → Code → Interpretation
+- **Mathematical Storytelling** & Conceptual Analogies
+- **Visual Demonstrations** & Geometric Intuition
+- **Historical Context** & Philosophical Connections
+- **Pedagogical Patterns** for Abstract Concepts
+
+**Tools & Technologies**
+
+- Python with NumPy, SciPy, Matplotlib
+- Jupyter Notebook for Interactive Demonstrations
+- Visualization Libraries for Mathematical Concepts
+- LaTeX for Mathematical Notation
+- Collaborative Platforms for Resource Sharing
+
+**Expected Trainer Deliverables**
+
+- Comprehensive pillar mapping of assigned curriculum
+- Intuitive explanations for complex mathematical concepts
+- Visual demonstrations and teaching analogies
+- Assessment strategies for conceptual understanding
+- Lesson plans integrating the four pillars framework
+
+**Program Outcomes**
+
+- Deliver AI/ML content with strong mathematical foundations
+- Explain complex concepts with clarity and intuition
+- Connect theoretical mathematics to practical applications
+- Foster deep conceptual understanding in students
+- Create a community of mathematically-grounded AI educators
+
+:::
+
+::::
+
+
+
+
+
+
+### Feed back form. 
+
+We would greatly appreciate it if you could take a few moments to complete our feedback form.
+
+Please click the link below or scan the QR code to access the feedback form:
+
+<https://forms.gle/AD6vuxrPoohj7iz16>
+
+
+{{< qrcode https://forms.gle/AD6vuxrPoohj7iz16 >}}

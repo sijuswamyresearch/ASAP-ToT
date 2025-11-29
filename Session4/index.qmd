@@ -1,0 +1,376 @@
+---
+title: " Session 4: Probability & Statistics - The Science of Uncertainty"
+subtitle: <a href="slides-ML.html" target="_blank"></a>
+author: 
+  - name:
+      given: Siju
+      family: Swamy
+    orcid: 0009-0004-1983-5574
+    email: siju.swamy@saintgits.org
+    affiliations:
+      - name: Saintgits College of Engineering (Autonomous)
+        city: Kottayam
+        country: India
+        postal-code: 686532
+    attributes:
+        equal-contributor: False
+format:
+  html:
+    mermaid:
+      theme: dark
+    
+  revealjs:
+    output-file: slides-ML.html
+    width: 960
+    height: 700
+    css: assets/style.css
+    mermaid:
+      theme: dark
+jupyter: python3
+execute: 
+  enabled: true
+---
+
+<div style="text-align: center;">
+  <img src="ToT_day4.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;">
+</div>
+
+
+## The Foundation of Intelligent Decision-Making
+
+Welcome to our exploration of probability and statistics, the third pillar of artificial intelligence that provides the mathematical framework for reasoning under uncertainty. While linear algebra gives us the language to describe data and calculus provides the mechanism for learning, probability and statistics give us the wisdom to understand the limits of our knowledge and make intelligent decisions in the face of incomplete information.
+
+In a world filled with noisy measurements, imperfect models, and inherent randomness, probability theory allows us to quantify uncertainty, while statistics enables us to draw meaningful conclusions from limited data. This session will reveal how these ancient mathematical disciplines form the bedrock of modern AI systems that must operate reliably in an uncertain world.
+
+## Probability Theory: The Mathematics of Uncertainty
+
+### Foundations of Probability
+
+Probability provides a formal language for quantifying uncertainty. The basic axioms:
+
+$$
+\begin{aligned}
+P(A) &\geq 0 \quad \text{for any event } A \\\\
+P(\Omega) &= 1 \quad \text{where } \Omega \text{ is the sample space} \\\\
+P\left(\bigcup_{i=1}^\infty A_i\right) &= \sum_{i=1}^\infty P(A_i) \quad \text{for disjoint events}
+\end{aligned}
+$$
+
+These simple rules form the foundation for all probabilistic reasoning in AI.
+
+### Random Variables and Distributions
+
+A random variable $X$ assigns numerical values to outcomes. For our Iris dataset, we can model each feature as a random variable:
+
+- Sepal length $S_L \sim \text{Some Distribution}$
+- Petal width $P_W \sim \text{Some Distribution}$
+
+Common distributions in machine learning include:
+
+**Gaussian Distribution:**
+$$
+p(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$
+
+**Bernoulli Distribution:**
+$$
+p(x|p) = p^x(1-p)^{1-x} \quad \text{for } x \in \\{0,1\\}
+$$
+
+**Categorical Distribution:**
+$$
+p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
+$$
+
+### Joint, Marginal, and Conditional Probabilities
+
+For multiple random variables, we have:
+
+**Joint Probability:** $P(X=x, Y=y)$ - probability of both events occurring
+**Marginal Probability:** $P(X=x) = \sum_y P(X=x, Y=y)$ - probability of one event regardless of others
+**Conditional Probability:** $P(X=x|Y=y) = \frac{P(X=x, Y=y)}{P(Y=y)}$ - probability of one event given another
+
+## Bayesian Inference: Updating Beliefs with Evidence
+
+### Bayes' Theorem: The Foundation of Learning
+
+Bayes' theorem provides the mathematical framework for updating beliefs in light of new evidence:
+
+$$
+P(\theta|\mathcal{D}) = \frac{P(\mathcal{D}|\theta)P(\theta)}{P(\mathcal{D})}
+$$
+
+Where:
+
+- $P(\theta|\mathcal{D})$ is the posterior - our updated belief about parameters $\theta$ after seeing data $\mathcal{D}$
+- $P(\mathcal{D}|\theta)$ is the likelihood - how probable the data is under different parameters
+- $P(\theta)$ is the prior - our belief about parameters before seeing data
+- $P(\mathcal{D})$ is the evidence - a normalizing constant
+
+### Bayesian Classification for Iris Data
+
+For classifying Iris flowers, we can use Bayes' theorem:
+
+$$
+P(\text{species}=k|\mathbf{x}) = \frac{p(\mathbf{x}|\text{species}=k)P(\text{species}=k)}{\sum_{j=1}^3 p(\mathbf{x}|\text{species}=j)P(\text{species}=j)}
+$$
+
+If we assume each class has a Gaussian distribution:
+
+$$
+p(\mathbf{x}|\text{species}=k) = \mathcal{N}(\mathbf{x}|\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)
+$$
+
+This gives us a principled probabilistic classifier that naturally handles uncertainty.
+
+### Conjugate Priors and Computational Efficiency
+
+Some prior-likelihood pairs have nice mathematical properties called conjugacy:
+
+- **Gaussian-Gaussian:** If likelihood is Gaussian and prior is Gaussian, posterior is Gaussian
+- **Beta-Bernoulli:** If likelihood is Bernoulli and prior is Beta, posterior is Beta
+- **Dirichlet-Multinomial:** If likelihood is Multinomial and prior is Dirichlet, posterior is Dirichlet
+
+These conjugacies enable efficient Bayesian updating and are widely used in practice.
+
+## Statistical Inference: Drawing Conclusions from Data
+
+### Maximum Likelihood Estimation (MLE)
+
+MLE finds parameters that make the observed data most probable:
+
+$$
+\hat{\theta}_{\text{MLE}} = \arg\max_\theta P(\mathcal{D}|\theta)
+$$
+
+For Gaussian distributions, MLE gives us familiar results:
+
+- $\hat{\mu} = \frac{1}{n}\sum_{i=1}^n x_i$
+- $\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (x_i - \hat{\mu})^2$
+
+### Maximum A Posteriori (MAP) Estimation
+
+MAP estimation incorporates prior knowledge:
+
+$$
+\hat{\theta}_{\text{MAP}} = \arg\max_\theta P(\theta|\mathcal{D}) = \arg\max_\theta P(\mathcal{D}|\theta)P(\theta)
+$$
+
+This provides a Bayesian alternative to MLE that can prevent overfitting.
+
+### Hypothesis Testing and Confidence Intervals
+
+Frequentist statistics provides tools for making inferences:
+
+- **Confidence Intervals:** An interval that would contain the true parameter 95% of the time in repeated sampling
+- **p-values:** The probability of observing data as extreme as what we saw, assuming the null hypothesis is true
+
+While these concepts have limitations, they remain important for model evaluation and comparison.
+
+## Distributions in Machine Learning
+
+### Exponential Family Distributions
+
+Many important distributions belong to the exponential family:
+
+$$
+p(x|\eta) = h(x) \exp(\eta^T T(x) - A(\eta))
+$$
+
+Where:
+
+- $\eta$ are natural parameters
+- $T(x)$ are sufficient statistics
+- $A(\eta)$ is the log-normalizer
+
+This family includes Gaussian, Bernoulli, Poisson, Gamma, and many other distributions, enabling unified treatment and efficient computation.
+
+### Mixture Models and Latent Variables
+
+Mixture models combine multiple distributions to model complex data:
+
+$$
+p(\mathbf{x}) = \sum_{k=1}^K \pi_k p_k(\mathbf{x})
+$$
+
+Where $\pi_k$ are mixing weights and $p_k$ are component distributions. The EM algorithm provides an efficient way to learn mixture models.
+
+## Probabilistic Graphical Models
+
+### Representing Complex Dependencies
+
+Graphical models use graphs to represent probabilistic relationships:
+
+- **Bayesian Networks:** Directed acyclic graphs representing causal relationships
+- **Markov Random Fields:** Undirected graphs representing symmetric dependencies
+
+These models enable efficient computation and intuitive representation of complex probabilistic systems.
+
+### Inference in Graphical Models
+
+Key inference tasks include:
+
+- **Marginal inference:** $P(X_i) = \sum_{\mathbf{x}_{\setminus i}} P(\mathbf{x})$
+- **Maximum a posteriori (MAP):** $\arg\max_{\mathbf{x}} P(\mathbf{x})$
+- **Posterior inference:** $P(\text{hidden}|\text{observed})$
+
+Algorithms like belief propagation, junction trees, and variational methods enable efficient inference.
+
+## Uncertainty Quantification in Deep Learning
+
+### Bayesian Neural Networks
+
+Traditional neural networks provide point estimates. Bayesian neural networks model uncertainty in weights:
+
+$$
+P(\mathbf{y}|\mathbf{x}, \mathcal{D}) = \int P(\mathbf{y}|\mathbf{x}, \mathbf{w})P(\mathbf{w}|\mathcal{D}) d\mathbf{w}
+$$
+
+This provides uncertainty estimates for predictions, crucial for safety-critical applications.
+
+### Monte Carlo Dropout
+
+A practical approximation for Bayesian neural networks uses dropout at test time:
+
+$$
+P(\mathbf{y}|\mathbf{x}) \approx \frac{1}{T} \sum_{t=1}^T P(\mathbf{y}|\mathbf{x}, \mathbf{w}_t)
+$$
+
+Where $\mathbf{w}_t$ are different dropout masks, providing an ensemble of predictions.
+
+### Calibration and Reliability
+
+Well-calibrated models should satisfy:
+
+$$
+P(\hat{Y} = Y | \hat{P} = p) = p
+$$
+
+Where $\hat{P}$ is the predicted probability. Modern neural networks often need calibration techniques like temperature scaling.
+
+## Teaching Probability with Intuition
+
+### The "Weather Forecast" Analogy for Bayesian Updates
+
+Think of Bayesian updating like a weather forecast. Your prior is yesterday's forecast. New data is today's weather observations. The posterior is tomorrow's updated forecast. Each day, you combine old predictions with new evidence to improve future forecasts.
+
+### The "Medical Test" Example for Conditional Probability
+
+A medical test with 99% accuracy sounds reliable, but if the disease is rare (1 in 10,000), a positive test might only have ~1% chance of being correct. This counterintuitive result demonstrates why we need Bayesian reasoning and can't just look at test accuracy alone.
+
+### The "Polling" Analogy for Confidence Intervals
+
+A political poll might show a candidate with 52% support ±3%. This doesn't mean exactly 52% of voters support them, but that if we conducted the poll many times, 95% of the intervals would contain the true percentage. The uncertainty is about the method, not the candidate's support.
+
+## Statistical Evaluation of Models
+
+### Beyond Accuracy: Comprehensive Metrics
+
+For classification, we need more than just accuracy:
+
+- **Precision:** $\frac{\text{TP}}{\text{TP} + \text{FP}}$ - When we predict positive, how often are we correct?
+- **Recall:** $\frac{\text{TP}}{\text{TP} + \text{FN}}$ - How many actual positives do we catch?
+- **F1-score:** Harmonic mean of precision and recall
+- **ROC curves:** Trade-off between true positive and false positive rates
+- **AUC:** Area under ROC curve, overall performance measure
+
+### Cross-Validation and Generalization
+
+K-fold cross-validation provides better estimates of generalization error:
+
+1. Split data into K folds
+2. For each fold: train on K-1 folds, test on held-out fold
+3. Average performance across all folds
+
+This helps detect overfitting and provides more reliable performance estimates.
+
+### Statistical Significance Testing
+
+When comparing models, we need to determine if differences are statistically significant:
+
+- **Paired t-test:** Compare performance across multiple datasets/folds
+- **McNemar's test:** Compare classifiers on the same test set
+- **Wilcoxon signed-rank test:** Non-parametric alternative to t-test
+
+## Common Student Challenges and Solutions
+
+### Challenge 1: "Why do we need probability? Can't we just use the most likely answer?"
+
+**Solution:** Use the "self-driving car" analogy. A car that's 51% sure the road is clear might proceed, while one that's only 51% sure might wait for more evidence. Probability gives us the confidence level needed for different decisions.
+
+### Challenge 2: "Bayes' theorem seems too abstract and mathematical."
+
+**Solution:** Start with concrete examples like medical testing or spam filtering. Show how prior knowledge (disease prevalence, typical spam patterns) combines with new evidence (test results, email content) to update beliefs.
+
+### Challenge 3: "How do we choose priors in Bayesian methods?"
+
+**Solution:** Explain that priors can be:
+
+- **Informative:** Based on domain knowledge
+- **Weakly informative:** Gently regularize without strong assumptions  
+- **Non-informative:** Maximally conservative (like uniform priors)
+- **Empirical Bayes:** Learned from data
+
+## Hands-On Exploration: Quantifying Uncertainty
+
+### Bayesian Linear Regression
+
+Implement Bayesian linear regression on Iris data:
+
+$$
+\begin{aligned}
+p(\mathbf{w}|\alpha) &= \mathcal{N}(\mathbf{0}, \alpha^{-1}\mathbf{I}) \\\\
+p(\mathbf{y}|\mathbf{X}, \mathbf{w}, \beta) &= \mathcal{N}(\mathbf{X}\mathbf{w}, \beta^{-1}\mathbf{I})
+\end{aligned}
+$$
+
+The posterior distribution over weights is Gaussian, and we can compute predictive distributions that include uncertainty estimates.
+
+### Confidence Intervals for Predictions
+
+For any model, we can bootstrap to get confidence intervals:
+
+1. Resample data with replacement many times
+2. Train model on each resample
+3. Make predictions and compute percentiles
+
+This provides empirical confidence intervals without distributional assumptions.
+
+### Calibration Plots
+
+Plot actual frequency vs predicted probability to assess calibration:
+
+- Perfect calibration: Points lie on diagonal
+- Overconfident: Points below diagonal (predict too extreme probabilities)
+- Underconfident: Points above diagonal (predict too moderate probabilities)
+
+## Mission: Mastering Uncertainty
+
+### Assignment 1: The Bayesian Investigator
+
+Implement a Bayesian classifier for the Iris dataset. Compare:
+
+- Maximum Likelihood Estimation (MLE)
+- Maximum A Posteriori (MAP) with different priors
+- Full Bayesian inference with posterior predictive distribution
+
+Analyze how priors affect results and uncertainty estimates.
+
+### Assignment 2: The Uncertainty Quantifier
+
+Take a standard neural network classifier and add uncertainty quantification using:
+
+- Monte Carlo dropout
+- Ensemble methods
+- Temperature scaling for calibration
+
+Compare the uncertainty estimates and their reliability.
+
+### Assignment 3: The Statistical Evaluator
+
+Compare two classification algorithms using proper statistical testing:
+
+- Compute multiple performance metrics
+- Use cross-validation for reliable estimates
+- Perform statistical significance tests
+- Create confidence intervals for performance differences

@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Siju Swamy">
+
+<title>Session 4: Probability &amp; Statistics - The Science of Uncertainty – Training of Trainees Master Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-39215514760178ed112050fe99eae155.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Training of Trainees Master Class</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About the ToT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../feedback.html"> 
+<span class="menu-text">Feed Back</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Session4/index.html">The Science of Uncertainty</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src=".././images/workshop_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Four Pillers of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Language of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Engine of Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session4/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The Science of Uncertainty</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Strategy of Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pillars in Practice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synthesis &amp; Teaching Excellence</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images//ASAP.jfif" class="img-fluid figure-img"></p>
+<figcaption>Sharing Innovations</figcaption>
+</figure>
+</div>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-foundation-of-intelligent-decision-making" id="toc-the-foundation-of-intelligent-decision-making" class="nav-link active" data-scroll-target="#the-foundation-of-intelligent-decision-making">The Foundation of Intelligent Decision-Making</a></li>
+  <li><a href="#probability-theory-the-mathematics-of-uncertainty" id="toc-probability-theory-the-mathematics-of-uncertainty" class="nav-link" data-scroll-target="#probability-theory-the-mathematics-of-uncertainty">Probability Theory: The Mathematics of Uncertainty</a>
+  <ul class="collapse">
+  <li><a href="#foundations-of-probability" id="toc-foundations-of-probability" class="nav-link" data-scroll-target="#foundations-of-probability">Foundations of Probability</a></li>
+  <li><a href="#random-variables-and-distributions" id="toc-random-variables-and-distributions" class="nav-link" data-scroll-target="#random-variables-and-distributions">Random Variables and Distributions</a></li>
+  <li><a href="#joint-marginal-and-conditional-probabilities" id="toc-joint-marginal-and-conditional-probabilities" class="nav-link" data-scroll-target="#joint-marginal-and-conditional-probabilities">Joint, Marginal, and Conditional Probabilities</a></li>
+  </ul></li>
+  <li><a href="#bayesian-inference-updating-beliefs-with-evidence" id="toc-bayesian-inference-updating-beliefs-with-evidence" class="nav-link" data-scroll-target="#bayesian-inference-updating-beliefs-with-evidence">Bayesian Inference: Updating Beliefs with Evidence</a>
+  <ul class="collapse">
+  <li><a href="#bayes-theorem-the-foundation-of-learning" id="toc-bayes-theorem-the-foundation-of-learning" class="nav-link" data-scroll-target="#bayes-theorem-the-foundation-of-learning">Bayes’ Theorem: The Foundation of Learning</a></li>
+  <li><a href="#bayesian-classification-for-iris-data" id="toc-bayesian-classification-for-iris-data" class="nav-link" data-scroll-target="#bayesian-classification-for-iris-data">Bayesian Classification for Iris Data</a></li>
+  <li><a href="#conjugate-priors-and-computational-efficiency" id="toc-conjugate-priors-and-computational-efficiency" class="nav-link" data-scroll-target="#conjugate-priors-and-computational-efficiency">Conjugate Priors and Computational Efficiency</a></li>
+  </ul></li>
+  <li><a href="#statistical-inference-drawing-conclusions-from-data" id="toc-statistical-inference-drawing-conclusions-from-data" class="nav-link" data-scroll-target="#statistical-inference-drawing-conclusions-from-data">Statistical Inference: Drawing Conclusions from Data</a>
+  <ul class="collapse">
+  <li><a href="#maximum-likelihood-estimation-mle" id="toc-maximum-likelihood-estimation-mle" class="nav-link" data-scroll-target="#maximum-likelihood-estimation-mle">Maximum Likelihood Estimation (MLE)</a></li>
+  <li><a href="#maximum-a-posteriori-map-estimation" id="toc-maximum-a-posteriori-map-estimation" class="nav-link" data-scroll-target="#maximum-a-posteriori-map-estimation">Maximum A Posteriori (MAP) Estimation</a></li>
+  <li><a href="#hypothesis-testing-and-confidence-intervals" id="toc-hypothesis-testing-and-confidence-intervals" class="nav-link" data-scroll-target="#hypothesis-testing-and-confidence-intervals">Hypothesis Testing and Confidence Intervals</a></li>
+  </ul></li>
+  <li><a href="#distributions-in-machine-learning" id="toc-distributions-in-machine-learning" class="nav-link" data-scroll-target="#distributions-in-machine-learning">Distributions in Machine Learning</a>
+  <ul class="collapse">
+  <li><a href="#exponential-family-distributions" id="toc-exponential-family-distributions" class="nav-link" data-scroll-target="#exponential-family-distributions">Exponential Family Distributions</a></li>
+  <li><a href="#mixture-models-and-latent-variables" id="toc-mixture-models-and-latent-variables" class="nav-link" data-scroll-target="#mixture-models-and-latent-variables">Mixture Models and Latent Variables</a></li>
+  </ul></li>
+  <li><a href="#probabilistic-graphical-models" id="toc-probabilistic-graphical-models" class="nav-link" data-scroll-target="#probabilistic-graphical-models">Probabilistic Graphical Models</a>
+  <ul class="collapse">
+  <li><a href="#representing-complex-dependencies" id="toc-representing-complex-dependencies" class="nav-link" data-scroll-target="#representing-complex-dependencies">Representing Complex Dependencies</a></li>
+  <li><a href="#inference-in-graphical-models" id="toc-inference-in-graphical-models" class="nav-link" data-scroll-target="#inference-in-graphical-models">Inference in Graphical Models</a></li>
+  </ul></li>
+  <li><a href="#uncertainty-quantification-in-deep-learning" id="toc-uncertainty-quantification-in-deep-learning" class="nav-link" data-scroll-target="#uncertainty-quantification-in-deep-learning">Uncertainty Quantification in Deep Learning</a>
+  <ul class="collapse">
+  <li><a href="#bayesian-neural-networks" id="toc-bayesian-neural-networks" class="nav-link" data-scroll-target="#bayesian-neural-networks">Bayesian Neural Networks</a></li>
+  <li><a href="#monte-carlo-dropout" id="toc-monte-carlo-dropout" class="nav-link" data-scroll-target="#monte-carlo-dropout">Monte Carlo Dropout</a></li>
+  <li><a href="#calibration-and-reliability" id="toc-calibration-and-reliability" class="nav-link" data-scroll-target="#calibration-and-reliability">Calibration and Reliability</a></li>
+  </ul></li>
+  <li><a href="#teaching-probability-with-intuition" id="toc-teaching-probability-with-intuition" class="nav-link" data-scroll-target="#teaching-probability-with-intuition">Teaching Probability with Intuition</a>
+  <ul class="collapse">
+  <li><a href="#the-weather-forecast-analogy-for-bayesian-updates" id="toc-the-weather-forecast-analogy-for-bayesian-updates" class="nav-link" data-scroll-target="#the-weather-forecast-analogy-for-bayesian-updates">The “Weather Forecast” Analogy for Bayesian Updates</a></li>
+  <li><a href="#the-medical-test-example-for-conditional-probability" id="toc-the-medical-test-example-for-conditional-probability" class="nav-link" data-scroll-target="#the-medical-test-example-for-conditional-probability">The “Medical Test” Example for Conditional Probability</a></li>
+  <li><a href="#the-polling-analogy-for-confidence-intervals" id="toc-the-polling-analogy-for-confidence-intervals" class="nav-link" data-scroll-target="#the-polling-analogy-for-confidence-intervals">The “Polling” Analogy for Confidence Intervals</a></li>
+  </ul></li>
+  <li><a href="#statistical-evaluation-of-models" id="toc-statistical-evaluation-of-models" class="nav-link" data-scroll-target="#statistical-evaluation-of-models">Statistical Evaluation of Models</a>
+  <ul class="collapse">
+  <li><a href="#beyond-accuracy-comprehensive-metrics" id="toc-beyond-accuracy-comprehensive-metrics" class="nav-link" data-scroll-target="#beyond-accuracy-comprehensive-metrics">Beyond Accuracy: Comprehensive Metrics</a></li>
+  <li><a href="#cross-validation-and-generalization" id="toc-cross-validation-and-generalization" class="nav-link" data-scroll-target="#cross-validation-and-generalization">Cross-Validation and Generalization</a></li>
+  <li><a href="#statistical-significance-testing" id="toc-statistical-significance-testing" class="nav-link" data-scroll-target="#statistical-significance-testing">Statistical Significance Testing</a></li>
+  </ul></li>
+  <li><a href="#common-student-challenges-and-solutions" id="toc-common-student-challenges-and-solutions" class="nav-link" data-scroll-target="#common-student-challenges-and-solutions">Common Student Challenges and Solutions</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1-why-do-we-need-probability-cant-we-just-use-the-most-likely-answer" id="toc-challenge-1-why-do-we-need-probability-cant-we-just-use-the-most-likely-answer" class="nav-link" data-scroll-target="#challenge-1-why-do-we-need-probability-cant-we-just-use-the-most-likely-answer">Challenge 1: “Why do we need probability? Can’t we just use the most likely answer?”</a></li>
+  <li><a href="#challenge-2-bayes-theorem-seems-too-abstract-and-mathematical." id="toc-challenge-2-bayes-theorem-seems-too-abstract-and-mathematical." class="nav-link" data-scroll-target="#challenge-2-bayes-theorem-seems-too-abstract-and-mathematical.">Challenge 2: “Bayes’ theorem seems too abstract and mathematical.”</a></li>
+  <li><a href="#challenge-3-how-do-we-choose-priors-in-bayesian-methods" id="toc-challenge-3-how-do-we-choose-priors-in-bayesian-methods" class="nav-link" data-scroll-target="#challenge-3-how-do-we-choose-priors-in-bayesian-methods">Challenge 3: “How do we choose priors in Bayesian methods?”</a></li>
+  </ul></li>
+  <li><a href="#hands-on-exploration-quantifying-uncertainty" id="toc-hands-on-exploration-quantifying-uncertainty" class="nav-link" data-scroll-target="#hands-on-exploration-quantifying-uncertainty">Hands-On Exploration: Quantifying Uncertainty</a>
+  <ul class="collapse">
+  <li><a href="#bayesian-linear-regression" id="toc-bayesian-linear-regression" class="nav-link" data-scroll-target="#bayesian-linear-regression">Bayesian Linear Regression</a></li>
+  <li><a href="#confidence-intervals-for-predictions" id="toc-confidence-intervals-for-predictions" class="nav-link" data-scroll-target="#confidence-intervals-for-predictions">Confidence Intervals for Predictions</a></li>
+  <li><a href="#calibration-plots" id="toc-calibration-plots" class="nav-link" data-scroll-target="#calibration-plots">Calibration Plots</a></li>
+  </ul></li>
+  <li><a href="#mission-mastering-uncertainty" id="toc-mission-mastering-uncertainty" class="nav-link" data-scroll-target="#mission-mastering-uncertainty">Mission: Mastering Uncertainty</a>
+  <ul class="collapse">
+  <li><a href="#assignment-1-the-bayesian-investigator" id="toc-assignment-1-the-bayesian-investigator" class="nav-link" data-scroll-target="#assignment-1-the-bayesian-investigator">Assignment 1: The Bayesian Investigator</a></li>
+  <li><a href="#assignment-2-the-uncertainty-quantifier" id="toc-assignment-2-the-uncertainty-quantifier" class="nav-link" data-scroll-target="#assignment-2-the-uncertainty-quantifier">Assignment 2: The Uncertainty Quantifier</a></li>
+  <li><a href="#assignment-3-the-statistical-evaluator" id="toc-assignment-3-the-statistical-evaluator" class="nav-link" data-scroll-target="#assignment-3-the-statistical-evaluator">Assignment 3: The Statistical Evaluator</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 4: Probability &amp; Statistics - The Science of Uncertainty</h1>
+<p class="subtitle lead"><a href="slides-ML.html" target="_blank"></a></p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Siju Swamy <a href="mailto:siju.swamy@saintgits.org" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0004-1983-5574" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Saintgits College of Engineering (Autonomous)
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div style="text-align: center;">
+<p><img src="ToT_day4.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;"></p>
+</div>
+<section id="the-foundation-of-intelligent-decision-making" class="level2">
+<h2 class="anchored" data-anchor-id="the-foundation-of-intelligent-decision-making">The Foundation of Intelligent Decision-Making</h2>
+<p>Welcome to our exploration of probability and statistics, the third pillar of artificial intelligence that provides the mathematical framework for reasoning under uncertainty. While linear algebra gives us the language to describe data and calculus provides the mechanism for learning, probability and statistics give us the wisdom to understand the limits of our knowledge and make intelligent decisions in the face of incomplete information.</p>
+<p>In a world filled with noisy measurements, imperfect models, and inherent randomness, probability theory allows us to quantify uncertainty, while statistics enables us to draw meaningful conclusions from limited data. This session will reveal how these ancient mathematical disciplines form the bedrock of modern AI systems that must operate reliably in an uncertain world.</p>
+</section>
+<section id="probability-theory-the-mathematics-of-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="probability-theory-the-mathematics-of-uncertainty">Probability Theory: The Mathematics of Uncertainty</h2>
+<section id="foundations-of-probability" class="level3">
+<h3 class="anchored" data-anchor-id="foundations-of-probability">Foundations of Probability</h3>
+<p>Probability provides a formal language for quantifying uncertainty. The basic axioms:</p>
+<p><span class="math display">\[
+\begin{aligned}
+P(A) &amp;\geq 0 \quad \text{for any event } A \\\\
+P(\Omega) &amp;= 1 \quad \text{where } \Omega \text{ is the sample space} \\\\
+P\left(\bigcup_{i=1}^\infty A_i\right) &amp;= \sum_{i=1}^\infty P(A_i) \quad \text{for disjoint events}
+\end{aligned}
+\]</span></p>
+<p>These simple rules form the foundation for all probabilistic reasoning in AI.</p>
+</section>
+<section id="random-variables-and-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="random-variables-and-distributions">Random Variables and Distributions</h3>
+<p>A random variable <span class="math inline">\(X\)</span> assigns numerical values to outcomes. For our Iris dataset, we can model each feature as a random variable:</p>
+<ul>
+<li>Sepal length <span class="math inline">\(S_L \sim \text{Some Distribution}\)</span></li>
+<li>Petal width <span class="math inline">\(P_W \sim \text{Some Distribution}\)</span></li>
+</ul>
+<p>Common distributions in machine learning include:</p>
+<p><strong>Gaussian Distribution:</strong> <span class="math display">\[
+p(x|\mu, \sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+\]</span></p>
+<p><strong>Bernoulli Distribution:</strong> <span class="math display">\[
+p(x|p) = p^x(1-p)^{1-x} \quad \text{for } x \in \\{0,1\\}
+\]</span></p>
+<p><strong>Categorical Distribution:</strong> <span class="math display">\[
+p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
+\]</span></p>
+</section>
+<section id="joint-marginal-and-conditional-probabilities" class="level3">
+<h3 class="anchored" data-anchor-id="joint-marginal-and-conditional-probabilities">Joint, Marginal, and Conditional Probabilities</h3>
+<p>For multiple random variables, we have:</p>
+<p><strong>Joint Probability:</strong> <span class="math inline">\(P(X=x, Y=y)\)</span> - probability of both events occurring <strong>Marginal Probability:</strong> <span class="math inline">\(P(X=x) = \sum_y P(X=x, Y=y)\)</span> - probability of one event regardless of others <strong>Conditional Probability:</strong> <span class="math inline">\(P(X=x|Y=y) = \frac{P(X=x, Y=y)}{P(Y=y)}\)</span> - probability of one event given another</p>
+</section>
+</section>
+<section id="bayesian-inference-updating-beliefs-with-evidence" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-inference-updating-beliefs-with-evidence">Bayesian Inference: Updating Beliefs with Evidence</h2>
+<section id="bayes-theorem-the-foundation-of-learning" class="level3">
+<h3 class="anchored" data-anchor-id="bayes-theorem-the-foundation-of-learning">Bayes’ Theorem: The Foundation of Learning</h3>
+<p>Bayes’ theorem provides the mathematical framework for updating beliefs in light of new evidence:</p>
+<p><span class="math display">\[
+P(\theta|\mathcal{D}) = \frac{P(\mathcal{D}|\theta)P(\theta)}{P(\mathcal{D})}
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(P(\theta|\mathcal{D})\)</span> is the posterior - our updated belief about parameters <span class="math inline">\(\theta\)</span> after seeing data <span class="math inline">\(\mathcal{D}\)</span></li>
+<li><span class="math inline">\(P(\mathcal{D}|\theta)\)</span> is the likelihood - how probable the data is under different parameters</li>
+<li><span class="math inline">\(P(\theta)\)</span> is the prior - our belief about parameters before seeing data</li>
+<li><span class="math inline">\(P(\mathcal{D})\)</span> is the evidence - a normalizing constant</li>
+</ul>
+</section>
+<section id="bayesian-classification-for-iris-data" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-classification-for-iris-data">Bayesian Classification for Iris Data</h3>
+<p>For classifying Iris flowers, we can use Bayes’ theorem:</p>
+<p><span class="math display">\[
+P(\text{species}=k|\mathbf{x}) = \frac{p(\mathbf{x}|\text{species}=k)P(\text{species}=k)}{\sum_{j=1}^3 p(\mathbf{x}|\text{species}=j)P(\text{species}=j)}
+\]</span></p>
+<p>If we assume each class has a Gaussian distribution:</p>
+<p><span class="math display">\[
+p(\mathbf{x}|\text{species}=k) = \mathcal{N}(\mathbf{x}|\boldsymbol{\mu}_k, \boldsymbol{\Sigma}_k)
+\]</span></p>
+<p>This gives us a principled probabilistic classifier that naturally handles uncertainty.</p>
+</section>
+<section id="conjugate-priors-and-computational-efficiency" class="level3">
+<h3 class="anchored" data-anchor-id="conjugate-priors-and-computational-efficiency">Conjugate Priors and Computational Efficiency</h3>
+<p>Some prior-likelihood pairs have nice mathematical properties called conjugacy:</p>
+<ul>
+<li><strong>Gaussian-Gaussian:</strong> If likelihood is Gaussian and prior is Gaussian, posterior is Gaussian</li>
+<li><strong>Beta-Bernoulli:</strong> If likelihood is Bernoulli and prior is Beta, posterior is Beta</li>
+<li><strong>Dirichlet-Multinomial:</strong> If likelihood is Multinomial and prior is Dirichlet, posterior is Dirichlet</li>
+</ul>
+<p>These conjugacies enable efficient Bayesian updating and are widely used in practice.</p>
+</section>
+</section>
+<section id="statistical-inference-drawing-conclusions-from-data" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-inference-drawing-conclusions-from-data">Statistical Inference: Drawing Conclusions from Data</h2>
+<section id="maximum-likelihood-estimation-mle" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-likelihood-estimation-mle">Maximum Likelihood Estimation (MLE)</h3>
+<p>MLE finds parameters that make the observed data most probable:</p>
+<p><span class="math display">\[
+\hat{\theta}_{\text{MLE}} = \arg\max_\theta P(\mathcal{D}|\theta)
+\]</span></p>
+<p>For Gaussian distributions, MLE gives us familiar results:</p>
+<ul>
+<li><span class="math inline">\(\hat{\mu} = \frac{1}{n}\sum_{i=1}^n x_i\)</span></li>
+<li><span class="math inline">\(\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n (x_i - \hat{\mu})^2\)</span></li>
+</ul>
+</section>
+<section id="maximum-a-posteriori-map-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="maximum-a-posteriori-map-estimation">Maximum A Posteriori (MAP) Estimation</h3>
+<p>MAP estimation incorporates prior knowledge:</p>
+<p><span class="math display">\[
+\hat{\theta}_{\text{MAP}} = \arg\max_\theta P(\theta|\mathcal{D}) = \arg\max_\theta P(\mathcal{D}|\theta)P(\theta)
+\]</span></p>
+<p>This provides a Bayesian alternative to MLE that can prevent overfitting.</p>
+</section>
+<section id="hypothesis-testing-and-confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesis-testing-and-confidence-intervals">Hypothesis Testing and Confidence Intervals</h3>
+<p>Frequentist statistics provides tools for making inferences:</p>
+<ul>
+<li><strong>Confidence Intervals:</strong> An interval that would contain the true parameter 95% of the time in repeated sampling</li>
+<li><strong>p-values:</strong> The probability of observing data as extreme as what we saw, assuming the null hypothesis is true</li>
+</ul>
+<p>While these concepts have limitations, they remain important for model evaluation and comparison.</p>
+</section>
+</section>
+<section id="distributions-in-machine-learning" class="level2">
+<h2 class="anchored" data-anchor-id="distributions-in-machine-learning">Distributions in Machine Learning</h2>
+<section id="exponential-family-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="exponential-family-distributions">Exponential Family Distributions</h3>
+<p>Many important distributions belong to the exponential family:</p>
+<p><span class="math display">\[
+p(x|\eta) = h(x) \exp(\eta^T T(x) - A(\eta))
+\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(\eta\)</span> are natural parameters</li>
+<li><span class="math inline">\(T(x)\)</span> are sufficient statistics</li>
+<li><span class="math inline">\(A(\eta)\)</span> is the log-normalizer</li>
+</ul>
+<p>This family includes Gaussian, Bernoulli, Poisson, Gamma, and many other distributions, enabling unified treatment and efficient computation.</p>
+</section>
+<section id="mixture-models-and-latent-variables" class="level3">
+<h3 class="anchored" data-anchor-id="mixture-models-and-latent-variables">Mixture Models and Latent Variables</h3>
+<p>Mixture models combine multiple distributions to model complex data:</p>
+<p><span class="math display">\[
+p(\mathbf{x}) = \sum_{k=1}^K \pi_k p_k(\mathbf{x})
+\]</span></p>
+<p>Where <span class="math inline">\(\pi_k\)</span> are mixing weights and <span class="math inline">\(p_k\)</span> are component distributions. The EM algorithm provides an efficient way to learn mixture models.</p>
+</section>
+</section>
+<section id="probabilistic-graphical-models" class="level2">
+<h2 class="anchored" data-anchor-id="probabilistic-graphical-models">Probabilistic Graphical Models</h2>
+<section id="representing-complex-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="representing-complex-dependencies">Representing Complex Dependencies</h3>
+<p>Graphical models use graphs to represent probabilistic relationships:</p>
+<ul>
+<li><strong>Bayesian Networks:</strong> Directed acyclic graphs representing causal relationships</li>
+<li><strong>Markov Random Fields:</strong> Undirected graphs representing symmetric dependencies</li>
+</ul>
+<p>These models enable efficient computation and intuitive representation of complex probabilistic systems.</p>
+</section>
+<section id="inference-in-graphical-models" class="level3">
+<h3 class="anchored" data-anchor-id="inference-in-graphical-models">Inference in Graphical Models</h3>
+<p>Key inference tasks include:</p>
+<ul>
+<li><strong>Marginal inference:</strong> <span class="math inline">\(P(X_i) = \sum_{\mathbf{x}_{\setminus i}} P(\mathbf{x})\)</span></li>
+<li><strong>Maximum a posteriori (MAP):</strong> <span class="math inline">\(\arg\max_{\mathbf{x}} P(\mathbf{x})\)</span></li>
+<li><strong>Posterior inference:</strong> <span class="math inline">\(P(\text{hidden}|\text{observed})\)</span></li>
+</ul>
+<p>Algorithms like belief propagation, junction trees, and variational methods enable efficient inference.</p>
+</section>
+</section>
+<section id="uncertainty-quantification-in-deep-learning" class="level2">
+<h2 class="anchored" data-anchor-id="uncertainty-quantification-in-deep-learning">Uncertainty Quantification in Deep Learning</h2>
+<section id="bayesian-neural-networks" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-neural-networks">Bayesian Neural Networks</h3>
+<p>Traditional neural networks provide point estimates. Bayesian neural networks model uncertainty in weights:</p>
+<p><span class="math display">\[
+P(\mathbf{y}|\mathbf{x}, \mathcal{D}) = \int P(\mathbf{y}|\mathbf{x}, \mathbf{w})P(\mathbf{w}|\mathcal{D}) d\mathbf{w}
+\]</span></p>
+<p>This provides uncertainty estimates for predictions, crucial for safety-critical applications.</p>
+</section>
+<section id="monte-carlo-dropout" class="level3">
+<h3 class="anchored" data-anchor-id="monte-carlo-dropout">Monte Carlo Dropout</h3>
+<p>A practical approximation for Bayesian neural networks uses dropout at test time:</p>
+<p><span class="math display">\[
+P(\mathbf{y}|\mathbf{x}) \approx \frac{1}{T} \sum_{t=1}^T P(\mathbf{y}|\mathbf{x}, \mathbf{w}_t)
+\]</span></p>
+<p>Where <span class="math inline">\(\mathbf{w}_t\)</span> are different dropout masks, providing an ensemble of predictions.</p>
+</section>
+<section id="calibration-and-reliability" class="level3">
+<h3 class="anchored" data-anchor-id="calibration-and-reliability">Calibration and Reliability</h3>
+<p>Well-calibrated models should satisfy:</p>
+<p><span class="math display">\[
+P(\hat{Y} = Y | \hat{P} = p) = p
+\]</span></p>
+<p>Where <span class="math inline">\(\hat{P}\)</span> is the predicted probability. Modern neural networks often need calibration techniques like temperature scaling.</p>
+</section>
+</section>
+<section id="teaching-probability-with-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-probability-with-intuition">Teaching Probability with Intuition</h2>
+<section id="the-weather-forecast-analogy-for-bayesian-updates" class="level3">
+<h3 class="anchored" data-anchor-id="the-weather-forecast-analogy-for-bayesian-updates">The “Weather Forecast” Analogy for Bayesian Updates</h3>
+<p>Think of Bayesian updating like a weather forecast. Your prior is yesterday’s forecast. New data is today’s weather observations. The posterior is tomorrow’s updated forecast. Each day, you combine old predictions with new evidence to improve future forecasts.</p>
+</section>
+<section id="the-medical-test-example-for-conditional-probability" class="level3">
+<h3 class="anchored" data-anchor-id="the-medical-test-example-for-conditional-probability">The “Medical Test” Example for Conditional Probability</h3>
+<p>A medical test with 99% accuracy sounds reliable, but if the disease is rare (1 in 10,000), a positive test might only have ~1% chance of being correct. This counterintuitive result demonstrates why we need Bayesian reasoning and can’t just look at test accuracy alone.</p>
+</section>
+<section id="the-polling-analogy-for-confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="the-polling-analogy-for-confidence-intervals">The “Polling” Analogy for Confidence Intervals</h3>
+<p>A political poll might show a candidate with 52% support ±3%. This doesn’t mean exactly 52% of voters support them, but that if we conducted the poll many times, 95% of the intervals would contain the true percentage. The uncertainty is about the method, not the candidate’s support.</p>
+</section>
+</section>
+<section id="statistical-evaluation-of-models" class="level2">
+<h2 class="anchored" data-anchor-id="statistical-evaluation-of-models">Statistical Evaluation of Models</h2>
+<section id="beyond-accuracy-comprehensive-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="beyond-accuracy-comprehensive-metrics">Beyond Accuracy: Comprehensive Metrics</h3>
+<p>For classification, we need more than just accuracy:</p>
+<ul>
+<li><strong>Precision:</strong> <span class="math inline">\(\frac{\text{TP}}{\text{TP} + \text{FP}}\)</span> - When we predict positive, how often are we correct?</li>
+<li><strong>Recall:</strong> <span class="math inline">\(\frac{\text{TP}}{\text{TP} + \text{FN}}\)</span> - How many actual positives do we catch?</li>
+<li><strong>F1-score:</strong> Harmonic mean of precision and recall</li>
+<li><strong>ROC curves:</strong> Trade-off between true positive and false positive rates</li>
+<li><strong>AUC:</strong> Area under ROC curve, overall performance measure</li>
+</ul>
+</section>
+<section id="cross-validation-and-generalization" class="level3">
+<h3 class="anchored" data-anchor-id="cross-validation-and-generalization">Cross-Validation and Generalization</h3>
+<p>K-fold cross-validation provides better estimates of generalization error:</p>
+<ol type="1">
+<li>Split data into K folds</li>
+<li>For each fold: train on K-1 folds, test on held-out fold</li>
+<li>Average performance across all folds</li>
+</ol>
+<p>This helps detect overfitting and provides more reliable performance estimates.</p>
+</section>
+<section id="statistical-significance-testing" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-significance-testing">Statistical Significance Testing</h3>
+<p>When comparing models, we need to determine if differences are statistically significant:</p>
+<ul>
+<li><strong>Paired t-test:</strong> Compare performance across multiple datasets/folds</li>
+<li><strong>McNemar’s test:</strong> Compare classifiers on the same test set</li>
+<li><strong>Wilcoxon signed-rank test:</strong> Non-parametric alternative to t-test</li>
+</ul>
+</section>
+</section>
+<section id="common-student-challenges-and-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="common-student-challenges-and-solutions">Common Student Challenges and Solutions</h2>
+<section id="challenge-1-why-do-we-need-probability-cant-we-just-use-the-most-likely-answer" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1-why-do-we-need-probability-cant-we-just-use-the-most-likely-answer">Challenge 1: “Why do we need probability? Can’t we just use the most likely answer?”</h3>
+<p><strong>Solution:</strong> Use the “self-driving car” analogy. A car that’s 51% sure the road is clear might proceed, while one that’s only 51% sure might wait for more evidence. Probability gives us the confidence level needed for different decisions.</p>
+</section>
+<section id="challenge-2-bayes-theorem-seems-too-abstract-and-mathematical." class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2-bayes-theorem-seems-too-abstract-and-mathematical.">Challenge 2: “Bayes’ theorem seems too abstract and mathematical.”</h3>
+<p><strong>Solution:</strong> Start with concrete examples like medical testing or spam filtering. Show how prior knowledge (disease prevalence, typical spam patterns) combines with new evidence (test results, email content) to update beliefs.</p>
+</section>
+<section id="challenge-3-how-do-we-choose-priors-in-bayesian-methods" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3-how-do-we-choose-priors-in-bayesian-methods">Challenge 3: “How do we choose priors in Bayesian methods?”</h3>
+<p><strong>Solution:</strong> Explain that priors can be:</p>
+<ul>
+<li><strong>Informative:</strong> Based on domain knowledge</li>
+<li><strong>Weakly informative:</strong> Gently regularize without strong assumptions<br>
+</li>
+<li><strong>Non-informative:</strong> Maximally conservative (like uniform priors)</li>
+<li><strong>Empirical Bayes:</strong> Learned from data</li>
+</ul>
+</section>
+</section>
+<section id="hands-on-exploration-quantifying-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-exploration-quantifying-uncertainty">Hands-On Exploration: Quantifying Uncertainty</h2>
+<section id="bayesian-linear-regression" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-linear-regression">Bayesian Linear Regression</h3>
+<p>Implement Bayesian linear regression on Iris data:</p>
+<p><span class="math display">\[
+\begin{aligned}
+p(\mathbf{w}|\alpha) &amp;= \mathcal{N}(\mathbf{0}, \alpha^{-1}\mathbf{I}) \\\\
+p(\mathbf{y}|\mathbf{X}, \mathbf{w}, \beta) &amp;= \mathcal{N}(\mathbf{X}\mathbf{w}, \beta^{-1}\mathbf{I})
+\end{aligned}
+\]</span></p>
+<p>The posterior distribution over weights is Gaussian, and we can compute predictive distributions that include uncertainty estimates.</p>
+</section>
+<section id="confidence-intervals-for-predictions" class="level3">
+<h3 class="anchored" data-anchor-id="confidence-intervals-for-predictions">Confidence Intervals for Predictions</h3>
+<p>For any model, we can bootstrap to get confidence intervals:</p>
+<ol type="1">
+<li>Resample data with replacement many times</li>
+<li>Train model on each resample</li>
+<li>Make predictions and compute percentiles</li>
+</ol>
+<p>This provides empirical confidence intervals without distributional assumptions.</p>
+</section>
+<section id="calibration-plots" class="level3">
+<h3 class="anchored" data-anchor-id="calibration-plots">Calibration Plots</h3>
+<p>Plot actual frequency vs predicted probability to assess calibration:</p>
+<ul>
+<li>Perfect calibration: Points lie on diagonal</li>
+<li>Overconfident: Points below diagonal (predict too extreme probabilities)</li>
+<li>Underconfident: Points above diagonal (predict too moderate probabilities)</li>
+</ul>
+</section>
+</section>
+<section id="mission-mastering-uncertainty" class="level2">
+<h2 class="anchored" data-anchor-id="mission-mastering-uncertainty">Mission: Mastering Uncertainty</h2>
+<section id="assignment-1-the-bayesian-investigator" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-1-the-bayesian-investigator">Assignment 1: The Bayesian Investigator</h3>
+<p>Implement a Bayesian classifier for the Iris dataset. Compare:</p>
+<ul>
+<li>Maximum Likelihood Estimation (MLE)</li>
+<li>Maximum A Posteriori (MAP) with different priors</li>
+<li>Full Bayesian inference with posterior predictive distribution</li>
+</ul>
+<p>Analyze how priors affect results and uncertainty estimates.</p>
+</section>
+<section id="assignment-2-the-uncertainty-quantifier" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-2-the-uncertainty-quantifier">Assignment 2: The Uncertainty Quantifier</h3>
+<p>Take a standard neural network classifier and add uncertainty quantification using:</p>
+<ul>
+<li>Monte Carlo dropout</li>
+<li>Ensemble methods</li>
+<li>Temperature scaling for calibration</li>
+</ul>
+<p>Compare the uncertainty estimates and their reliability.</p>
+</section>
+<section id="assignment-3-the-statistical-evaluator" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-3-the-statistical-evaluator">Assignment 3: The Statistical Evaluator</h3>
+<p>Compare two classification algorithms using proper statistical testing:</p>
+<ul>
+<li>Compute multiple performance metrics</li>
+<li>Use cross-validation for reliable estimates</li>
+<li>Perform statistical significance tests</li>
+<li>Create confidence intervals for performance differences</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/github\.com\/sijuswamyresearch\/Graph-Theory-Workshop-SBCE");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

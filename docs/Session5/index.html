@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Siju Swamy">
+
+<title>Session 5: Optimization - The Strategy of Search – Training of Trainees Master Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-39215514760178ed112050fe99eae155.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Training of Trainees Master Class</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About the ToT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../feedback.html"> 
+<span class="menu-text">Feed Back</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Session5/index.html">The Strategy of Search</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src=".././images/workshop_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Four Pillers of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Language of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session3/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Engine of Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Science of Uncertainty</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session5/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The Strategy of Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pillars in Practice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synthesis &amp; Teaching Excellence</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images//ASAP.jfif" class="img-fluid figure-img"></p>
+<figcaption>Sharing Innovations</figcaption>
+</figure>
+</div>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-art-and-science-of-finding-the-best" id="toc-the-art-and-science-of-finding-the-best" class="nav-link active" data-scroll-target="#the-art-and-science-of-finding-the-best">The Art and Science of Finding the Best</a></li>
+  <li><a href="#the-optimization-framework" id="toc-the-optimization-framework" class="nav-link" data-scroll-target="#the-optimization-framework">The Optimization Framework</a>
+  <ul class="collapse">
+  <li><a href="#the-general-optimization-problem" id="toc-the-general-optimization-problem" class="nav-link" data-scroll-target="#the-general-optimization-problem">The General Optimization Problem</a></li>
+  <li><a href="#convex-vs-non-convex-optimization" id="toc-convex-vs-non-convex-optimization" class="nav-link" data-scroll-target="#convex-vs-non-convex-optimization">Convex vs Non-Convex Optimization</a></li>
+  </ul></li>
+  <li><a href="#first-order-methods-following-the-gradient" id="toc-first-order-methods-following-the-gradient" class="nav-link" data-scroll-target="#first-order-methods-following-the-gradient">First-Order Methods: Following the Gradient</a>
+  <ul class="collapse">
+  <li><a href="#gradient-descent-and-its-variants" id="toc-gradient-descent-and-its-variants" class="nav-link" data-scroll-target="#gradient-descent-and-its-variants">Gradient Descent and Its Variants</a></li>
+  <li><a href="#momentum-methods" id="toc-momentum-methods" class="nav-link" data-scroll-target="#momentum-methods">Momentum Methods</a></li>
+  <li><a href="#adaptive-learning-rate-methods" id="toc-adaptive-learning-rate-methods" class="nav-link" data-scroll-target="#adaptive-learning-rate-methods">Adaptive Learning Rate Methods</a></li>
+  </ul></li>
+  <li><a href="#second-order-methods-using-curvature-information" id="toc-second-order-methods-using-curvature-information" class="nav-link" data-scroll-target="#second-order-methods-using-curvature-information">Second-Order Methods: Using Curvature Information</a>
+  <ul class="collapse">
+  <li><a href="#newtons-method" id="toc-newtons-method" class="nav-link" data-scroll-target="#newtons-method">Newton’s Method</a></li>
+  <li><a href="#quasi-newton-methods" id="toc-quasi-newton-methods" class="nav-link" data-scroll-target="#quasi-newton-methods">Quasi-Newton Methods</a></li>
+  </ul></li>
+  <li><a href="#constrained-optimization" id="toc-constrained-optimization" class="nav-link" data-scroll-target="#constrained-optimization">Constrained Optimization</a>
+  <ul class="collapse">
+  <li><a href="#lagrange-multipliers" id="toc-lagrange-multipliers" class="nav-link" data-scroll-target="#lagrange-multipliers">Lagrange Multipliers</a></li>
+  <li><a href="#karush-kuhn-tucker-kkt-conditions" id="toc-karush-kuhn-tucker-kkt-conditions" class="nav-link" data-scroll-target="#karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</a></li>
+  </ul></li>
+  <li><a href="#regularization-and-constrained-formulations" id="toc-regularization-and-constrained-formulations" class="nav-link" data-scroll-target="#regularization-and-constrained-formulations">Regularization and Constrained Formulations</a>
+  <ul class="collapse">
+  <li><a href="#l1-and-l2-regularization" id="toc-l1-and-l2-regularization" class="nav-link" data-scroll-target="#l1-and-l2-regularization">L1 and L2 Regularization</a></li>
+  <li><a href="#proximal-operators" id="toc-proximal-operators" class="nav-link" data-scroll-target="#proximal-operators">Proximal Operators</a></li>
+  </ul></li>
+  <li><a href="#global-optimization-methods" id="toc-global-optimization-methods" class="nav-link" data-scroll-target="#global-optimization-methods">Global Optimization Methods</a>
+  <ul class="collapse">
+  <li><a href="#when-local-methods-fail" id="toc-when-local-methods-fail" class="nav-link" data-scroll-target="#when-local-methods-fail">When Local Methods Fail</a></li>
+  </ul></li>
+  <li><a href="#hyperparameter-optimization" id="toc-hyperparameter-optimization" class="nav-link" data-scroll-target="#hyperparameter-optimization">Hyperparameter Optimization</a>
+  <ul class="collapse">
+  <li><a href="#the-outer-optimization-loop" id="toc-the-outer-optimization-loop" class="nav-link" data-scroll-target="#the-outer-optimization-loop">The Outer Optimization Loop</a></li>
+  <li><a href="#multi-fidelity-optimization" id="toc-multi-fidelity-optimization" class="nav-link" data-scroll-target="#multi-fidelity-optimization">Multi-Fidelity Optimization</a></li>
+  </ul></li>
+  <li><a href="#optimization-in-deep-learning" id="toc-optimization-in-deep-learning" class="nav-link" data-scroll-target="#optimization-in-deep-learning">Optimization in Deep Learning</a>
+  <ul class="collapse">
+  <li><a href="#challenges-in-deep-learning-optimization" id="toc-challenges-in-deep-learning-optimization" class="nav-link" data-scroll-target="#challenges-in-deep-learning-optimization">Challenges in Deep Learning Optimization</a></li>
+  <li><a href="#optimization-for-specific-architectures" id="toc-optimization-for-specific-architectures" class="nav-link" data-scroll-target="#optimization-for-specific-architectures">Optimization for Specific Architectures</a></li>
+  </ul></li>
+  <li><a href="#teaching-optimization-with-intuition" id="toc-teaching-optimization-with-intuition" class="nav-link" data-scroll-target="#teaching-optimization-with-intuition">Teaching Optimization with Intuition</a>
+  <ul class="collapse">
+  <li><a href="#the-mountain-descent-analogy-for-optimization-methods" id="toc-the-mountain-descent-analogy-for-optimization-methods" class="nav-link" data-scroll-target="#the-mountain-descent-analogy-for-optimization-methods">The “Mountain Descent” Analogy for Optimization Methods</a></li>
+  <li><a href="#the-restaurant-menu-analogy-for-regularization" id="toc-the-restaurant-menu-analogy-for-regularization" class="nav-link" data-scroll-target="#the-restaurant-menu-analogy-for-regularization">The “Restaurant Menu” Analogy for Regularization</a></li>
+  <li><a href="#the-resource-allocation-analogy-for-hyperparameter-optimization" id="toc-the-resource-allocation-analogy-for-hyperparameter-optimization" class="nav-link" data-scroll-target="#the-resource-allocation-analogy-for-hyperparameter-optimization">The “Resource Allocation” Analogy for Hyperparameter Optimization</a></li>
+  </ul></li>
+  <li><a href="#convergence-analysis" id="toc-convergence-analysis" class="nav-link" data-scroll-target="#convergence-analysis">Convergence Analysis</a>
+  <ul class="collapse">
+  <li><a href="#rates-of-convergence" id="toc-rates-of-convergence" class="nav-link" data-scroll-target="#rates-of-convergence">Rates of Convergence</a></li>
+  <li><a href="#practical-convergence-diagnostics" id="toc-practical-convergence-diagnostics" class="nav-link" data-scroll-target="#practical-convergence-diagnostics">Practical Convergence Diagnostics</a></li>
+  </ul></li>
+  <li><a href="#common-student-challenges-and-solutions" id="toc-common-student-challenges-and-solutions" class="nav-link" data-scroll-target="#common-student-challenges-and-solutions">Common Student Challenges and Solutions</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1-which-optimizer-should-i-use" id="toc-challenge-1-which-optimizer-should-i-use" class="nav-link" data-scroll-target="#challenge-1-which-optimizer-should-i-use">Challenge 1: “Which optimizer should I use?”</a></li>
+  <li><a href="#challenge-2-how-do-i-set-the-learning-rate" id="toc-challenge-2-how-do-i-set-the-learning-rate" class="nav-link" data-scroll-target="#challenge-2-how-do-i-set-the-learning-rate">Challenge 2: “How do I set the learning rate?”</a></li>
+  <li><a href="#challenge-3-my-model-isnt-converging---whats-wrong" id="toc-challenge-3-my-model-isnt-converging---whats-wrong" class="nav-link" data-scroll-target="#challenge-3-my-model-isnt-converging---whats-wrong">Challenge 3: “My model isn’t converging - what’s wrong?”</a></li>
+  </ul></li>
+  <li><a href="#hands-on-exploration-optimization-in-practice" id="toc-hands-on-exploration-optimization-in-practice" class="nav-link" data-scroll-target="#hands-on-exploration-optimization-in-practice">Hands-On Exploration: Optimization in Practice</a>
+  <ul class="collapse">
+  <li><a href="#comparing-optimization-algorithms" id="toc-comparing-optimization-algorithms" class="nav-link" data-scroll-target="#comparing-optimization-algorithms">Comparing Optimization Algorithms</a></li>
+  <li><a href="#hyperparameter-optimization-demo" id="toc-hyperparameter-optimization-demo" class="nav-link" data-scroll-target="#hyperparameter-optimization-demo">Hyperparameter Optimization Demo</a></li>
+  <li><a href="#regularization-effects-visualization" id="toc-regularization-effects-visualization" class="nav-link" data-scroll-target="#regularization-effects-visualization">Regularization Effects Visualization</a></li>
+  </ul></li>
+  <li><a href="#mission-mastering-optimization-strategies" id="toc-mission-mastering-optimization-strategies" class="nav-link" data-scroll-target="#mission-mastering-optimization-strategies">Mission: Mastering Optimization Strategies</a>
+  <ul class="collapse">
+  <li><a href="#assignment-1-the-optimization-explorer" id="toc-assignment-1-the-optimization-explorer" class="nav-link" data-scroll-target="#assignment-1-the-optimization-explorer">Assignment 1: The Optimization Explorer</a></li>
+  <li><a href="#assignment-2-the-regularization-analyst" id="toc-assignment-2-the-regularization-analyst" class="nav-link" data-scroll-target="#assignment-2-the-regularization-analyst">Assignment 2: The Regularization Analyst</a></li>
+  <li><a href="#assignment-3-the-hyperparameter-strategist" id="toc-assignment-3-the-hyperparameter-strategist" class="nav-link" data-scroll-target="#assignment-3-the-hyperparameter-strategist">Assignment 3: The Hyperparameter Strategist</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 5: Optimization - The Strategy of Search</h1>
+<p class="subtitle lead"><a href="slides-ML.html" target="_blank"></a></p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Siju Swamy <a href="mailto:siju.swamy@saintgits.org" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0004-1983-5574" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Saintgits College of Engineering (Autonomous)
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div style="text-align: center;">
+<p><img src="ToT_day5.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;"></p>
+</div>
+<section id="the-art-and-science-of-finding-the-best" class="level2">
+<h2 class="anchored" data-anchor-id="the-art-and-science-of-finding-the-best">The Art and Science of Finding the Best</h2>
+<p>Welcome to our exploration of optimization, the fourth and final pillar of artificial intelligence. While linear algebra provides the language, calculus the learning mechanism, and probability the framework for uncertainty, optimization provides the strategic intelligence for finding the best solutions in complex, high-dimensional spaces. Optimization is the mathematical discipline that transforms the question “How can we improve?” into the actionable strategy “Here’s how to find the best improvement.”</p>
+<p>In this session, we will uncover how optimization theory provides the algorithms and strategies that enable AI systems to navigate complex landscapes, balance competing objectives, and converge toward optimal solutions. From the simple elegance of gradient descent to the sophisticated strategies of constrained optimization, we will see how mathematical optimization forms the strategic backbone of all learning systems.</p>
+</section>
+<section id="the-optimization-framework" class="level2">
+<h2 class="anchored" data-anchor-id="the-optimization-framework">The Optimization Framework</h2>
+<section id="the-general-optimization-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-general-optimization-problem">The General Optimization Problem</h3>
+<p>Most machine learning problems can be framed as optimization problems:</p>
+<p><span class="math display">\[
+\min_{\mathbf{w} \in \mathcal{W}} f(\mathbf{w})
+\]</span></p>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(\mathbf{w}\)</span> are the parameters we want to optimize</li>
+<li><span class="math inline">\(f(\mathbf{w})\)</span> is the objective function (typically loss function)</li>
+<li><span class="math inline">\(\mathcal{W}\)</span> is the feasible set (possible parameter values)</li>
+</ul>
+<p>For our Iris classification problem, this becomes:</p>
+<p><span class="math display">\[
+\min_{\mathbf{w}} \frac{1}{n}\sum_{i=1}^n \ell(y_i, \mathbf{w}^T\mathbf{x}_i) + \lambda R(\mathbf{w})
+\]</span></p>
+<p>where <span class="math inline">\(\ell\)</span> is the loss function and <span class="math inline">\(R(\mathbf{w})\)</span> is a regularization term.</p>
+</section>
+<section id="convex-vs-non-convex-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="convex-vs-non-convex-optimization">Convex vs Non-Convex Optimization</h3>
+<p>The nature of the optimization landscape dramatically affects our strategy:</p>
+<p><strong>Convex Optimization:</strong></p>
+<ul>
+<li><span class="math inline">\(f(\mathbf{w})\)</span> is convex: <span class="math inline">\(f(\theta\mathbf{w} + (1-\theta)\mathbf{v}) \leq \theta f(\mathbf{w}) + (1-\theta)f(\mathbf{v})\)</span></li>
+<li>Has single global minimum</li>
+<li>Guaranteed convergence to optimum</li>
+<li>Examples: Linear regression, logistic regression</li>
+</ul>
+<p><strong>Non-Convex Optimization:</strong></p>
+<ul>
+<li>Multiple local minima</li>
+<li>No convergence guarantees to global optimum</li>
+<li>Requires careful initialization and strategies</li>
+<li>Examples: Neural networks, mixture models</li>
+</ul>
+</section>
+</section>
+<section id="first-order-methods-following-the-gradient" class="level2">
+<h2 class="anchored" data-anchor-id="first-order-methods-following-the-gradient">First-Order Methods: Following the Gradient</h2>
+<section id="gradient-descent-and-its-variants" class="level3">
+<h3 class="anchored" data-anchor-id="gradient-descent-and-its-variants">Gradient Descent and Its Variants</h3>
+<p>The foundation of first-order methods is gradient descent:</p>
+<p><strong>Batch Gradient Descent:</strong> <span class="math display">\[
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \nabla f(\mathbf{w}^{(t)})
+\]</span></p>
+<p><strong>Stochastic Gradient Descent (SGD):</strong> <span class="math display">\[
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \nabla f_i(\mathbf{w}^{(t)})
+\]</span> where <span class="math inline">\(f_i\)</span> is the loss for a single data point</p>
+<p><strong>Mini-batch Gradient Descent:</strong> <span class="math display">\[
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \frac{1}{B} \sum_{i=1}^B \nabla f_i(\mathbf{w}^{(t)})
+\]</span></p>
+</section>
+<section id="momentum-methods" class="level3">
+<h3 class="anchored" data-anchor-id="momentum-methods">Momentum Methods</h3>
+<p>Momentum helps accelerate convergence and dampen oscillations:</p>
+<p><strong>Classical Momentum:</strong> <span class="math display">\[
+\begin{aligned}
+\mathbf{v}^{(t+1)} &amp;= \gamma \mathbf{v}^{(t)} + \eta \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
+\end{aligned}
+\]</span></p>
+<p><strong>Nesterov Accelerated Gradient:</strong> <span class="math display">\[
+\begin{aligned}
+\mathbf{v}^{(t+1)} &amp;= \gamma \mathbf{v}^{(t)} + \eta \nabla f(\mathbf{w}^{(t)} - \gamma \mathbf{v}^{(t)}) \\\\
+\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
+\end{aligned}
+\]</span></p>
+</section>
+<section id="adaptive-learning-rate-methods" class="level3">
+<h3 class="anchored" data-anchor-id="adaptive-learning-rate-methods">Adaptive Learning Rate Methods</h3>
+<p>These methods adapt learning rates per parameter:</p>
+<p><strong>AdaGrad:</strong> <span class="math display">\[
+\begin{aligned}
+\mathbf{g}^{(t)} &amp;= \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{G}^{(t)} &amp;= \mathbf{G}^{(t-1)} + \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
+\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\mathbf{G}^{(t)} + \epsilon}} \odot \mathbf{g}^{(t)}
+\end{aligned}
+\]</span></p>
+<p><strong>RMSProp:</strong> <span class="math display">\[
+\begin{aligned}
+\mathbf{g}^{(t)} &amp;= \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{G}^{(t)} &amp;= \beta \mathbf{G}^{(t-1)} + (1-\beta) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
+\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\mathbf{G}^{(t)} + \epsilon}} \odot \mathbf{g}^{(t)}
+\end{aligned}
+\]</span></p>
+<p><strong>Adam (Adaptive Moment Estimation):</strong> <span class="math display">\[
+\begin{aligned}
+\mathbf{m}^{(t)} &amp;= \beta_1 \mathbf{m}^{(t-1)} + (1-\beta_1) \mathbf{g}^{(t)} \\\\
+\mathbf{v}^{(t)} &amp;= \beta_2 \mathbf{v}^{(t-1)} + (1-\beta_2) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
+\hat{\mathbf{m}}^{(t)} &amp;= \frac{\mathbf{m}^{(t)}}{1-\beta_1^t}, \quad \hat{\mathbf{v}}^{(t)} = \frac{\mathbf{v}^{(t)}}{1-\beta_2^t} \\\\
+\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\hat{\mathbf{v}}^{(t)}} + \epsilon} \hat{\mathbf{m}}^{(t)}
+\end{aligned}
+\]</span></p>
+</section>
+</section>
+<section id="second-order-methods-using-curvature-information" class="level2">
+<h2 class="anchored" data-anchor-id="second-order-methods-using-curvature-information">Second-Order Methods: Using Curvature Information</h2>
+<section id="newtons-method" class="level3">
+<h3 class="anchored" data-anchor-id="newtons-method">Newton’s Method</h3>
+<p>Newton’s method uses second derivative information for faster convergence:</p>
+<p><span class="math display">\[
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta [\nabla^2 f(\mathbf{w}^{(t)})]^{-1} \nabla f(\mathbf{w}^{(t)})
+\]</span></p>
+<p>Where <span class="math inline">\(\nabla^2 f(\mathbf{w})\)</span> is the Hessian matrix containing second derivatives.</p>
+</section>
+<section id="quasi-newton-methods" class="level3">
+<h3 class="anchored" data-anchor-id="quasi-newton-methods">Quasi-Newton Methods</h3>
+<p>Since computing the full Hessian is expensive, quasi-Newton methods approximate it:</p>
+<p><strong>BFGS (Broyden-Fletcher-Goldfarb-Shanno):</strong> <span class="math display">\[
+\begin{aligned}
+\mathbf{s}^{(t)} &amp;= \mathbf{w}^{(t+1)} - \mathbf{w}^{(t)} \\\\
+\mathbf{y}^{(t)} &amp;= \nabla f(\mathbf{w}^{(t+1)}) - \nabla f(\mathbf{w}^{(t)}) \\\\
+\mathbf{B}^{(t+1)} &amp;= \mathbf{B}^{(t)} + \frac{\mathbf{y}^{(t)} \mathbf{y}^{(t)^T}}{\mathbf{y}^{(t)^T} \mathbf{s}^{(t)}} - \frac{\mathbf{B}^{(t)} \mathbf{s}^{(t)} \mathbf{s}^{(t)^T} \mathbf{B}^{(t)}}{\mathbf{s}^{(t)^T} \mathbf{B}^{(t)} \mathbf{s}^{(t)}}
+\end{aligned}
+\]</span></p>
+<p><strong>L-BFGS (Limited-memory BFGS):</strong> Stores only last m vectors to approximate inverse Hessian</p>
+</section>
+</section>
+<section id="constrained-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="constrained-optimization">Constrained Optimization</h2>
+<section id="lagrange-multipliers" class="level3">
+<h3 class="anchored" data-anchor-id="lagrange-multipliers">Lagrange Multipliers</h3>
+<p>For problems with constraints, we use Lagrange multipliers:</p>
+<p><span class="math display">\[
+\mathcal{L}(\mathbf{w}, \lambda) = f(\mathbf{w}) + \lambda^T g(\mathbf{w})
+\]</span></p>
+<p>where <span class="math inline">\(g(\mathbf{w}) \leq 0\)</span> are the constraints.</p>
+</section>
+<section id="karush-kuhn-tucker-kkt-conditions" class="level3">
+<h3 class="anchored" data-anchor-id="karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</h3>
+<p>The necessary conditions for optimality in constrained optimization:</p>
+<ol type="1">
+<li><strong>Stationarity:</strong> <span class="math inline">\(\nabla f(\mathbf{w}^*) + \sum \lambda_i \nabla g_i(\mathbf{w}^*) = 0\)</span></li>
+<li><strong>Primal feasibility:</strong> <span class="math inline">\(g_i(\mathbf{w}^*) \leq 0\)</span></li>
+<li><strong>Dual feasibility:</strong> <span class="math inline">\(\lambda_i \geq 0\)</span></li>
+<li><strong>Complementary slackness:</strong> <span class="math inline">\(\lambda_i g_i(\mathbf{w}^*) = 0\)</span></li>
+</ol>
+</section>
+</section>
+<section id="regularization-and-constrained-formulations" class="level2">
+<h2 class="anchored" data-anchor-id="regularization-and-constrained-formulations">Regularization and Constrained Formulations</h2>
+<section id="l1-and-l2-regularization" class="level3">
+<h3 class="anchored" data-anchor-id="l1-and-l2-regularization">L1 and L2 Regularization</h3>
+<p>Regularization can be viewed as constrained optimization:</p>
+<p><strong>L2 Regularization (Ridge):</strong> <span class="math display">\[
+\min_{\mathbf{w}} f(\mathbf{w}) + \lambda \|\mathbf{w}\|_2^2
+\]</span> Equivalent to: <span class="math inline">\(\min_{\mathbf{w}} f(\mathbf{w})\)</span> subject to <span class="math inline">\(\|\mathbf{w}\|_2^2 \leq C\)</span></p>
+<p><strong>L1 Regularization (Lasso):</strong> <span class="math display">\[
+\min_{\mathbf{w}} f(\mathbf{w}) + \lambda \|\mathbf{w}\|_1
+\]</span> Equivalent to: <span class="math inline">\(\min_{\mathbf{w}} f(\mathbf{w})\)</span> subject to <span class="math inline">\(\|\mathbf{w}\|_1 \leq C\)</span></p>
+</section>
+<section id="proximal-operators" class="level3">
+<h3 class="anchored" data-anchor-id="proximal-operators">Proximal Operators</h3>
+<p>For non-smooth optimization problems like L1 regularization:</p>
+<p><span class="math display">\[
+\text{prox}_{\lambda h}(\mathbf{w}) = \arg\min_{\mathbf{z}} \left\{ h(\mathbf{z}) + \frac{1}{2\lambda} \|\mathbf{z} - \mathbf{w}\|_2^2 \right\}
+\]</span></p>
+<p>For L1 regularization: <span class="math inline">\(\text{prox}_{\lambda \|\cdot\|_1}(\mathbf{w}) = \text{sign}(\mathbf{w}) \max(|\mathbf{w}| - \lambda, 0)\)</span></p>
+</section>
+</section>
+<section id="global-optimization-methods" class="level2">
+<h2 class="anchored" data-anchor-id="global-optimization-methods">Global Optimization Methods</h2>
+<section id="when-local-methods-fail" class="level3">
+<h3 class="anchored" data-anchor-id="when-local-methods-fail">When Local Methods Fail</h3>
+<p>For highly non-convex problems, we need global optimization strategies:</p>
+<p><strong>Simulated Annealing:</strong></p>
+<ul>
+<li>Inspired by metallurgical annealing</li>
+<li>Occasionally accepts worse solutions to escape local minima</li>
+<li>Temperature parameter controls exploration vs exploitation</li>
+</ul>
+<p><strong>Genetic Algorithms:</strong></p>
+<ul>
+<li>Population-based search</li>
+<li>Uses crossover and mutation operators</li>
+<li>Maintains diversity to explore search space</li>
+</ul>
+<p><strong>Bayesian Optimization:</strong></p>
+<ul>
+<li>Builds probabilistic model of objective function</li>
+<li>Uses acquisition function to decide where to sample next</li>
+<li>Particularly useful for expensive black-box functions</li>
+</ul>
+</section>
+</section>
+<section id="hyperparameter-optimization" class="level2">
+<h2 class="anchored" data-anchor-id="hyperparameter-optimization">Hyperparameter Optimization</h2>
+<section id="the-outer-optimization-loop" class="level3">
+<h3 class="anchored" data-anchor-id="the-outer-optimization-loop">The Outer Optimization Loop</h3>
+<p>While model parameters are learned via gradient descent, hyperparameters require different strategies:</p>
+<ul>
+<li><strong>Grid Search:</strong> Exhaustive search over predefined hyperparameter grid</li>
+<li><strong>Random Search:</strong> More efficient than grid search for high dimensions</li>
+<li><strong>Bayesian Optimization:</strong> Adaptive sampling based on previous results</li>
+</ul>
+</section>
+<section id="multi-fidelity-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="multi-fidelity-optimization">Multi-Fidelity Optimization</h3>
+<p>Using cheaper approximations to guide search:</p>
+<ul>
+<li><strong>Learning curve extrapolation:</strong> Predict final performance from early training</li>
+<li><strong>Successive halving:</strong> Allocate more resources to promising configurations</li>
+<li><strong>Hyperband:</strong> Adaptive resource allocation strategy</li>
+</ul>
+</section>
+</section>
+<section id="optimization-in-deep-learning" class="level2">
+<h2 class="anchored" data-anchor-id="optimization-in-deep-learning">Optimization in Deep Learning</h2>
+<section id="challenges-in-deep-learning-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="challenges-in-deep-learning-optimization">Challenges in Deep Learning Optimization</h3>
+<p>Deep neural networks present unique optimization challenges:</p>
+<p><strong>Vanishing/Exploding Gradients:</strong></p>
+<ul>
+<li>Gradients become extremely small or large through many layers</li>
+<li>Solved with careful initialization, batch normalization, residual connections</li>
+</ul>
+<p><strong>Saddle Points:</strong></p>
+<ul>
+<li>More problematic than local minima in high dimensions</li>
+<li>Second-order methods can help identify and escape</li>
+</ul>
+<p><strong>Ill-conditioning:</strong></p>
+<ul>
+<li>Hessian matrix has large condition number</li>
+<li>Adaptive methods like Adam help mitigate this</li>
+</ul>
+</section>
+<section id="optimization-for-specific-architectures" class="level3">
+<h3 class="anchored" data-anchor-id="optimization-for-specific-architectures">Optimization for Specific Architectures</h3>
+<ul>
+<li><strong>CNNs:</strong> Spatial structure enables efficient convolutional operations</li>
+<li><strong>RNNs:</strong> Backpropagation through time, gradient clipping for stability</li>
+<li><strong>Transformers:</strong> Careful initialization, learning rate warmup</li>
+</ul>
+</section>
+</section>
+<section id="teaching-optimization-with-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-optimization-with-intuition">Teaching Optimization with Intuition</h2>
+<section id="the-mountain-descent-analogy-for-optimization-methods" class="level3">
+<h3 class="anchored" data-anchor-id="the-mountain-descent-analogy-for-optimization-methods">The “Mountain Descent” Analogy for Optimization Methods</h3>
+<ul>
+<li><strong>Gradient Descent:</strong> Like walking straight downhill, following the steepest slope</li>
+<li><strong>Momentum:</strong> Like a ball rolling downhill - builds speed in consistent directions</li>
+<li><strong>Adam:</strong> Like an experienced hiker with different step sizes for different terrains</li>
+<li><strong>Newton’s Method:</strong> Like using a topographic map to find the valley directly</li>
+</ul>
+</section>
+<section id="the-restaurant-menu-analogy-for-regularization" class="level3">
+<h3 class="anchored" data-anchor-id="the-restaurant-menu-analogy-for-regularization">The “Restaurant Menu” Analogy for Regularization</h3>
+<p>Think of model complexity like a restaurant menu:</p>
+<ul>
+<li><strong>No regularization:</strong> Huge menu with every possible dish (overfits to customer preferences)</li>
+<li><strong>L2 regularization:</strong> Reasonable-sized menu with popular dishes</li>
+<li><strong>L1 regularization:</strong> Small menu with only essential, popular dishes (feature selection)</li>
+</ul>
+</section>
+<section id="the-resource-allocation-analogy-for-hyperparameter-optimization" class="level3">
+<h3 class="anchored" data-anchor-id="the-resource-allocation-analogy-for-hyperparameter-optimization">The “Resource Allocation” Analogy for Hyperparameter Optimization</h3>
+<p>Like a venture capitalist funding startups:</p>
+<ul>
+<li><strong>Grid search:</strong> Fund every possible combination equally</li>
+<li><strong>Random search:</strong> Fund random combinations, see which show promise</li>
+<li><strong>Bayesian optimization:</strong> Learn from previous investments, fund most promising directions</li>
+</ul>
+</section>
+</section>
+<section id="convergence-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="convergence-analysis">Convergence Analysis</h2>
+<section id="rates-of-convergence" class="level3">
+<h3 class="anchored" data-anchor-id="rates-of-convergence">Rates of Convergence</h3>
+<p>Different algorithms have different convergence guarantees:</p>
+<ul>
+<li><strong>Gradient Descent:</strong> <span class="math inline">\(O(1/\epsilon)\)</span> iterations for <span class="math inline">\(\epsilon\)</span>-accuracy on smooth convex functions</li>
+<li><strong>Accelerated Gradient:</strong> <span class="math inline">\(O(1/\sqrt{\epsilon})\)</span> iterations</li>
+<li><strong>Newton’s Method:</strong> Quadratic convergence near optimum</li>
+</ul>
+</section>
+<section id="practical-convergence-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="practical-convergence-diagnostics">Practical Convergence Diagnostics</h3>
+<p>In practice, we monitor:</p>
+<ul>
+<li><strong>Loss curve:</strong> Should decrease and stabilize</li>
+<li><strong>Gradient norm:</strong> Should approach zero</li>
+<li><strong>Parameter changes:</strong> Should become small</li>
+<li><strong>Validation performance:</strong> Should improve then stabilize</li>
+</ul>
+</section>
+</section>
+<section id="common-student-challenges-and-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="common-student-challenges-and-solutions">Common Student Challenges and Solutions</h2>
+<section id="challenge-1-which-optimizer-should-i-use" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1-which-optimizer-should-i-use">Challenge 1: “Which optimizer should I use?”</h3>
+<p><strong>Solution:</strong> Provide a decision framework:</p>
+<ul>
+<li>Start with Adam for most problems (robust, little tuning needed)</li>
+<li>Use SGD with momentum if you need the best possible performance (with careful tuning)</li>
+<li>Consider second-order methods for small-to-medium convex problems</li>
+<li>Use specialized optimizers for specific architectures</li>
+</ul>
+</section>
+<section id="challenge-2-how-do-i-set-the-learning-rate" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2-how-do-i-set-the-learning-rate">Challenge 2: “How do I set the learning rate?”</h3>
+<p><strong>Solution:</strong> Recommend strategies:</p>
+<ul>
+<li>Use learning rate finder (train with increasing learning rates, find where loss decreases fastest)</li>
+<li>Use cyclical learning rates</li>
+<li>Start with common defaults (Adam: 0.001, SGD: 0.1) and adjust based on loss curve</li>
+<li>Use learning rate scheduling (step decay, cosine annealing)</li>
+</ul>
+</section>
+<section id="challenge-3-my-model-isnt-converging---whats-wrong" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3-my-model-isnt-converging---whats-wrong">Challenge 3: “My model isn’t converging - what’s wrong?”</h3>
+<p><strong>Solution:</strong> Systematic debugging:</p>
+<ol type="1">
+<li>Check gradient flow (vanishing/exploding gradients)</li>
+<li>Verify data pipeline (shuffling, normalization)</li>
+<li>Try overfitting a small batch (if can’t overfit, model is too small or data有问题)</li>
+<li>Monitor gradient norms and parameter updates</li>
+<li>Check for implementation bugs</li>
+</ol>
+</section>
+</section>
+<section id="hands-on-exploration-optimization-in-practice" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-exploration-optimization-in-practice">Hands-On Exploration: Optimization in Practice</h2>
+<section id="comparing-optimization-algorithms" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-optimization-algorithms">Comparing Optimization Algorithms</h3>
+<p>Implement and compare on Iris classification:</p>
+<ul>
+<li>SGD with and without momentum</li>
+<li>Adam, RMSProp, AdaGrad</li>
+<li>Visualize optimization paths in 2D parameter space</li>
+<li>Compare convergence rates and final performance</li>
+</ul>
+</section>
+<section id="hyperparameter-optimization-demo" class="level3">
+<h3 class="anchored" data-anchor-id="hyperparameter-optimization-demo">Hyperparameter Optimization Demo</h3>
+<p>Set up Bayesian optimization for a neural network:</p>
+<ul>
+<li>Define search space for learning rate, hidden units, regularization</li>
+<li>Use tools like Optuna or Hyperopt</li>
+<li>Compare with random search and grid search</li>
+<li>Analyze trade-off between computation time and performance</li>
+</ul>
+</section>
+<section id="regularization-effects-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="regularization-effects-visualization">Regularization Effects Visualization</h3>
+<p>Show how different regularization strategies affect:</p>
+<ul>
+<li>Decision boundaries</li>
+<li>Feature weights</li>
+<li>Generalization performance</li>
+<li>Model simplicity vs complexity trade-off</li>
+</ul>
+</section>
+</section>
+<section id="mission-mastering-optimization-strategies" class="level2">
+<h2 class="anchored" data-anchor-id="mission-mastering-optimization-strategies">Mission: Mastering Optimization Strategies</h2>
+<section id="assignment-1-the-optimization-explorer" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-1-the-optimization-explorer">Assignment 1: The Optimization Explorer</h3>
+<p>Implement three different optimization algorithms from scratch:</p>
+<ul>
+<li>Vanilla gradient descent</li>
+<li>Momentum</li>
+<li>Adam</li>
+</ul>
+<p>Apply them to logistic regression on Iris data and:</p>
+<ul>
+<li>Plot convergence curves</li>
+<li>Visualize optimization paths</li>
+<li>Compare sensitivity to learning rate</li>
+<li>Analyze when each method works best</li>
+</ul>
+</section>
+<section id="assignment-2-the-regularization-analyst" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-2-the-regularization-analyst">Assignment 2: The Regularization Analyst</h3>
+<p>Compare L1, L2, and elastic net regularization:</p>
+<ul>
+<li>Implement proximal gradient descent for L1</li>
+<li>Analyze effect on feature selection</li>
+<li>Compare generalization performance</li>
+<li>Create visualizations of regularization paths</li>
+</ul>
+</section>
+<section id="assignment-3-the-hyperparameter-strategist" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-3-the-hyperparameter-strategist">Assignment 3: The Hyperparameter Strategist</h3>
+<p>Optimize hyperparameters for a neural network using:</p>
+<ul>
+<li>Grid search</li>
+<li>Random search<br>
+</li>
+<li>Bayesian optimization</li>
+</ul>
+<p>Compare:</p>
+<ul>
+<li>Time to find good configurations</li>
+<li>Best performance found</li>
+<li>Resource requirements</li>
+<li>Practical recommendations for different scenarios</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/github\.com\/sijuswamyresearch\/Graph-Theory-Workshop-SBCE");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

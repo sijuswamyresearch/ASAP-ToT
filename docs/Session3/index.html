@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Siju Swamy">
+
+<title>Session 3: Calculus - The Engine of Learning – Training of Trainees Master Class</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-39215514760178ed112050fe99eae155.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Training of Trainees Master Class</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About the ToT</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../feedback.html"> 
+<span class="menu-text">Feed Back</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Session3/index.html">The Engine of Learning</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src=".././images/workshop_cover.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session1/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Four Pillers of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Language of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session3/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The Engine of Learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session4/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Science of Uncertainty</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Strategy of Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pillars in Practice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synthesis &amp; Teaching Excellence</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="..\images//ASAP.jfif" class="img-fluid figure-img"></p>
+<figcaption>Sharing Innovations</figcaption>
+</figure>
+</div>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-mathematics-of-change-and-improvement" id="toc-the-mathematics-of-change-and-improvement" class="nav-link active" data-scroll-target="#the-mathematics-of-change-and-improvement">The Mathematics of Change and Improvement</a></li>
+  <li><a href="#the-derivative-measuring-sensitivity-and-change" id="toc-the-derivative-measuring-sensitivity-and-change" class="nav-link" data-scroll-target="#the-derivative-measuring-sensitivity-and-change">The Derivative: Measuring Sensitivity and Change</a>
+  <ul class="collapse">
+  <li><a href="#the-foundation-instantaneous-rate-of-change" id="toc-the-foundation-instantaneous-rate-of-change" class="nav-link" data-scroll-target="#the-foundation-instantaneous-rate-of-change">The Foundation: Instantaneous Rate of Change</a></li>
+  <li><a href="#partial-derivatives-in-high-dimensions" id="toc-partial-derivatives-in-high-dimensions" class="nav-link" data-scroll-target="#partial-derivatives-in-high-dimensions">Partial Derivatives in High Dimensions</a></li>
+  </ul></li>
+  <li><a href="#the-gradient-the-learning-compass" id="toc-the-gradient-the-learning-compass" class="nav-link" data-scroll-target="#the-gradient-the-learning-compass">The Gradient: The Learning Compass</a>
+  <ul class="collapse">
+  <li><a href="#the-gradient-vector" id="toc-the-gradient-vector" class="nav-link" data-scroll-target="#the-gradient-vector">The Gradient Vector</a></li>
+  <li><a href="#geometric-interpretation-navigating-loss-landscapes" id="toc-geometric-interpretation-navigating-loss-landscapes" class="nav-link" data-scroll-target="#geometric-interpretation-navigating-loss-landscapes">Geometric Interpretation: Navigating Loss Landscapes</a></li>
+  </ul></li>
+  <li><a href="#gradient-descent-the-learning-algorithm" id="toc-gradient-descent-the-learning-algorithm" class="nav-link" data-scroll-target="#gradient-descent-the-learning-algorithm">Gradient Descent: The Learning Algorithm</a>
+  <ul class="collapse">
+  <li><a href="#the-update-rule" id="toc-the-update-rule" class="nav-link" data-scroll-target="#the-update-rule">The Update Rule</a></li>
+  <li><a href="#the-learning-rate-step-size-matters" id="toc-the-learning-rate-step-size-matters" class="nav-link" data-scroll-target="#the-learning-rate-step-size-matters">The Learning Rate: Step Size Matters</a></li>
+  <li><a href="#visualizing-gradient-descent" id="toc-visualizing-gradient-descent" class="nav-link" data-scroll-target="#visualizing-gradient-descent">Visualizing Gradient Descent</a></li>
+  </ul></li>
+  <li><a href="#the-chain-rule-the-foundation-of-deep-learning" id="toc-the-chain-rule-the-foundation-of-deep-learning" class="nav-link" data-scroll-target="#the-chain-rule-the-foundation-of-deep-learning">The Chain Rule: The Foundation of Deep Learning</a>
+  <ul class="collapse">
+  <li><a href="#composing-functions" id="toc-composing-functions" class="nav-link" data-scroll-target="#composing-functions">Composing Functions</a></li>
+  <li><a href="#backpropagation-applying-the-chain-rule-to-networks" id="toc-backpropagation-applying-the-chain-rule-to-networks" class="nav-link" data-scroll-target="#backpropagation-applying-the-chain-rule-to-networks">Backpropagation: Applying the Chain Rule to Networks</a></li>
+  </ul></li>
+  <li><a href="#loss-functions-quantifying-what-we-want-to-improve" id="toc-loss-functions-quantifying-what-we-want-to-improve" class="nav-link" data-scroll-target="#loss-functions-quantifying-what-we-want-to-improve">Loss Functions: Quantifying What We Want to Improve</a>
+  <ul class="collapse">
+  <li><a href="#common-loss-functions" id="toc-common-loss-functions" class="nav-link" data-scroll-target="#common-loss-functions">Common Loss Functions</a></li>
+  <li><a href="#convex-vs-non-convex-loss-landscapes" id="toc-convex-vs-non-convex-loss-landscapes" class="nav-link" data-scroll-target="#convex-vs-non-convex-loss-landscapes">Convex vs Non-Convex Loss Landscapes</a></li>
+  </ul></li>
+  <li><a href="#advanced-optimization-algorithms" id="toc-advanced-optimization-algorithms" class="nav-link" data-scroll-target="#advanced-optimization-algorithms">Advanced Optimization Algorithms</a>
+  <ul class="collapse">
+  <li><a href="#momentum-learning-with-inertia" id="toc-momentum-learning-with-inertia" class="nav-link" data-scroll-target="#momentum-learning-with-inertia">Momentum: Learning with Inertia</a></li>
+  <li><a href="#adaptive-learning-rates" id="toc-adaptive-learning-rates" class="nav-link" data-scroll-target="#adaptive-learning-rates">Adaptive Learning Rates</a></li>
+  </ul></li>
+  <li><a href="#teaching-calculus-with-intuition" id="toc-teaching-calculus-with-intuition" class="nav-link" data-scroll-target="#teaching-calculus-with-intuition">Teaching Calculus with Intuition</a>
+  <ul class="collapse">
+  <li><a href="#the-hiker-in-the-fog-analogy-for-gradient-descent" id="toc-the-hiker-in-the-fog-analogy-for-gradient-descent" class="nav-link" data-scroll-target="#the-hiker-in-the-fog-analogy-for-gradient-descent">The “Hiker in the Fog” Analogy for Gradient Descent</a></li>
+  <li><a href="#the-factory-assembly-line-for-backpropagation" id="toc-the-factory-assembly-line-for-backpropagation" class="nav-link" data-scroll-target="#the-factory-assembly-line-for-backpropagation">The “Factory Assembly Line” for Backpropagation</a></li>
+  <li><a href="#the-thermostat-analogy-for-learning-rate" id="toc-the-thermostat-analogy-for-learning-rate" class="nav-link" data-scroll-target="#the-thermostat-analogy-for-learning-rate">The “Thermostat” Analogy for Learning Rate</a></li>
+  </ul></li>
+  <li><a href="#calculus-in-modern-architectures" id="toc-calculus-in-modern-architectures" class="nav-link" data-scroll-target="#calculus-in-modern-architectures">Calculus in Modern Architectures</a>
+  <ul class="collapse">
+  <li><a href="#attention-mechanisms-and-gradients" id="toc-attention-mechanisms-and-gradients" class="nav-link" data-scroll-target="#attention-mechanisms-and-gradients">Attention Mechanisms and Gradients</a></li>
+  <li><a href="#generative-models-and-gradient-flow" id="toc-generative-models-and-gradient-flow" class="nav-link" data-scroll-target="#generative-models-and-gradient-flow">Generative Models and Gradient Flow</a></li>
+  </ul></li>
+  <li><a href="#common-student-challenges-and-solutions" id="toc-common-student-challenges-and-solutions" class="nav-link" data-scroll-target="#common-student-challenges-and-solutions">Common Student Challenges and Solutions</a>
+  <ul class="collapse">
+  <li><a href="#challenge-1-why-do-we-need-calculus-cant-we-just-try-different-parameters-randomly" id="toc-challenge-1-why-do-we-need-calculus-cant-we-just-try-different-parameters-randomly" class="nav-link" data-scroll-target="#challenge-1-why-do-we-need-calculus-cant-we-just-try-different-parameters-randomly">Challenge 1: “Why do we need calculus? Can’t we just try different parameters randomly?”</a></li>
+  <li><a href="#challenge-2-the-chain-rule-seems-complicated-with-all-these-partial-derivatives." id="toc-challenge-2-the-chain-rule-seems-complicated-with-all-these-partial-derivatives." class="nav-link" data-scroll-target="#challenge-2-the-chain-rule-seems-complicated-with-all-these-partial-derivatives.">Challenge 2: “The chain rule seems complicated with all these partial derivatives.”</a></li>
+  <li><a href="#challenge-3-how-do-we-know-were-finding-the-global-minimum-and-not-just-a-local-minimum" id="toc-challenge-3-how-do-we-know-were-finding-the-global-minimum-and-not-just-a-local-minimum" class="nav-link" data-scroll-target="#challenge-3-how-do-we-know-were-finding-the-global-minimum-and-not-just-a-local-minimum">Challenge 3: “How do we know we’re finding the global minimum and not just a local minimum?”</a></li>
+  </ul></li>
+  <li><a href="#hands-on-exploration-seeing-learning-happen" id="toc-hands-on-exploration-seeing-learning-happen" class="nav-link" data-scroll-target="#hands-on-exploration-seeing-learning-happen">Hands-On Exploration: Seeing Learning Happen</a>
+  <ul class="collapse">
+  <li><a href="#visualizing-gradient-descent-1" id="toc-visualizing-gradient-descent-1" class="nav-link" data-scroll-target="#visualizing-gradient-descent-1">Visualizing Gradient Descent</a></li>
+  <li><a href="#monitoring-training-dynamics" id="toc-monitoring-training-dynamics" class="nav-link" data-scroll-target="#monitoring-training-dynamics">Monitoring Training Dynamics</a></li>
+  </ul></li>
+  <li><a href="#mission-mastering-the-learning-process" id="toc-mission-mastering-the-learning-process" class="nav-link" data-scroll-target="#mission-mastering-the-learning-process">Mission: Mastering the Learning Process</a>
+  <ul class="collapse">
+  <li><a href="#assignment-1-the-gradient-explorer" id="toc-assignment-1-the-gradient-explorer" class="nav-link" data-scroll-target="#assignment-1-the-gradient-explorer">Assignment 1: The Gradient Explorer</a></li>
+  <li><a href="#assignment-2-the-backpropagation-storyteller" id="toc-assignment-2-the-backpropagation-storyteller" class="nav-link" data-scroll-target="#assignment-2-the-backpropagation-storyteller">Assignment 2: The Backpropagation Storyteller</a></li>
+  <li><a href="#assignment-3-the-optimization-strategist" id="toc-assignment-3-the-optimization-strategist" class="nav-link" data-scroll-target="#assignment-3-the-optimization-strategist">Assignment 3: The Optimization Strategist</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 3: Calculus - The Engine of Learning</h1>
+<p class="subtitle lead"><a href="slides-ML.html" target="_blank"></a></p>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Siju Swamy <a href="mailto:siju.swamy@saintgits.org" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0004-1983-5574" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Saintgits College of Engineering (Autonomous)
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div style="text-align: center;">
+<p><img src="ToT_day3.png" alt="A detailed infographic about Quarto webpage contents" style="width: 600px; height: auto; display: block; margin: 0 auto;"></p>
+</div>
+<section id="the-mathematics-of-change-and-improvement" class="level2">
+<h2 class="anchored" data-anchor-id="the-mathematics-of-change-and-improvement">The Mathematics of Change and Improvement</h2>
+<p>Welcome to our exploration of calculus, the second pillar of artificial intelligence that provides the fundamental mechanism for learning and adaptation. If linear algebra gives us the language to describe intelligent systems, then calculus gives us the tools to make them learn and improve. Calculus is the mathematical engine that transforms static models into dynamic learners, turning data into intelligence through the principled mathematics of change.</p>
+<p>In this session, we will uncover how derivatives, gradients, and the chain rule enable machines to learn from their mistakes, optimize their performance, and adapt to new information. We will see how centuries-old mathematical concepts provide the foundation for the most advanced learning algorithms of our time.</p>
+</section>
+<section id="the-derivative-measuring-sensitivity-and-change" class="level2">
+<h2 class="anchored" data-anchor-id="the-derivative-measuring-sensitivity-and-change">The Derivative: Measuring Sensitivity and Change</h2>
+<section id="the-foundation-instantaneous-rate-of-change" class="level3">
+<h3 class="anchored" data-anchor-id="the-foundation-instantaneous-rate-of-change">The Foundation: Instantaneous Rate of Change</h3>
+<p>The derivative of a function at a point measures how sensitive the output is to small changes in the input:</p>
+<p><span class="math display">\[
+f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
+\]</span></p>
+<p>In machine learning, this concept becomes profoundly practical. For a model with parameters <span class="math inline">\(\mathbf{w}\)</span> and loss function <span class="math inline">\(\mathcal{L}(\mathbf{w})\)</span>, the partial derivative:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial w_i}
+\]</span></p>
+<p>measures how much the loss would change if we made a small adjustment to parameter <span class="math inline">\(w_i\)</span>. This simple concept becomes the guiding compass for model improvement.</p>
+</section>
+<section id="partial-derivatives-in-high-dimensions" class="level3">
+<h3 class="anchored" data-anchor-id="partial-derivatives-in-high-dimensions">Partial Derivatives in High Dimensions</h3>
+<p>In our Iris classification problem, we might have a loss function that depends on multiple parameters. For a linear classifier:</p>
+<p><span class="math display">\[
+\mathcal{L}(\mathbf{w}) = \frac{1}{n}\sum_{i=1}^n (y_i - \mathbf{w}^T\mathbf{x}_i)^2
+\]</span></p>
+<p>Each partial derivative <span class="math inline">\(\frac{\partial \mathcal{L}}{\partial w_j}\)</span> tells us how changing weight <span class="math inline">\(w_j\)</span> affects the overall classification error. The collection of all these partial derivatives forms the gradient.</p>
+</section>
+</section>
+<section id="the-gradient-the-learning-compass" class="level2">
+<h2 class="anchored" data-anchor-id="the-gradient-the-learning-compass">The Gradient: The Learning Compass</h2>
+<section id="the-gradient-vector" class="level3">
+<h3 class="anchored" data-anchor-id="the-gradient-vector">The Gradient Vector</h3>
+<p>The gradient collects all partial derivatives into a single vector:</p>
+<p><span class="math display">\[
+\nabla\mathcal{L}(\mathbf{w}) = \begin{bmatrix}
+\frac{\partial \mathcal{L}}{\partial w_1} \\
+\frac{\partial \mathcal{L}}{\partial w_2} \\
+\vdots \\
+\frac{\partial \mathcal{L}}{\partial w_d}
+\end{bmatrix}
+\]</span></p>
+<p>This vector points in the direction of steepest ascent of the loss function. Its magnitude tells us how steep the slope is in that direction. For learning, we’re interested in the opposite direction—the direction of steepest descent.</p>
+</section>
+<section id="geometric-interpretation-navigating-loss-landscapes" class="level3">
+<h3 class="anchored" data-anchor-id="geometric-interpretation-navigating-loss-landscapes">Geometric Interpretation: Navigating Loss Landscapes</h3>
+<p>Imagine our loss function as a mountainous landscape. The height at each point represents how bad our model performs with particular parameters. We start at a random point in this landscape and want to find the lowest valley.</p>
+<p>The gradient at our current position tells us which direction is uphill. Therefore, <span class="math inline">\(-\nabla\mathcal{L}(\mathbf{w})\)</span> points downhill—the direction we should move to reduce our loss. This geometric intuition transforms abstract mathematics into a concrete navigation strategy.</p>
+</section>
+</section>
+<section id="gradient-descent-the-learning-algorithm" class="level2">
+<h2 class="anchored" data-anchor-id="gradient-descent-the-learning-algorithm">Gradient Descent: The Learning Algorithm</h2>
+<section id="the-update-rule" class="level3">
+<h3 class="anchored" data-anchor-id="the-update-rule">The Update Rule</h3>
+<p>Gradient descent follows a simple iterative process:</p>
+<p><span class="math display">\[
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla\mathcal{L}(\mathbf{w}^{(t)})
+\]</span></p>
+<p>where <span class="math inline">\(\eta\)</span> is the learning rate. This elegant equation embodies the entire concept of learning through gradual improvement.</p>
+</section>
+<section id="the-learning-rate-step-size-matters" class="level3">
+<h3 class="anchored" data-anchor-id="the-learning-rate-step-size-matters">The Learning Rate: Step Size Matters</h3>
+<p>The learning rate <span class="math inline">\(\eta\)</span> controls how far we move in the gradient direction. Its choice is crucial:</p>
+<ul>
+<li><strong>Too small</strong>: Learning is slow, may get stuck in local minima</li>
+<li><strong>Too large</strong>: May overshoot the minimum, causing oscillation or divergence</li>
+<li><strong>Just right</strong>: Efficient convergence to a good solution</li>
+</ul>
+</section>
+<section id="visualizing-gradient-descent" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-gradient-descent">Visualizing Gradient Descent</h3>
+<p>For our Iris classifier, we can visualize gradient descent as a path through parameter space. The algorithm starts with random weights and gradually moves toward regions where the classifier makes fewer mistakes. Each step is determined by the local gradient, creating a path that follows the topography of the loss landscape.</p>
+</section>
+</section>
+<section id="the-chain-rule-the-foundation-of-deep-learning" class="level2">
+<h2 class="anchored" data-anchor-id="the-chain-rule-the-foundation-of-deep-learning">The Chain Rule: The Foundation of Deep Learning</h2>
+<section id="composing-functions" class="level3">
+<h3 class="anchored" data-anchor-id="composing-functions">Composing Functions</h3>
+<p>The chain rule tells us how to differentiate composite functions:</p>
+<p><span class="math display">\[
+\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)
+\]</span></p>
+<p>In the context of neural networks, this becomes essential for computing gradients through multiple layers.</p>
+</section>
+<section id="backpropagation-applying-the-chain-rule-to-networks" class="level3">
+<h3 class="anchored" data-anchor-id="backpropagation-applying-the-chain-rule-to-networks">Backpropagation: Applying the Chain Rule to Networks</h3>
+<p>Consider a simple neural network with one hidden layer:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{z} &amp;= \mathbf{W}_1\mathbf{x} + \mathbf{b}_1 \\
+\mathbf{h} &amp;= \sigma(\mathbf{z}) \\
+\mathbf{o} &amp;= \mathbf{W}_2\mathbf{h} + \mathbf{b}_2 \\
+\mathcal{L} &amp;= \text{loss}(\mathbf{o}, \mathbf{y})
+\end{aligned}
+\]</span></p>
+<p>Backpropagation uses the chain rule to compute gradients for all parameters:</p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \mathbf{W}_2} = \frac{\partial \mathcal{L}}{\partial \mathbf{o}} \cdot \frac{\partial \mathbf{o}}{\partial \mathbf{W}_2}
+\]</span></p>
+<p><span class="math display">\[
+\frac{\partial \mathcal{L}}{\partial \mathbf{W}_1} = \frac{\partial \mathcal{L}}{\partial \mathbf{o}} \cdot \frac{\partial \mathbf{o}}{\partial \mathbf{h}} \cdot \frac{\partial \mathbf{h}}{\partial \mathbf{z}} \cdot \frac{\partial \mathbf{z}}{\partial \mathbf{W}_1}
+\]</span></p>
+<p>This systematic application of the chain rule allows gradients to flow backward through the network, enabling learning in deep architectures.</p>
+</section>
+</section>
+<section id="loss-functions-quantifying-what-we-want-to-improve" class="level2">
+<h2 class="anchored" data-anchor-id="loss-functions-quantifying-what-we-want-to-improve">Loss Functions: Quantifying What We Want to Improve</h2>
+<section id="common-loss-functions" class="level3">
+<h3 class="anchored" data-anchor-id="common-loss-functions">Common Loss Functions</h3>
+<p>Different problems require different ways of measuring “wrongness”:</p>
+<p><strong>Mean Squared Error (Regression):</strong> <span class="math display">\[
+\mathcal{L} = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y}_i)^2
+\]</span></p>
+<p><strong>Cross-Entropy Loss (Classification):</strong> <span class="math display">\[
+\mathcal{L} = -\frac{1}{n}\sum_{i=1}^n \sum_{c=1}^C y_{i,c} \log(\hat{y}_{i,c})
+\]</span></p>
+<p><strong>Hinge Loss (SVMs):</strong> <span class="math display">\[
+\mathcal{L} = \frac{1}{n}\sum_{i=1}^n \max(0, 1 - y_i(\mathbf{w}^T\mathbf{x}_i))
+\]</span></p>
+<p>Each loss function has different gradient properties that affect how learning proceeds.</p>
+</section>
+<section id="convex-vs-non-convex-loss-landscapes" class="level3">
+<h3 class="anchored" data-anchor-id="convex-vs-non-convex-loss-landscapes">Convex vs Non-Convex Loss Landscapes</h3>
+<ul>
+<li><strong>Convex functions</strong> (like linear regression): Have one global minimum, guaranteed convergence</li>
+<li><strong>Non-convex functions</strong> (like neural networks): Have multiple local minima, convergence to global minimum not guaranteed</li>
+</ul>
+<p>Understanding the loss landscape helps us choose appropriate optimization strategies.</p>
+</section>
+</section>
+<section id="advanced-optimization-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-optimization-algorithms">Advanced Optimization Algorithms</h2>
+<section id="momentum-learning-with-inertia" class="level3">
+<h3 class="anchored" data-anchor-id="momentum-learning-with-inertia">Momentum: Learning with Inertia</h3>
+<p>Momentum adds a velocity term to gradient descent:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\mathbf{v}^{(t+1)} &amp;= \gamma \mathbf{v}^{(t)} + \eta \nabla\mathcal{L}(\mathbf{w}^{(t)}) \\
+\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
+\end{aligned}
+\]</span></p>
+<p>This helps smooth out oscillations and navigate flat regions more efficiently.</p>
+</section>
+<section id="adaptive-learning-rates" class="level3">
+<h3 class="anchored" data-anchor-id="adaptive-learning-rates">Adaptive Learning Rates</h3>
+<p>Algorithms like Adam, RMSProp, and Adagrad adapt the learning rate for each parameter based on historical gradient information:</p>
+<p><span class="math display">\[
+\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\hat{\mathbf{v}}^{(t)}} + \epsilon} \hat{\mathbf{m}}^{(t)}
+\]</span></p>
+<p>These methods often converge faster and require less tuning of the learning rate.</p>
+</section>
+</section>
+<section id="teaching-calculus-with-intuition" class="level2">
+<h2 class="anchored" data-anchor-id="teaching-calculus-with-intuition">Teaching Calculus with Intuition</h2>
+<section id="the-hiker-in-the-fog-analogy-for-gradient-descent" class="level3">
+<h3 class="anchored" data-anchor-id="the-hiker-in-the-fog-analogy-for-gradient-descent">The “Hiker in the Fog” Analogy for Gradient Descent</h3>
+<p>Imagine you’re a hiker in thick fog, trying to find the valley below. You can’t see the entire landscape, but you can feel the slope beneath your feet. The gradient is this “feeling of the slope.” Each step you take downhill is like a gradient descent update. The learning rate is how big your steps are—too small and you’ll take forever, too big and you might overshoot the valley.</p>
+</section>
+<section id="the-factory-assembly-line-for-backpropagation" class="level3">
+<h3 class="anchored" data-anchor-id="the-factory-assembly-line-for-backpropagation">The “Factory Assembly Line” for Backpropagation</h3>
+<p>Think of a neural network as a factory assembly line. Raw materials (input data) enter at one end, and each station (layer) transforms them. When the final product (prediction) has defects, we need to figure out which stations caused the problems. Backpropagation is like sending quality control reports backward through the factory—each station learns how to adjust its process based on its contribution to the final error.</p>
+</section>
+<section id="the-thermostat-analogy-for-learning-rate" class="level3">
+<h3 class="anchored" data-anchor-id="the-thermostat-analogy-for-learning-rate">The “Thermostat” Analogy for Learning Rate</h3>
+<p>The learning rate is like a thermostat control. If the room is too cold, you might turn up the heat a lot (high learning rate). But if you overshoot and it gets too hot, you might need to make smaller adjustments (low learning rate). Some advanced thermostats learn from past adjustments, just like adaptive learning rate algorithms.</p>
+</section>
+</section>
+<section id="calculus-in-modern-architectures" class="level2">
+<h2 class="anchored" data-anchor-id="calculus-in-modern-architectures">Calculus in Modern Architectures</h2>
+<section id="attention-mechanisms-and-gradients" class="level3">
+<h3 class="anchored" data-anchor-id="attention-mechanisms-and-gradients">Attention Mechanisms and Gradients</h3>
+<p>In transformer models, the attention mechanism computes:</p>
+<p><span class="math display">\[
+\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}
+\]</span></p>
+<p>The gradients flowing through this operation allow the model to learn which parts of the input to “pay attention to” for different tasks.</p>
+</section>
+<section id="generative-models-and-gradient-flow" class="level3">
+<h3 class="anchored" data-anchor-id="generative-models-and-gradient-flow">Generative Models and Gradient Flow</h3>
+<p>In Generative Adversarial Networks (GANs), we have two networks—a generator and a discriminator—playing a minimax game:</p>
+<p><span class="math display">\[
+\min_G \max_D \mathbb{E}[\log D(\mathbf{x})] + \mathbb{E}[\log(1 - D(G(\mathbf{z})))]
+\]</span></p>
+<p>The careful balance of gradients between these competing networks enables the generation of realistic data.</p>
+</section>
+</section>
+<section id="common-student-challenges-and-solutions" class="level2">
+<h2 class="anchored" data-anchor-id="common-student-challenges-and-solutions">Common Student Challenges and Solutions</h2>
+<section id="challenge-1-why-do-we-need-calculus-cant-we-just-try-different-parameters-randomly" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-1-why-do-we-need-calculus-cant-we-just-try-different-parameters-randomly">Challenge 1: “Why do we need calculus? Can’t we just try different parameters randomly?”</h3>
+<p><strong>Solution:</strong> Use the “searching for keys” analogy. Searching randomly in a dark room for your keys might eventually work, but it’s incredibly inefficient. Using gradients is like having a metal detector that beeps louder as you get closer—it gives you directional information that dramatically speeds up the search.</p>
+</section>
+<section id="challenge-2-the-chain-rule-seems-complicated-with-all-these-partial-derivatives." class="level3">
+<h3 class="anchored" data-anchor-id="challenge-2-the-chain-rule-seems-complicated-with-all-these-partial-derivatives.">Challenge 2: “The chain rule seems complicated with all these partial derivatives.”</h3>
+<p><strong>Solution:</strong> Emphasize that backpropagation is just the systematic application of the chain rule. Draw the computational graph and show how errors flow backward. Start with simple networks and gradually increase complexity.</p>
+</section>
+<section id="challenge-3-how-do-we-know-were-finding-the-global-minimum-and-not-just-a-local-minimum" class="level3">
+<h3 class="anchored" data-anchor-id="challenge-3-how-do-we-know-were-finding-the-global-minimum-and-not-just-a-local-minimum">Challenge 3: “How do we know we’re finding the global minimum and not just a local minimum?”</h3>
+<p><strong>Solution:</strong> Acknowledge that for non-convex problems, we can’t guarantee finding the global minimum. However, in practice, many local minima in deep learning are “good enough,” and techniques like random initialization, batch normalization, and ensemble methods help us find good solutions.</p>
+</section>
+</section>
+<section id="hands-on-exploration-seeing-learning-happen" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-exploration-seeing-learning-happen">Hands-On Exploration: Seeing Learning Happen</h2>
+<section id="visualizing-gradient-descent-1" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-gradient-descent-1">Visualizing Gradient Descent</h3>
+<p>We can create visualizations that show:</p>
+<ul>
+<li>Gradient descent paths on 2D loss surfaces</li>
+<li>The effect of different learning rates</li>
+<li>How momentum affects the optimization trajectory</li>
+<li>Comparison of different optimization algorithms</li>
+</ul>
+</section>
+<section id="monitoring-training-dynamics" class="level3">
+<h3 class="anchored" data-anchor-id="monitoring-training-dynamics">Monitoring Training Dynamics</h3>
+<p>By plotting loss curves and gradient norms during training, we can diagnose problems like: - Learning rate too high (oscillating loss) - Learning rate too low (very slow decrease) - Vanishing gradients (gradient norms decreasing too rapidly) - Exploding gradients (gradient norms increasing)</p>
+</section>
+</section>
+<section id="mission-mastering-the-learning-process" class="level2">
+<h2 class="anchored" data-anchor-id="mission-mastering-the-learning-process">Mission: Mastering the Learning Process</h2>
+<section id="assignment-1-the-gradient-explorer" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-1-the-gradient-explorer">Assignment 1: The Gradient Explorer</h3>
+<p>Implement gradient descent for a simple linear regression problem on the Iris dataset. Create a visualization that shows: - The loss surface - The path taken by gradient descent - How the gradient direction changes along the path - The effect of different learning rates</p>
+</section>
+<section id="assignment-2-the-backpropagation-storyteller" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-2-the-backpropagation-storyteller">Assignment 2: The Backpropagation Storyteller</h3>
+<p>Choose a simple neural network architecture. Create a step-by-step explanation of how backpropagation works, showing: - The forward pass computations - The backward pass gradients - How each layer’s parameters get updated - The role of the chain rule at each step</p>
+</section>
+<section id="assignment-3-the-optimization-strategist" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-3-the-optimization-strategist">Assignment 3: The Optimization Strategist</h3>
+<p>Compare three different optimization algorithms (e.g., SGD, Momentum, Adam) on a classification task. Analyze:</p>
+<ul>
+<li>Convergence speed</li>
+<li>Final performance</li>
+<li>Sensitivity to learning rate</li>
+<li>Computational requirements</li>
+<li>When you might choose each algorithm</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/github\.com\/sijuswamyresearch\/Graph-Theory-Workshop-SBCE");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
