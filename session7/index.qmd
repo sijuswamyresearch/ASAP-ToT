@@ -38,11 +38,24 @@ execute:
 
 ## The Art of Illumination: From Understanding to Explanation
 
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
+
 Welcome to our culminating session, where we transform our deep mathematical understanding into effective teaching practice. We have journeyed through the four pillars of AI—linear algebra, calculus, probability, and optimization—and witnessed their integration in modern architectures. Now, we focus on the most crucial transformation: from being mathematical thinkers to becoming mathematical storytellers who can illuminate these concepts for others.
 
 This session is about pedagogical excellence. We will develop the skills to make abstract mathematics tangible, create engaging learning experiences, build authentic assessment strategies, and foster a community of mathematically-grounded AI educators. The true measure of our understanding is not what we know, but what we can help others understand.
+::::
 
 ## The Pedagogy of Mathematical Intuition
+
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### The 5-Step Teaching Framework
 
@@ -106,8 +119,14 @@ Start concrete, then abstract:
 
 - How concepts work together in real systems
 - Trade-offs and design decisions
+::::
 
 ## Creating Memorable Explanations
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### The Power of Storytelling
 
@@ -157,7 +176,14 @@ Develop visual explanations that stick:
 - Optimization algorithms as different "climbing strategies"
 - Convergence as "settling into valleys"
 
+::::
+
 ## Micro-Teaching Laboratory
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### The 3-Minute Explanation Challenge
 
@@ -198,7 +224,14 @@ Use structured feedback for improvement:
 - "The connection to ______ could be emphasized more"
 - "A visual showing ______ might help"
 
+::::
+
 ## Assessment Design for Conceptual Understanding
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### Beyond Multiple Choice: Authentic Assessment
 
@@ -240,7 +273,14 @@ Use structured feedback for improvement:
 - "How has your understanding of ______ evolved?"
 - "What connections did you discover between different topics?"
 
+::::
+
 ## Building a Community of Practice
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### The Collaborative Learning Environment
 
@@ -277,8 +317,14 @@ Use structured feedback for improvement:
 - Assessment rubrics for mathematical understanding
 - Code examples with mathematical annotations
 - Visualization scripts for key concepts
+::::
 
 ## Addressing Common Teaching Challenges
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### Challenge: "My students get lost in the mathematics"
 
@@ -307,7 +353,14 @@ Use structured feedback for improvement:
 - **Guest expert sessions:** Bring in researchers to discuss mathematical insights
 - **Lifelong learning mindset:** Model continuous learning and curiosity
 
+::::
+
 ## Sustainable Teaching Practices
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### The Reflective Practitioner
 
@@ -346,7 +399,14 @@ Use structured feedback for improvement:
 - Attend conferences and engage with the research community
 - Remember why you fell in love with the mathematics of AI
 
+::::
+
 ## Final Integration Project
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### The Capstone Teaching Portfolio
 
@@ -375,8 +435,14 @@ Each trainer creates a comprehensive teaching portfolio:
 - Areas for continued mathematical development
 - Teaching skills to improve
 - Community engagement plans
+::::
 
 ## The Journey Forward
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### Continuing the Community
 
@@ -415,11 +481,18 @@ Each trainer creates a comprehensive teaching portfolio:
 - I will support my fellow educators in their growth
 - I will contribute to our collective knowledge
 - I will help build a community of mathematical storytellers
+::::
 
 ## Closing: The Teacher's Legacy
+:::{.callout-note}
+### Key points
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 As we conclude our seven-session journey, remember that the impact of a great teacher extends far beyond any single course or semester. You are not just teaching mathematical concepts; you are teaching a way of thinking, a approach to problem-solving, and a lens for understanding the world.
 
 The students you teach today will build the AI systems of tomorrow. Your ability to give them deep mathematical understanding will shape not only their careers, but the very development of artificial intelligence. You are creating educators who can demystify complexity, who can reveal the elegant patterns beneath apparent chaos, and who can inspire the next generation to see mathematics not as a barrier, but as a gateway to creation.
 
 Go forth and illuminate. The mathematical story of AI is still being written, and you are now among its most important storytellers.
+::::

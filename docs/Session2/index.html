@@ -8,7 +8,7 @@
 
 <meta name="author" content="Siju Swamy">
 
-<title>Session 2 — Linear Algebra - The Language of Data and Transformations – Training of Trainees Master Class</title>
+<title>Session 2 — Linear Algebra - The Language of Data and Transformations – Training of Trainers Master Class</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -145,7 +165,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Training of Trainees Master Class</span>
+    <span class="navbar-title">Training of Trainers Master Class</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -177,7 +197,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Session2/index.html">The Language of AI</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Session 2 — Linear Algebra - The Language of Data and Transformations</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -206,48 +226,6 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Session1/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Four Pillers of AI</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Session2/index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">The Language of AI</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Session3/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Engine of Learning</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Session4/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Science of Uncertainty</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Session5/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">The Strategy of Search</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Session6/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Pillars in Practice</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../session7/index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Synthesis &amp; Teaching Excellence</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -320,6 +298,7 @@ window.Quarto = {
   <li><a href="#assignment-2-the-analogy-architect" id="toc-assignment-2-the-analogy-architect" class="nav-link" data-scroll-target="#assignment-2-the-analogy-architect">Assignment 2: The Analogy Architect</a></li>
   <li><a href="#assignment-3-the-connection-map" id="toc-assignment-3-the-connection-map" class="nav-link" data-scroll-target="#assignment-3-the-connection-map">Assignment 3: The Connection Map</a></li>
   </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
@@ -364,14 +343,42 @@ window.Quarto = {
 </div>
 <section id="the-unseen-architecture-of-intelligence" class="level2">
 <h2 class="anchored" data-anchor-id="the-unseen-architecture-of-intelligence">The Unseen Architecture of Intelligence</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Key points
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Linear algebra forms:</p>
+<ol type="1">
+<li>Blue print</li>
+<li>Building materials</li>
+<li>Language to communicate</li>
+</ol>
+</div>
+</div>
 <p>Welcome to our deep exploration of Linear Algebra, the first and most fundamental pillar of artificial intelligence. If we consider AI as a new form of architecture, then linear algebra provides both the blueprint and the building materials. Every intelligent system, from the simplest classifier to the most complex large language model, is fundamentally built upon the principles we will explore today.</p>
-<p>Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI.</p>
+<p>Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI (<span class="citation" data-cites="deisenroth2020mathematics">Deisenroth, Faisal, and Ong (<a href="#ref-deisenroth2020mathematics" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="strang2022introduction">(<a href="#ref-strang2022introduction" role="doc-biblioref"><strong>strang2022introduction?</strong></a>)</span>).</p>
 </section>
 <section id="the-vector-the-fundamental-unit-of-intelligence" class="level2">
 <h2 class="anchored" data-anchor-id="the-vector-the-fundamental-unit-of-intelligence">The Vector: The Fundamental Unit of Intelligence</h2>
+<ul>
+<li><p>Data as a point in multi-dimensional space</p></li>
+<li><p>Can be translated as a sample in data science perspective</p></li>
+<li><p>Dot product is a measure of similarity</p>
+<ul>
+<li>cosine similarity in recommendation system</li>
+<li>attension mechanism in transformers</li>
+<li>feature correlation in feature analysis</li>
+</ul></li>
+</ul>
 <section id="best-introduction-of-vectors-from-data-science" class="level3">
 <h3 class="anchored" data-anchor-id="best-introduction-of-vectors-from-data-science">Best introduction of vectors from data science</h3>
-<div id="02fe1b23" class="cell" data-execution_count="1">
+<div id="6e438101" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -436,6 +443,13 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 </section>
 <section id="matrices-the-engines-of-transformation" class="level2">
 <h2 class="anchored" data-anchor-id="matrices-the-engines-of-transformation">Matrices: The Engines of Transformation</h2>
+<ul>
+<li><p>Data as organized form of row information</p></li>
+<li><p>Matrix multiplication as affine transformations</p>
+<ul>
+<li>covariance matrix reveals the structure of dataset</li>
+</ul></li>
+</ul>
 <section id="data-as-organized-information" class="level3">
 <h3 class="anchored" data-anchor-id="data-as-organized-information">Data as Organized Information</h3>
 <p>Our entire Iris dataset forms a matrix:</p>
@@ -468,6 +482,11 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 </section>
 <section id="eigen-decomposition-finding-natural-directions" class="level2">
 <h2 class="anchored" data-anchor-id="eigen-decomposition-finding-natural-directions">Eigen Decomposition: Finding Natural Directions</h2>
+<ul>
+<li>Characteristic equation: invarient vectors under linear transformation</li>
+<li>Eigen vectors: directions in which higher variance observed</li>
+<li>PCA- dimensionality reduction</li>
+</ul>
 <section id="the-eigenvalue-equation" class="level3">
 <h3 class="anchored" data-anchor-id="the-eigenvalue-equation">The Eigenvalue Equation</h3>
 <p>The fundamental equation:</p>
@@ -491,6 +510,28 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 </section>
 <section id="singular-value-decomposition-the-ultimate-factorization" class="level2">
 <h2 class="anchored" data-anchor-id="singular-value-decomposition-the-ultimate-factorization">Singular Value Decomposition: The Ultimate Factorization</h2>
+<p>Any matrix can be decomposed as:</p>
+<p><span class="math display">\[
+\mathbf{X} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T
+\]</span></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+SVD in ML
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Used in recommedation system</li>
+<li>Used in Latent Sematic Analysis</li>
+<li>Used in missing value imputation</li>
+<li>Used in dimensionality reduction</li>
+</ul>
+</div>
+</div>
 <section id="the-svd-theorem" class="level3">
 <h3 class="anchored" data-anchor-id="the-svd-theorem">The SVD Theorem</h3>
 <p>Any matrix can be decomposed as:</p>
@@ -513,6 +554,13 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 </section>
 <section id="teaching-linear-algebra-with-intuition" class="level2">
 <h2 class="anchored" data-anchor-id="teaching-linear-algebra-with-intuition">Teaching Linear Algebra with Intuition</h2>
+<ul>
+<li>start from excel sheets to create the intution of sample space and feature space</li>
+<li>blind scuptor anology for eigen vectors</li>
+<li>dot product as a linear combination</li>
+<li>matrix multiplication as a mixing problem</li>
+<li>PCA as formulating a coordinate system for the dataset</li>
+</ul>
 <section id="the-blind-sculptor-analogy-for-eigenvectors" class="level3">
 <h3 class="anchored" data-anchor-id="the-blind-sculptor-analogy-for-eigenvectors">The “Blind Sculptor” Analogy for Eigenvectors</h3>
 <p>Imagine a sculptor working blindfolded. She can only feel the shape by poking it and seeing how it deforms. Eigenvectors are like the directions where poking just makes the shape uniformly larger or smaller, without changing its essential form. Eigenvalues tell her how much each poke stretches the shape.</p>
@@ -528,6 +576,13 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 </section>
 <section id="linear-algebra-in-neural-networks" class="level2">
 <h2 class="anchored" data-anchor-id="linear-algebra-in-neural-networks">Linear Algebra in Neural Networks</h2>
+<ul>
+<li>key tool for prediction by feature mixing</li>
+<li>learn patterns</li>
+<li>enable heirarchical learning</li>
+<li>convolution as sparse multiplication</li>
+<li>attention mechanism as weighted combination</li>
+</ul>
 <section id="the-fundamental-operation" class="level3">
 <h3 class="anchored" data-anchor-id="the-fundamental-operation">The Fundamental Operation</h3>
 <p>Every layer in a neural network performs:</p>
@@ -556,6 +611,11 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 </section>
 <section id="common-student-challenges-and-solutions" class="level2">
 <h2 class="anchored" data-anchor-id="common-student-challenges-and-solutions">Common Student Challenges and Solutions</h2>
+<ul>
+<li>Why do we need matrices instead of just doing things one point at a time?</li>
+<li>Eigenvalues and eigenvectors seem too abstract!</li>
+<li>When would I use SVD in real applications?</li>
+</ul>
 <section id="challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time" class="level3">
 <h3 class="anchored" data-anchor-id="challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time">Challenge 1: “Why do we need matrices instead of just doing things one point at a time?”</h3>
 <p><strong>Solution:</strong> Use the “orchestra analogy.” Working with individual data points is like listening to each musician separately. Working with matrices is like hearing the entire orchestra—you understand how all the parts work together to create something greater than the sum of its parts.</p>
@@ -571,6 +631,11 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 </section>
 <section id="mission-bilding-linear-algebra-intuition" class="level2">
 <h2 class="anchored" data-anchor-id="mission-bilding-linear-algebra-intuition">Mission: Bilding Linear Algebra Intuition</h2>
+<ul>
+<li>Create a geometric interpreter using LA</li>
+<li>Create an anology architect for main components of LA</li>
+<li>Create a mindmap for LA to AI</li>
+</ul>
 <section id="assignment-1-the-geometric-interpreter" class="level3">
 <h3 class="anchored" data-anchor-id="assignment-1-the-geometric-interpreter">Assignment 1: The Geometric Interpreter</h3>
 <p>Choose one algorithm from your teaching module that uses linear algebra extensively. Create a visual explanation showing:</p>
@@ -599,14 +664,22 @@ d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
 <li>Computer vision</li>
 <li>Natural language processing</li>
 <li>Recommendation systems</li>
+<li>Identify where the same mathematical concept (e.g., dot products, matrix factorization) appears in different contexts.</li>
 </ul>
-<p>Identify where the same mathematical concept (e.g., dot products, matrix factorization) appears in different contexts.</p>
+</section>
+</section>
+<section id="references" class="level2">
+
+
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-deisenroth2020mathematics" class="csl-entry" role="listitem">
+Deisenroth, Marc Peter, A Aldo Faisal, and Cheng Soon Ong. 2020. <em>Mathematics for Machine Learning</em>. Cambridge University Press.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

@@ -29,6 +29,7 @@ format:
 jupyter: python3
 execute: 
   enabled: true
+bibliography: reference.bib
 ---
 
 <div style="text-align: center;">
@@ -38,11 +39,35 @@ execute:
 
 ## The Unseen Architecture of Intelligence
 
+:::{.callout-tip}
+
+### Key points
+
+Linear algebra forms:
+
+1. Blue print
+2. Building materials
+3. Language to communicate
+
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 Welcome to our deep exploration of Linear Algebra, the first and most fundamental pillar of artificial intelligence. If we consider AI as a new form of architecture, then linear algebra provides both the blueprint and the building materials. Every intelligent system, from the simplest classifier to the most complex large language model, is fundamentally built upon the principles we will explore today.
 
-Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI.
+Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI (@deisenroth2020mathematics, @strang2022introduction).
+::::
 
 ## The Vector: The Fundamental Unit of Intelligence
+
+- Data as a point in multi-dimensional space
+- Can be translated as a sample in data science perspective
+- Dot product is a measure of similarity
+
+  - cosine similarity in recommendation system
+  - attension mechanism in transformers
+  - feature correlation in feature analysis
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Best introduction of vectors from data science
 
@@ -101,8 +126,16 @@ This simple operation underpins:
 - **Feature correlations** in data analysis
 
 When two vectors point in similar directions, their dot product is large. When they're perpendicular, it's zero. This geometric insight helps students understand why certain mathematical operations work the way they do.
+::::
 
 ## Matrices: The Engines of Transformation
+
+- Data as organized form of row information
+- Matrix multiplication as affine transformations
+
+  - covariance matrix reveals the structure of dataset
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Data as Organized Information
 
@@ -138,9 +171,16 @@ $$
 $$
 
 encodes how our features co-vary. Its eigenvectors point in directions of maximum variance, and its eigenvalues tell us how much variance lies in each direction. This is the mathematical foundation of Principal Component Analysis (PCA).
+::::
 
 ## Eigen Decomposition: Finding Natural Directions
 
+- Characteristic equation: invarient vectors under linear transformation
+- Eigen vectors: directions in which higher variance observed
+- PCA- dimensionality reduction
+
+
+:::: {.content-hidden when-format="revealjs"}
 ### The Eigenvalue Equation
 
 The fundamental equation:
@@ -163,9 +203,28 @@ PCA finds these natural directions and projects our data onto them:
 4. Project data: $\mathbf{Z} = \mathbf{X}_{\text{centered}}\mathbf{V}$
 
 where $\mathbf{V}$ contains the top-k eigenvectors. This transformation often reveals that our four-dimensional Iris data actually lives in a lower-dimensional subspace where the species separate naturally.
+::::
+
 
 ## Singular Value Decomposition: The Ultimate Factorization
 
+Any matrix can be decomposed as:
+
+$$
+\mathbf{X} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T
+$$
+
+:::{.callout-note}
+
+### SVD in ML
+
+- Used in recommedation system
+- Used in Latent Sematic Analysis
+- Used in missing value imputation
+- Used in dimensionality reduction
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 ### The SVD Theorem
 
 Any matrix can be decomposed as:
@@ -179,6 +238,8 @@ where:
 - $\mathbf{\\Sigma}$ is diagonal with singular values (importance of each pattern)
 - $\mathbf{V}$ contains the right singular vectors (patterns in columns/features)
 
+
+
 For our Iris data, SVD reveals that we can reconstruct the entire dataset using only a few important patterns. The singular values tell us how much each pattern contributes to the overall structure.
 
 ### SVD in Machine Learning
@@ -189,8 +250,17 @@ SVD appears throughout machine learning:
 - **Word embeddings** (Latent Semantic Analysis)
 - **Matrix completion** (filling in missing values)
 - **Dimensionality reduction** (PCA is a special case of SVD)
+::::
 
 ## Teaching Linear Algebra with Intuition
+
+- start from excel sheets to create the intution of sample space and feature space
+- blind scuptor anology for eigen vectors
+- dot product as a linear combination
+- matrix multiplication as a mixing problem
+- PCA as formulating a coordinate system for the dataset
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### The "Blind Sculptor" Analogy for Eigenvectors
 
@@ -203,8 +273,17 @@ Think of a matrix as a recipe book. Each column is a recipe for creating a new f
 ### The "Data Compass" for PCA
 
 Principal components are like a compass for your data. The first principal component points toward the direction of greatest variation—the "north" of your dataset. The second points toward the next most important direction, and so on. By following this compass, we can navigate high-dimensional spaces effectively.
+::::
 
 ## Linear Algebra in Neural Networks
+
+- key tool for prediction by feature mixing
+- learn patterns
+- enable heirarchical learning
+- convolution as sparse multiplication
+- attention mechanism as weighted combination
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### The Fundamental Operation
 
@@ -233,8 +312,15 @@ $$
 $$
 
 This is fundamentally linear algebra: we compute similarities (dot products), normalize them (softmax), and use them to form weighted combinations of values.
+::::
 
 ## Common Student Challenges and Solutions
+
+- Why do we need matrices instead of just doing things one point at a time?
+- Eigenvalues and eigenvectors seem too abstract!
+- When would I use SVD in real applications?
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Challenge 1: "Why do we need matrices instead of just doing things one point at a time?"
 
@@ -248,8 +334,17 @@ This is fundamentally linear algebra: we compute similarities (dot products), no
 
 **Solution:** Show how Netflix might use SVD for recommendations, or how Google uses it for understanding word meanings in different contexts.
 
+::::
+
+
 ##  Mission: Bilding Linear Algebra Intuition
 
+- Create a geometric interpreter using LA
+- Create an anology architect for main components of LA
+- Create a mindmap for LA to AI
+
+
+:::: {.content-hidden when-format="revealjs"}
 ### Assignment 1: The Geometric Interpreter
 
 Choose one algorithm from your teaching module that uses linear algebra extensively. Create a visual explanation showing:
@@ -277,6 +372,7 @@ Create a diagram showing how linear algebra concepts connect across different AI
 - Computer vision
 - Natural language processing
 - Recommendation systems
+- Identify where the same mathematical concept (e.g., dot products, matrix factorization) appears in different contexts.
+::::
 
-Identify where the same mathematical concept (e.g., dot products, matrix factorization) appears in different contexts.
-
+## References

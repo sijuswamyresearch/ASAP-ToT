@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Siju Swamy">
-  <title>Training of Trainees Master Class – Session 2 — Linear Algebra - The Language of Data and Transformations</title>
+  <title>Training of Trainers Master Class – Session 2 — Linear Algebra - The Language of Data and Transformations</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -28,72 +28,6 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
-    code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <link rel="stylesheet" href="assets/style.css">
@@ -220,184 +154,119 @@ Siju Swamy
 </section>
 <section id="the-unseen-architecture-of-intelligence" class="slide level2">
 <h2>The Unseen Architecture of Intelligence</h2>
-<p>Welcome to our deep exploration of Linear Algebra, the first and most fundamental pillar of artificial intelligence. If we consider AI as a new form of architecture, then linear algebra provides both the blueprint and the building materials. Every intelligent system, from the simplest classifier to the most complex large language model, is fundamentally built upon the principles we will explore today.</p>
-<p>Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI.</p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Key points</strong></p>
+</div>
+<div class="callout-content">
+<p>Linear algebra forms:</p>
+<ol type="1">
+<li>Blue print</li>
+<li>Building materials</li>
+<li>Language to communicate</li>
+</ol>
+</div>
+</div>
+</div>
 </section>
 <section id="the-vector-the-fundamental-unit-of-intelligence" class="slide level2">
 <h2>The Vector: The Fundamental Unit of Intelligence</h2>
-<h3 id="best-introduction-of-vectors-from-data-science">Best introduction of vectors from data science</h3>
-<div id="f47a2523" class="cell" data-execution_count="1">
-<div class="cell-output cell-output-stdout">
-<pre><code>   sepal length (cm)  sepal width (cm)  petal length (cm)  petal width (cm)  \
-0                5.1               3.5                1.4               0.2   
-1                4.9               3.0                1.4               0.2   
-2                4.7               3.2                1.3               0.2   
-3                4.6               3.1                1.5               0.2   
-4                5.0               3.6                1.4               0.2   
-
-  species  
-0  setosa  
-1  setosa  
-2  setosa  
-3  setosa  
-4  setosa  </code></pre>
-</div>
-</div>
-<h3 id="data-as-points-in-space">Data as Points in Space</h3>
-<p>Consider our familiar Iris dataset. Each flower, with its four measurements, becomes a point in a four-dimensional space:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a>iris_flower <span class="op">=</span> [<span class="fl">5.1</span>, <span class="fl">3.5</span>, <span class="fl">1.4</span>, <span class="fl">0.2</span>] <span class="co"># A vector in R^4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This representation is profound. We can now measure similarity between flowers using Euclidean distance:</p>
-<p><span class="math display">\[
-d(\mathbf{x}, \mathbf{y}) = \sqrt{\sum_{i=1}^4 (x_i - y_i)^2}
-\]</span></p>
-<p>We can compute centroids for each species:</p>
-<p><span class="math display">\[
-\mathbf{\mu}_{\text{setosa}} = \frac{1}{50} \sum_{i=1}^{50} \mathbf{x}_i
-\]</span></p>
-<p>And we can measure how spread out each species is around its center. This geometric perspective transforms abstract statistics into spatial intuition.</p>
-<h3 id="the-dot-product-measuring-alignment-and-similarity">The Dot Product: Measuring Alignment and Similarity</h3>
-<p>The dot product between two vectors reveals their alignment:</p>
-<p><span class="math display">\[
-\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i b_i = \|\mathbf{a}\|\|\mathbf{b}\|\cos\theta
-\]</span></p>
-<p>This simple operation underpins:</p>
 <ul>
-<li><strong>Cosine similarity</strong> in recommendation systems</li>
-<li><strong>Attention mechanisms</strong> in transformers</li>
-<li><strong>Feature correlations</strong> in data analysis</li>
+<li><p>Data as a point in multi-dimensional space</p></li>
+<li><p>Can be translated as a sample in data science perspective</p></li>
+<li><p>Dot product is a measure of similarity</p>
+<ul>
+<li>cosine similarity in recommendation system</li>
+<li>attension mechanism in transformers</li>
+<li>feature correlation in feature analysis</li>
+</ul></li>
 </ul>
-<p>When two vectors point in similar directions, their dot product is large. When they’re perpendicular, it’s zero. This geometric insight helps students understand why certain mathematical operations work the way they do.</p>
 </section>
 <section id="matrices-the-engines-of-transformation" class="slide level2">
 <h2>Matrices: The Engines of Transformation</h2>
-<h3 id="data-as-organized-information">Data as Organized Information</h3>
-<p>Our entire Iris dataset forms a matrix:</p>
-<p><span class="math display">\[
-\mathbf{X} = \begin{bmatrix}
-5.1 &amp; 3.5 &amp; 1.4 &amp; 0.2 \\
-4.9 &amp; 3.0 &amp; 1.4 &amp; 0.2 \\
-4.7 &amp; 3.2 &amp; 1.3 &amp; 0.2 \\
-\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
-\end{bmatrix}
-\]</span></p>
-<p>This matrix representation enables powerful operations. We can center our data by subtracting the mean vector, scale features to comparable ranges, and compute the covariance matrix that reveals how features vary together.</p>
-<h3 id="matrix-multiplication-as-transformation">Matrix Multiplication as Transformation</h3>
-<p>When we multiply a data matrix by a weight matrix, we’re performing a linear transformation:</p>
-<p><span class="math display">\[
-\mathbf{Z} = \mathbf{X}\mathbf{W}
-\]</span></p>
-<p>Each column of <span class="math inline">\(\mathbf{W}\)</span> defines a new “direction” or “feature” in our transformed space. In neural networks, these transformations are followed by non-linear activations, but the linear component provides the fundamental structure.</p>
-<h3 id="the-covariance-matrix-revealing-data-structure">The Covariance Matrix: Revealing Data Structure</h3>
-<p>The covariance matrix:</p>
-<p><span class="math display">\[
-\mathbf{\Sigma} = \frac{1}{n}\mathbf{X}^T\mathbf{X}
-\]</span></p>
-<p>encodes how our features co-vary. Its eigenvectors point in directions of maximum variance, and its eigenvalues tell us how much variance lies in each direction. This is the mathematical foundation of Principal Component Analysis (PCA).</p>
+<ul>
+<li><p>Data as organized form of row information</p></li>
+<li><p>Matrix multiplication as affine transformations</p>
+<ul>
+<li>covariance matrix reveals the structure of dataset</li>
+</ul></li>
+</ul>
 </section>
 <section id="eigen-decomposition-finding-natural-directions" class="slide level2">
 <h2>Eigen Decomposition: Finding Natural Directions</h2>
-<h3 id="the-eigenvalue-equation">The Eigenvalue Equation</h3>
-<p>The fundamental equation:</p>
-<p><span class="math display">\[
-\mathbf{A}\mathbf{v} = \lambda\mathbf{v}
-\]</span></p>
-<p>tells us that certain vectors (eigenvectors) only get stretched, not rotated, when transformed by a matrix. The stretching factor is the eigenvalue.</p>
-<p>For our Iris dataset, the eigenvectors of the covariance matrix point in the “natural directions” of the data—the directions where the flowers show the most variation. The corresponding eigenvalues tell us how much variation exists in each natural direction.</p>
-<h3 id="principal-component-analysis-dimensionality-reduction-in-action">Principal Component Analysis: Dimensionality Reduction in Action</h3>
-<p>PCA finds these natural directions and projects our data onto them:</p>
-<ol type="1">
-<li>Center the data: <span class="math inline">\(\mathbf{X}_{\text{centered}} = \mathbf{X} - \mathbf{\mu}\)</span></li>
-<li>Compute covariance: <span class="math inline">\(\mathbf{\Sigma} = \frac{1}{n}\mathbf{X}_{\text{centered}}^T\mathbf{X}_{\text{centered}}\)</span></li>
-<li>Find eigenvectors: <span class="math inline">\(\mathbf{\Sigma}\mathbf{v}_i = \lambda_i\mathbf{v}_i\)</span></li>
-<li>Project data: <span class="math inline">\(\mathbf{Z} = \mathbf{X}_{\text{centered}}\mathbf{V}\)</span></li>
-</ol>
-<p>where <span class="math inline">\(\mathbf{V}\)</span> contains the top-k eigenvectors. This transformation often reveals that our four-dimensional Iris data actually lives in a lower-dimensional subspace where the species separate naturally.</p>
+<ul>
+<li>Characteristic equation: invarient vectors under linear transformation</li>
+<li>Eigen vectors: directions in which higher variance observed</li>
+<li>PCA- dimensionality reduction</li>
+</ul>
 </section>
 <section id="singular-value-decomposition-the-ultimate-factorization" class="slide level2">
 <h2>Singular Value Decomposition: The Ultimate Factorization</h2>
-<h3 id="the-svd-theorem">The SVD Theorem</h3>
 <p>Any matrix can be decomposed as:</p>
 <p><span class="math display">\[
 \mathbf{X} = \mathbf{U}\mathbf{\Sigma}\mathbf{V}^T
 \]</span></p>
-<p>where: - <span class="math inline">\(\mathbf{U}\)</span> contains the left singular vectors (patterns in rows/observations) - <span class="math inline">\(\mathbf{\\Sigma}\)</span> is diagonal with singular values (importance of each pattern) - <span class="math inline">\(\mathbf{V}\)</span> contains the right singular vectors (patterns in columns/features)</p>
-<p>For our Iris data, SVD reveals that we can reconstruct the entire dataset using only a few important patterns. The singular values tell us how much each pattern contributes to the overall structure.</p>
-<h3 id="svd-in-machine-learning">SVD in Machine Learning</h3>
-<p>SVD appears throughout machine learning:</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>SVD in ML</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li><strong>Recommendation systems</strong> (collaborative filtering)</li>
-<li><strong>Word embeddings</strong> (Latent Semantic Analysis)</li>
-<li><strong>Matrix completion</strong> (filling in missing values)</li>
-<li><strong>Dimensionality reduction</strong> (PCA is a special case of SVD)</li>
+<li>Used in recommedation system</li>
+<li>Used in Latent Sematic Analysis</li>
+<li>Used in missing value imputation</li>
+<li>Used in dimensionality reduction</li>
 </ul>
+</div>
+</div>
+</div>
 </section>
 <section id="teaching-linear-algebra-with-intuition" class="slide level2">
 <h2>Teaching Linear Algebra with Intuition</h2>
-<h3 id="the-blind-sculptor-analogy-for-eigenvectors">The “Blind Sculptor” Analogy for Eigenvectors</h3>
-<p>Imagine a sculptor working blindfolded. She can only feel the shape by poking it and seeing how it deforms. Eigenvectors are like the directions where poking just makes the shape uniformly larger or smaller, without changing its essential form. Eigenvalues tell her how much each poke stretches the shape.</p>
-<h3 id="matrix-multiplication-as-recipe-combination">Matrix Multiplication as “Recipe Combination”</h3>
-<p>Think of a matrix as a recipe book. Each column is a recipe for creating a new feature. Matrix multiplication is like applying all these recipes to your ingredients (data) simultaneously to create a transformed meal (new representation).</p>
-<h3 id="the-data-compass-for-pca">The “Data Compass” for PCA</h3>
-<p>Principal components are like a compass for your data. The first principal component points toward the direction of greatest variation—the “north” of your dataset. The second points toward the next most important direction, and so on. By following this compass, we can navigate high-dimensional spaces effectively.</p>
+<ul>
+<li>start from excel sheets to create the intution of sample space and feature space</li>
+<li>blind scuptor anology for eigen vectors</li>
+<li>dot product as a linear combination</li>
+<li>matrix multiplication as a mixing problem</li>
+<li>PCA as formulating a coordinate system for the dataset</li>
+</ul>
 </section>
 <section id="linear-algebra-in-neural-networks" class="slide level2">
 <h2>Linear Algebra in Neural Networks</h2>
-<h3 id="the-fundamental-operation">The Fundamental Operation</h3>
-<p>Every layer in a neural network performs:</p>
-<p><span class="math display">\[
-\mathbf{Z} = \mathbf{X}\mathbf{W} + \mathbf{b}
-\]</span></p>
-<p>followed by a non-linear activation <span class="math inline">\(\sigma(\mathbf{Z})\)</span>. This linear transformation:</p>
 <ul>
-<li><strong>Mixes features</strong> to create new representations</li>
-<li><strong>Learns patterns</strong> through the weight matrix</li>
-<li><strong>Enables hierarchical learning</strong> through multiple layers</li>
+<li>key tool for prediction by feature mixing</li>
+<li>learn patterns</li>
+<li>enable heirarchical learning</li>
+<li>convolution as sparse multiplication</li>
+<li>attention mechanism as weighted combination</li>
 </ul>
-<h3 id="convolution-as-matrix-multiplication">Convolution as Matrix Multiplication</h3>
-<p>Convolutional layers in neural networks can be viewed as matrix multiplications with sparse, structured weight matrices. This perspective helps students understand that CNNs are fundamentally linear algebra with additional constraints.</p>
-<h3 id="attention-mechanisms-as-weighted-combinations">Attention Mechanisms as Weighted Combinations</h3>
-<p>The attention mechanism in transformers computes:</p>
-<p><span class="math display">\[
-\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}
-\]</span></p>
-<p>This is fundamentally linear algebra: we compute similarities (dot products), normalize them (softmax), and use them to form weighted combinations of values.</p>
 </section>
 <section id="common-student-challenges-and-solutions" class="slide level2">
 <h2>Common Student Challenges and Solutions</h2>
-<h3 id="challenge-1-why-do-we-need-matrices-instead-of-just-doing-things-one-point-at-a-time">Challenge 1: “Why do we need matrices instead of just doing things one point at a time?”</h3>
-<p><strong>Solution:</strong> Use the “orchestra analogy.” Working with individual data points is like listening to each musician separately. Working with matrices is like hearing the entire orchestra—you understand how all the parts work together to create something greater than the sum of its parts.</p>
-<h3 id="challenge-2-eigenvalues-and-eigenvectors-seem-too-abstract.">Challenge 2: “Eigenvalues and eigenvectors seem too abstract.”</h3>
-<p><strong>Solution:</strong> Connect them to concrete examples. In the Iris dataset, the first eigenvector might point in the “petal size” direction, and its eigenvalue tells us how much the flowers vary in petal size compared to other characteristics.</p>
-<h3 id="challenge-3-when-would-i-use-svd-in-real-applications">Challenge 3: “When would I use SVD in real applications?”</h3>
-<p><strong>Solution:</strong> Show how Netflix might use SVD for recommendations, or how Google uses it for understanding word meanings in different contexts.</p>
+<ul>
+<li>Why do we need matrices instead of just doing things one point at a time?</li>
+<li>Eigenvalues and eigenvectors seem too abstract!</li>
+<li>When would I use SVD in real applications?</li>
+</ul>
 </section>
 <section id="mission-bilding-linear-algebra-intuition" class="slide level2">
 <h2>Mission: Bilding Linear Algebra Intuition</h2>
-<h3 id="assignment-1-the-geometric-interpreter">Assignment 1: The Geometric Interpreter</h3>
-<p>Choose one algorithm from your teaching module that uses linear algebra extensively. Create a visual explanation showing:</p>
 <ul>
-<li>How the data is represented as vectors/matrices</li>
-<li>What linear transformations occur</li>
-<li>How eigenvalues/eigenvectors or SVD components appear</li>
-<li>What the geometric interpretation of the algorithm is</li>
+<li>Create a geometric interpreter using LA</li>
+<li>Create an anology architect for main components of LA</li>
+<li>Create a mindmap for LA to AI</li>
 </ul>
-<h3 id="assignment-2-the-analogy-architect">Assignment 2: The Analogy Architect</h3>
-<p>Develop three teaching analogies for linear algebra concepts:</p>
-<ol type="1">
-<li>One for matrix multiplication</li>
-<li>One for eigenvectors/eigenvalues</li>
-<li>One for dimensionality reduction</li>
-</ol>
-<p>Each analogy should be accessible to students with minimal mathematical background yet mathematically precise enough to build correct intuition.</p>
-<h3 id="assignment-3-the-connection-map">Assignment 3: The Connection Map</h3>
-<p>Create a diagram showing how linear algebra concepts connect across different AI domains:</p>
-<ul>
-<li>Neural networks</li>
-<li>Computer vision</li>
-<li>Natural language processing</li>
-<li>Recommendation systems</li>
-</ul>
-<p>Identify where the same mathematical concept (e.g., dot products, matrix factorization) appears in different contexts.</p>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
 
 
 </section>

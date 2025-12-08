@@ -38,12 +38,28 @@ execute:
 
 ## The Foundation of Intelligent Decision-Making
 
+- Probability theory makes you an intelligent descision maker
+- Help to moving beyond the observed limits
+- Make the models reliable
+- One of the most scientific backbone of advanced AI
+
+:::: {.content-hidden when-format="revealjs"}
 Welcome to our exploration of probability and statistics, the third pillar of artificial intelligence that provides the mathematical framework for reasoning under uncertainty. While linear algebra gives us the language to describe data and calculus provides the mechanism for learning, probability and statistics give us the wisdom to understand the limits of our knowledge and make intelligent decisions in the face of incomplete information.
 
 In a world filled with noisy measurements, imperfect models, and inherent randomness, probability theory allows us to quantify uncertainty, while statistics enables us to draw meaningful conclusions from limited data. This session will reveal how these ancient mathematical disciplines form the bedrock of modern AI systems that must operate reliably in an uncertain world.
+::::
 
 ## Probability Theory: The Mathematics of Uncertainty
 
+- Classical probability as measure of chance based on frequency
+- Probability axioms
+- Classical definition as relative measure/ rate
+- Limitations of classical probability
+- Random variable as bulding block for insightful inference
+- Theoretical distributions and its importance
+- Multi-variate random variables and different types of distributions
+
+:::: {.content-hidden when-format="revealjs"}
 ### Foundations of Probability
 
 Probability provides a formal language for quantifying uncertainty. The basic axioms:
@@ -86,11 +102,21 @@ $$
 
 For multiple random variables, we have:
 
-**Joint Probability:** $P(X=x, Y=y)$ - probability of both events occurring
-**Marginal Probability:** $P(X=x) = \sum_y P(X=x, Y=y)$ - probability of one event regardless of others
-**Conditional Probability:** $P(X=x|Y=y) = \frac{P(X=x, Y=y)}{P(Y=y)}$ - probability of one event given another
+- **Joint Probability:** $P(X=x, Y=y)$ - probability of both events occurring
+- **Marginal Probability:** $P(X=x) = \sum_y P(X=x, Y=y)$ - probability of one event regardless of others
+- **Conditional Probability:** $P(X=x|Y=y) = \frac{P(X=x, Y=y)}{P(Y=y)}$ - probability of one event given another
+
+::::
 
 ## Bayesian Inference: Updating Beliefs with Evidence
+
+- Transformation from frequentistic to measure of belief
+- Conditional probability
+- Bayes; theorem
+- Bayesian Classifier
+- conjugate priors and its uses in probabilistic models
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Bayes' Theorem: The Foundation of Learning
 
@@ -132,9 +158,22 @@ Some prior-likelihood pairs have nice mathematical properties called conjugacy:
 - **Dirichlet-Multinomial:** If likelihood is Multinomial and prior is Dirichlet, posterior is Dirichlet
 
 These conjugacies enable efficient Bayesian updating and are widely used in practice.
+::::
 
 ## Statistical Inference: Drawing Conclusions from Data
 
+- Descriptive to inferential models
+- Estimation theory
+
+  - point estimates
+  - interval estimates
+- Hypothesis testing
+- parametric and non-parametric tests
+  - small sample tests
+  - large sample tests
+
+
+:::: {.content-hidden when-format="revealjs"}
 ### Maximum Likelihood Estimation (MLE)
 
 MLE finds parameters that make the observed data most probable:
@@ -167,7 +206,15 @@ Frequentist statistics provides tools for making inferences:
 
 While these concepts have limitations, they remain important for model evaluation and comparison.
 
+::::
+
+
 ## Distributions in Machine Learning
+
+- Exponential family
+- Mixture models
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Exponential Family Distributions
 
@@ -215,9 +262,14 @@ Key inference tasks include:
 - **Posterior inference:** $P(\text{hidden}|\text{observed})$
 
 Algorithms like belief propagation, junction trees, and variational methods enable efficient inference.
+::::
 
 ## Uncertainty Quantification in Deep Learning
 
+- Bayesian neural networks
+- Mote Carlo dropouts
+
+:::: {.content-hidden when-format="revealjs"}
 ### Bayesian Neural Networks
 
 Traditional neural networks provide point estimates. Bayesian neural networks model uncertainty in weights:
@@ -248,6 +300,7 @@ $$
 
 Where $\hat{P}$ is the predicted probability. Modern neural networks often need calibration techniques like temperature scaling.
 
+
 ## Teaching Probability with Intuition
 
 ### The "Weather Forecast" Analogy for Bayesian Updates
@@ -261,6 +314,7 @@ A medical test with 99% accuracy sounds reliable, but if the disease is rare (1 
 ### The "Polling" Analogy for Confidence Intervals
 
 A political poll might show a candidate with 52% support ±3%. This doesn't mean exactly 52% of voters support them, but that if we conducted the poll many times, 95% of the intervals would contain the true percentage. The uncertainty is about the method, not the candidate's support.
+
 
 ## Statistical Evaluation of Models
 
@@ -310,9 +364,14 @@ When comparing models, we need to determine if differences are statistically sig
 - **Weakly informative:** Gently regularize without strong assumptions  
 - **Non-informative:** Maximally conservative (like uniform priors)
 - **Empirical Bayes:** Learned from data
+::::
 
 ## Hands-On Exploration: Quantifying Uncertainty
 
+- Bayesian Linear Regression
+- Confidance intervals prediction
+
+:::: {.content-hidden when-format="revealjs"}
 ### Bayesian Linear Regression
 
 Implement Bayesian linear regression on Iris data:
@@ -344,6 +403,7 @@ Plot actual frequency vs predicted probability to assess calibration:
 - Overconfident: Points below diagonal (predict too extreme probabilities)
 - Underconfident: Points above diagonal (predict too moderate probabilities)
 
+
 ## Mission: Mastering Uncertainty
 
 ### Assignment 1: The Bayesian Investigator
@@ -374,3 +434,7 @@ Compare two classification algorithms using proper statistical testing:
 - Use cross-validation for reliable estimates
 - Perform statistical significance tests
 - Create confidence intervals for performance differences
+
+## References
+
+::::

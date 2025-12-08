@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Siju Swamy">
-  <title>Training of Trainees Master Class – Session 3: Calculus - The Engine of Learning</title>
+  <title>Training of Trainers Master Class – Session 3: Calculus - The Engine of Learning</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -154,189 +154,117 @@ Siju Swamy <a href="https://orcid.org/0009-0004-1983-5574" class="quarto-title-a
 </section>
 <section id="the-mathematics-of-change-and-improvement" class="slide level2">
 <h2>The Mathematics of Change and Improvement</h2>
-<p>Welcome to our exploration of calculus, the second pillar of artificial intelligence that provides the fundamental mechanism for learning and adaptation. If linear algebra gives us the language to describe intelligent systems, then calculus gives us the tools to make them learn and improve. Calculus is the mathematical engine that transforms static models into dynamic learners, turning data into intelligence through the principled mathematics of change.</p>
-<p>In this session, we will uncover how derivatives, gradients, and the chain rule enable machines to learn from their mistakes, optimize their performance, and adapt to new information. We will see how centuries-old mathematical concepts provide the foundation for the most advanced learning algorithms of our time.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Calculus will serve as:</strong></p>
+</div>
+<div class="callout-content">
+<ol type="1">
+<li>Tool that makes learning possible</li>
+<li>Transform static models to dynamic learner</li>
+</ol>
+</div>
+</div>
+</div>
 </section>
 <section id="the-derivative-measuring-sensitivity-and-change" class="slide level2">
 <h2>The Derivative: Measuring Sensitivity and Change</h2>
-<h3 id="the-foundation-instantaneous-rate-of-change">The Foundation: Instantaneous Rate of Change</h3>
-<p>The derivative of a function at a point measures how sensitive the output is to small changes in the input:</p>
-<p><span class="math display">\[
-f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h}
-\]</span></p>
-<p>In machine learning, this concept becomes profoundly practical. For a model with parameters <span class="math inline">\(\mathbf{w}\)</span> and loss function <span class="math inline">\(\mathcal{L}(\mathbf{w})\)</span>, the partial derivative:</p>
-<p><span class="math display">\[
-\frac{\partial \mathcal{L}}{\partial w_i}
-\]</span></p>
-<p>measures how much the loss would change if we made a small adjustment to parameter <span class="math inline">\(w_i\)</span>. This simple concept becomes the guiding compass for model improvement.</p>
-<h3 id="partial-derivatives-in-high-dimensions">Partial Derivatives in High Dimensions</h3>
-<p>In our Iris classification problem, we might have a loss function that depends on multiple parameters. For a linear classifier:</p>
-<p><span class="math display">\[
-\mathcal{L}(\mathbf{w}) = \frac{1}{n}\sum_{i=1}^n (y_i - \mathbf{w}^T\mathbf{x}_i)^2
-\]</span></p>
-<p>Each partial derivative <span class="math inline">\(\frac{\partial \mathcal{L}}{\partial w_j}\)</span> tells us how changing weight <span class="math inline">\(w_j\)</span> affects the overall classification error. The collection of all these partial derivatives forms the gradient.</p>
+<ul>
+<li>Instantaneous rate of change</li>
+<li>Measure of rate of increase/ decrease of function</li>
+<li>Properties</li>
+<li>Critcial points and its meaning</li>
+</ul>
 </section>
 <section id="the-gradient-the-learning-compass" class="slide level2">
 <h2>The Gradient: The Learning Compass</h2>
-<h3 id="the-gradient-vector">The Gradient Vector</h3>
-<p>The gradient collects all partial derivatives into a single vector:</p>
-<p><span class="math display">\[
-\nabla\mathcal{L}(\mathbf{w}) = \begin{bmatrix}
-\frac{\partial \mathcal{L}}{\partial w_1} \\
-\frac{\partial \mathcal{L}}{\partial w_2} \\
-\vdots \\
-\frac{\partial \mathcal{L}}{\partial w_d}
-\end{bmatrix}
-\]</span></p>
-<p>This vector points in the direction of steepest ascent of the loss function. Its magnitude tells us how steep the slope is in that direction. For learning, we’re interested in the opposite direction—the direction of steepest descent.</p>
-<h3 id="geometric-interpretation-navigating-loss-landscapes">Geometric Interpretation: Navigating Loss Landscapes</h3>
-<p>Imagine our loss function as a mountainous landscape. The height at each point represents how bad our model performs with particular parameters. We start at a random point in this landscape and want to find the lowest valley.</p>
-<p>The gradient at our current position tells us which direction is uphill. Therefore, <span class="math inline">\(-\nabla\mathcal{L}(\mathbf{w})\)</span> points downhill—the direction we should move to reduce our loss. This geometric intuition transforms abstract mathematics into a concrete navigation strategy.</p>
+<ul>
+<li>The direction of maximum increase</li>
+<li>Ortogonal direction to the surface landscape</li>
+</ul>
 </section>
 <section id="gradient-descent-the-learning-algorithm" class="slide level2">
 <h2>Gradient Descent: The Learning Algorithm</h2>
-<h3 id="the-update-rule">The Update Rule</h3>
-<p>Gradient descent follows a simple iterative process:</p>
-<p><span class="math display">\[
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta \nabla\mathcal{L}(\mathbf{w}^{(t)})
-\]</span></p>
-<p>where <span class="math inline">\(\eta\)</span> is the learning rate. This elegant equation embodies the entire concept of learning through gradual improvement.</p>
-<h3 id="the-learning-rate-step-size-matters">The Learning Rate: Step Size Matters</h3>
-<p>The learning rate <span class="math inline">\(\eta\)</span> controls how far we move in the gradient direction. Its choice is crucial:</p>
 <ul>
-<li><strong>Too small</strong>: Learning is slow, may get stuck in local minima</li>
-<li><strong>Too large</strong>: May overshoot the minimum, causing oscillation or divergence</li>
-<li><strong>Just right</strong>: Efficient convergence to a good solution</li>
+<li>Iterative algorithm to global minimum</li>
+<li>Simple definition: <span class="math inline">\(\theta^{n+1}=\theta^n-\eta \nabla \mathcal{L}(\theta^n)\)</span></li>
+<li>Different types of Grradient Descent</li>
+<li>The first algorithm to minimize loss in classical ML</li>
 </ul>
-<h3 id="visualizing-gradient-descent">Visualizing Gradient Descent</h3>
-<p>For our Iris classifier, we can visualize gradient descent as a path through parameter space. The algorithm starts with random weights and gradually moves toward regions where the classifier makes fewer mistakes. Each step is determined by the local gradient, creating a path that follows the topography of the loss landscape.</p>
 </section>
 <section id="the-chain-rule-the-foundation-of-deep-learning" class="slide level2">
 <h2>The Chain Rule: The Foundation of Deep Learning</h2>
-<h3 id="composing-functions">Composing Functions</h3>
-<p>The chain rule tells us how to differentiate composite functions:</p>
-<p><span class="math display">\[
-\frac{d}{dx}f(g(x)) = f'(g(x)) \cdot g'(x)
-\]</span></p>
-<p>In the context of neural networks, this becomes essential for computing gradients through multiple layers.</p>
-<h3 id="backpropagation-applying-the-chain-rule-to-networks">Backpropagation: Applying the Chain Rule to Networks</h3>
-<p>Consider a simple neural network with one hidden layer:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{z} &amp;= \mathbf{W}_1\mathbf{x} + \mathbf{b}_1 \\
-\mathbf{h} &amp;= \sigma(\mathbf{z}) \\
-\mathbf{o} &amp;= \mathbf{W}_2\mathbf{h} + \mathbf{b}_2 \\
-\mathcal{L} &amp;= \text{loss}(\mathbf{o}, \mathbf{y})
-\end{aligned}
-\]</span></p>
-<p>Backpropagation uses the chain rule to compute gradients for all parameters:</p>
-<p><span class="math display">\[
-\frac{\partial \mathcal{L}}{\partial \mathbf{W}_2} = \frac{\partial \mathcal{L}}{\partial \mathbf{o}} \cdot \frac{\partial \mathbf{o}}{\partial \mathbf{W}_2}
-\]</span></p>
-<p><span class="math display">\[
-\frac{\partial \mathcal{L}}{\partial \mathbf{W}_1} = \frac{\partial \mathcal{L}}{\partial \mathbf{o}} \cdot \frac{\partial \mathbf{o}}{\partial \mathbf{h}} \cdot \frac{\partial \mathbf{h}}{\partial \mathbf{z}} \cdot \frac{\partial \mathbf{z}}{\partial \mathbf{W}_1}
-\]</span></p>
-<p>This systematic application of the chain rule allows gradients to flow backward through the network, enabling learning in deep architectures.</p>
+<ul>
+<li>Measure the combosit change</li>
+<li>The workhorse of back propagation in ML</li>
+</ul>
 </section>
 <section id="loss-functions-quantifying-what-we-want-to-improve" class="slide level2">
 <h2>Loss Functions: Quantifying What We Want to Improve</h2>
-<h3 id="common-loss-functions">Common Loss Functions</h3>
-<p>Different problems require different ways of measuring “wrongness”:</p>
-<p><strong>Mean Squared Error (Regression):</strong> <span class="math display">\[
-\mathcal{L} = \frac{1}{n}\sum_{i=1}^n (y_i - \hat{y}_i)^2
-\]</span></p>
-<p><strong>Cross-Entropy Loss (Classification):</strong> <span class="math display">\[
-\mathcal{L} = -\frac{1}{n}\sum_{i=1}^n \sum_{c=1}^C y_{i,c} \log(\hat{y}_{i,c})
-\]</span></p>
-<p><strong>Hinge Loss (SVMs):</strong> <span class="math display">\[
-\mathcal{L} = \frac{1}{n}\sum_{i=1}^n \max(0, 1 - y_i(\mathbf{w}^T\mathbf{x}_i))
-\]</span></p>
-<p>Each loss function has different gradient properties that affect how learning proceeds.</p>
-<h3 id="convex-vs-non-convex-loss-landscapes">Convex vs Non-Convex Loss Landscapes</h3>
 <ul>
-<li><strong>Convex functions</strong> (like linear regression): Have one global minimum, guaranteed convergence</li>
-<li><strong>Non-convex functions</strong> (like neural networks): Have multiple local minima, convergence to global minimum not guaranteed</li>
+<li>Loss function or cost function as the cost of approaximation</li>
+<li>Formation of loss function</li>
+<li>Different types of loss functions</li>
 </ul>
-<p>Understanding the loss landscape helps us choose appropriate optimization strategies.</p>
 </section>
 <section id="advanced-optimization-algorithms" class="slide level2">
 <h2>Advanced Optimization Algorithms</h2>
-<h3 id="momentum-learning-with-inertia">Momentum: Learning with Inertia</h3>
-<p>Momentum adds a velocity term to gradient descent:</p>
-<p><span class="math display">\[
-\begin{aligned}
-\mathbf{v}^{(t+1)} &amp;= \gamma \mathbf{v}^{(t)} + \eta \nabla\mathcal{L}(\mathbf{w}^{(t)}) \\
-\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
-\end{aligned}
-\]</span></p>
-<p>This helps smooth out oscillations and navigate flat regions more efficiently.</p>
-<h3 id="adaptive-learning-rates">Adaptive Learning Rates</h3>
-<p>Algorithms like Adam, RMSProp, and Adagrad adapt the learning rate for each parameter based on historical gradient information:</p>
-<p><span class="math display">\[
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\hat{\mathbf{v}}^{(t)}} + \epsilon} \hat{\mathbf{m}}^{(t)}
-\]</span></p>
-<p>These methods often converge faster and require less tuning of the learning rate.</p>
+<ul>
+<li>Better optimize the loss with experience of gradients</li>
+<li>Modern optimizors
+<ul>
+<li>momentum</li>
+</ul></li>
+<li>Adaptive family
+<ul>
+<li>RMSProp</li>
+<li>Adagrad</li>
+<li>Adam</li>
+<li>Adamw</li>
+</ul></li>
+</ul>
 </section>
 <section id="teaching-calculus-with-intuition" class="slide level2">
 <h2>Teaching Calculus with Intuition</h2>
-<h3 id="the-hiker-in-the-fog-analogy-for-gradient-descent">The “Hiker in the Fog” Analogy for Gradient Descent</h3>
-<p>Imagine you’re a hiker in thick fog, trying to find the valley below. You can’t see the entire landscape, but you can feel the slope beneath your feet. The gradient is this “feeling of the slope.” Each step you take downhill is like a gradient descent update. The learning rate is how big your steps are—too small and you’ll take forever, too big and you might overshoot the valley.</p>
-<h3 id="the-factory-assembly-line-for-backpropagation">The “Factory Assembly Line” for Backpropagation</h3>
-<p>Think of a neural network as a factory assembly line. Raw materials (input data) enter at one end, and each station (layer) transforms them. When the final product (prediction) has defects, we need to figure out which stations caused the problems. Backpropagation is like sending quality control reports backward through the factory—each station learns how to adjust its process based on its contribution to the final error.</p>
-<h3 id="the-thermostat-analogy-for-learning-rate">The “Thermostat” Analogy for Learning Rate</h3>
-<p>The learning rate is like a thermostat control. If the room is too cold, you might turn up the heat a lot (high learning rate). But if you overshoot and it gets too hot, you might need to make smaller adjustments (low learning rate). Some advanced thermostats learn from past adjustments, just like adaptive learning rate algorithms.</p>
+<ul>
+<li>Use anlogies</li>
+<li>Identiy the best hack to introduce tough ideas like back propagation</li>
+</ul>
 </section>
 <section id="calculus-in-modern-architectures" class="slide level2">
 <h2>Calculus in Modern Architectures</h2>
-<h3 id="attention-mechanisms-and-gradients">Attention Mechanisms and Gradients</h3>
-<p>In transformer models, the attention mechanism computes:</p>
-<p><span class="math display">\[
-\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V}
-\]</span></p>
-<p>The gradients flowing through this operation allow the model to learn which parts of the input to “pay attention to” for different tasks.</p>
-<h3 id="generative-models-and-gradient-flow">Generative Models and Gradient Flow</h3>
-<p>In Generative Adversarial Networks (GANs), we have two networks—a generator and a discriminator—playing a minimax game:</p>
-<p><span class="math display">\[
-\min_G \max_D \mathbb{E}[\log D(\mathbf{x})] + \mathbb{E}[\log(1 - D(G(\mathbf{z})))]
-\]</span></p>
-<p>The careful balance of gradients between these competing networks enables the generation of realistic data.</p>
+<ul>
+<li><span class="math inline">\(A(Q,K,V)\)</span>- the attention gate of gradient contribution</li>
+<li>Gradient in Min-Max game like losses in GAN</li>
+<li>Gradient aware activations</li>
+<li>Gradent aware coposit losses</li>
+</ul>
 </section>
 <section id="common-student-challenges-and-solutions" class="slide level2">
 <h2>Common Student Challenges and Solutions</h2>
-<h3 id="challenge-1-why-do-we-need-calculus-cant-we-just-try-different-parameters-randomly">Challenge 1: “Why do we need calculus? Can’t we just try different parameters randomly?”</h3>
-<p><strong>Solution:</strong> Use the “searching for keys” analogy. Searching randomly in a dark room for your keys might eventually work, but it’s incredibly inefficient. Using gradients is like having a metal detector that beeps louder as you get closer—it gives you directional information that dramatically speeds up the search.</p>
-<h3 id="challenge-2-the-chain-rule-seems-complicated-with-all-these-partial-derivatives.">Challenge 2: “The chain rule seems complicated with all these partial derivatives.”</h3>
-<p><strong>Solution:</strong> Emphasize that backpropagation is just the systematic application of the chain rule. Draw the computational graph and show how errors flow backward. Start with simple networks and gradually increase complexity.</p>
-<h3 id="challenge-3-how-do-we-know-were-finding-the-global-minimum-and-not-just-a-local-minimum">Challenge 3: “How do we know we’re finding the global minimum and not just a local minimum?”</h3>
-<p><strong>Solution:</strong> Acknowledge that for non-convex problems, we can’t guarantee finding the global minimum. However, in practice, many local minima in deep learning are “good enough,” and techniques like random initialization, batch normalization, and ensemble methods help us find good solutions.</p>
+<ul>
+<li>Why calculus in AI?</li>
+<li>Why do we learn chain rule if we have functions to calculate gradient?</li>
+<li>How can I confirm a minimum point as local or global?</li>
+</ul>
 </section>
 <section id="hands-on-exploration-seeing-learning-happen" class="slide level2">
 <h2>Hands-On Exploration: Seeing Learning Happen</h2>
-<h3 id="visualizing-gradient-descent-1">Visualizing Gradient Descent</h3>
-<p>We can create visualizations that show:</p>
 <ul>
-<li>Gradient descent paths on 2D loss surfaces</li>
-<li>The effect of different learning rates</li>
-<li>How momentum affects the optimization trajectory</li>
-<li>Comparison of different optimization algorithms</li>
+<li>Visualization of learning using the gradient flow</li>
+<li>Demonstrating the role of learning rate by visualizations</li>
 </ul>
-<h3 id="monitoring-training-dynamics">Monitoring Training Dynamics</h3>
-<p>By plotting loss curves and gradient norms during training, we can diagnose problems like: - Learning rate too high (oscillating loss) - Learning rate too low (very slow decrease) - Vanishing gradients (gradient norms decreasing too rapidly) - Exploding gradients (gradient norms increasing)</p>
 </section>
 <section id="mission-mastering-the-learning-process" class="slide level2">
 <h2>Mission: Mastering the Learning Process</h2>
-<h3 id="assignment-1-the-gradient-explorer">Assignment 1: The Gradient Explorer</h3>
-<p>Implement gradient descent for a simple linear regression problem on the Iris dataset. Create a visualization that shows: - The loss surface - The path taken by gradient descent - How the gradient direction changes along the path - The effect of different learning rates</p>
-<h3 id="assignment-2-the-backpropagation-storyteller">Assignment 2: The Backpropagation Storyteller</h3>
-<p>Choose a simple neural network architecture. Create a step-by-step explanation of how backpropagation works, showing: - The forward pass computations - The backward pass gradients - How each layer’s parameters get updated - The role of the chain rule at each step</p>
-<h3 id="assignment-3-the-optimization-strategist">Assignment 3: The Optimization Strategist</h3>
-<p>Compare three different optimization algorithms (e.g., SGD, Momentum, Adam) on a classification task. Analyze:</p>
 <ul>
-<li>Convergence speed</li>
-<li>Final performance</li>
-<li>Sensitivity to learning rate</li>
-<li>Computational requirements</li>
-<li>When you might choose each algorithm</li>
+<li>Develop a gradent visualizer for common convex functions</li>
+<li>Design a simple neural network and develop an easy method to demonstrate the back propagation updates</li>
+<li>Compare and contrast at least three widely used optimizers in ML</li>
 </ul>
 
 

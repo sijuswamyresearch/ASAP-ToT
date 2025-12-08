@@ -2,7 +2,7 @@ project:
   type: website
   output-dir: docs
 website:
-  title: "Training of Trainees Master Class"
+  title: "Training of Trainers Master Class"
   site-url: https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE
   repo-url: https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE
   repo-branch: main
@@ -23,20 +23,20 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - href: Session1/index.qmd
-        text: Four Pillers of AI
-      - href: Session2/index.qmd
-        text: The Language of AI
-      - href: Session3/index.qmd
-        text: The Engine of Learning
-      - href: Session4/index.qmd
-        text: The Science of Uncertainty
-      - href: Session5/index.qmd
-        text: The Strategy of Search 
-      - href: Session6/index.qmd
-        text: Pillars in Practice
-      - href: session7/index.qmd
-        text: Synthesis & Teaching Excellence
+#      - href: Session1/index.qmd
+#        text: Four Pillers of AI
+#      - href: Session2/index.qmd
+#        text: The Language of AI
+#      - href: Session3/index.qmd
+#        text: The Engine of Learning
+#      - href: Session4/index.qmd
+#        text: The Science of Uncertainty
+#      - href: Session5/index.qmd
+#        text: The Strategy of Search 
+#      - href: Session6/index.qmd
+#        text: Pillars in Practice
+#      - href: session7/index.qmd
+#        text: Synthesis & Teaching Excellence
 
       - about.qmd
 

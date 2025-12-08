@@ -39,11 +39,26 @@ execute:
 
 ## The Art and Science of Finding the Best
 
+:::: {.content-hidden when-format="revealjs"}
 Welcome to our exploration of optimization, the fourth and final pillar of artificial intelligence. While linear algebra provides the language, calculus the learning mechanism, and probability the framework for uncertainty, optimization provides the strategic intelligence for finding the best solutions in complex, high-dimensional spaces. Optimization is the mathematical discipline that transforms the question "How can we improve?" into the actionable strategy "Here's how to find the best improvement."
 
 In this session, we will uncover how optimization theory provides the algorithms and strategies that enable AI systems to navigate complex landscapes, balance competing objectives, and converge toward optimal solutions. From the simple elegance of gradient descent to the sophisticated strategies of constrained optimization, we will see how mathematical optimization forms the strategic backbone of all learning systems.
+::::
 
 ## The Optimization Framework
+
+:::{.callout-note}
+
+- Most ML problems can be modelled as optimization problems
+- Ultimate aim is to minimize the error in decision
+- Convex and non-convex optimization
+- Basic ideas from calculus based optimization
+:::
+
+
+
+:::: {.content-hidden when-format="revealjs"}
+
 
 ### The General Optimization Problem
 
@@ -85,7 +100,18 @@ The nature of the optimization landscape dramatically affects our strategy:
 - Requires careful initialization and strategies
 - Examples: Neural networks, mixture models
 
+::::
+
 ## First-Order Methods: Following the Gradient
+
+:::{.callout-note}
+
+- Gradient as a best direction of increase/ decrease
+- Gradient descent method as a conqure and win minimization model
+- Variants of Gradient descend method
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Gradient Descent and Its Variants
 
@@ -159,7 +185,19 @@ $$
 \end{aligned}
 $$
 
+::::
+
 ## Second-Order Methods: Using Curvature Information
+
+:::{.callout-note}
+
+- Based on second derivative of the loss function
+- Classical methods
+  - Newton's method
+  - Quasi-Newton's method
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Newton's Method
 
@@ -186,7 +224,14 @@ $$
 
 **L-BFGS (Limited-memory BFGS):** Stores only last m vectors to approximate inverse Hessian
 
+::::
+
 ## Constrained Optimization
+
+:::{.callout-note}
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 
 ### Lagrange Multipliers
 
@@ -207,7 +252,15 @@ The necessary conditions for optimality in constrained optimization:
 3. **Dual feasibility:** $\lambda_i \geq 0$
 4. **Complementary slackness:** $\lambda_i g_i(\mathbf{w}^*) = 0$
 
+::::
+
 ## Regularization and Constrained Formulations
+
+:::{.callout-note}
+
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### L1 and L2 Regularization
 
@@ -235,8 +288,15 @@ $$
 
 For L1 regularization: $\text{prox}_{\lambda \|\cdot\|_1}(\mathbf{w}) = \text{sign}(\mathbf{w}) \max(|\mathbf{w}| - \lambda, 0)$
 
+::::
+
 ## Global Optimization Methods
 
+:::{.callout-note}
+
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 ### When Local Methods Fail
 
 For highly non-convex problems, we need global optimization strategies:
@@ -259,8 +319,15 @@ For highly non-convex problems, we need global optimization strategies:
 - Uses acquisition function to decide where to sample next
 - Particularly useful for expensive black-box functions
 
+::::
+
 ## Hyperparameter Optimization
 
+:::{.callout-note}
+
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 ### The Outer Optimization Loop
 
 While model parameters are learned via gradient descent, hyperparameters require different strategies:
@@ -277,8 +344,15 @@ Using cheaper approximations to guide search:
 - **Successive halving:** Allocate more resources to promising configurations
 - **Hyperband:** Adaptive resource allocation strategy
 
+::::
+
 ## Optimization in Deep Learning
 
+:::{.callout-note}
+
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 ### Challenges in Deep Learning Optimization
 
 Deep neural networks present unique optimization challenges:
@@ -304,7 +378,15 @@ Deep neural networks present unique optimization challenges:
 - **RNNs:** Backpropagation through time, gradient clipping for stability
 - **Transformers:** Careful initialization, learning rate warmup
 
+::::
+
 ## Teaching Optimization with Intuition
+
+:::{.callout-note}
+
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### The "Mountain Descent" Analogy for Optimization Methods
 
@@ -329,8 +411,13 @@ Like a venture capitalist funding startups:
 - **Random search:** Fund random combinations, see which show promise
 - **Bayesian optimization:** Learn from previous investments, fund most promising directions
 
-## Convergence Analysis
+::::
 
+## Convergence Analysis
+:::{.callout-note}
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 ### Rates of Convergence
 
 Different algorithms have different convergence guarantees:
@@ -348,8 +435,15 @@ In practice, we monitor:
 - **Parameter changes:** Should become small
 - **Validation performance:** Should improve then stabilize
 
+::::
+
 ## Common Student Challenges and Solutions
 
+:::{.callout-caution}
+
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 ### Challenge 1: "Which optimizer should I use?"
 
 **Solution:** Provide a decision framework:
@@ -374,12 +468,17 @@ In practice, we monitor:
 
 1. Check gradient flow (vanishing/exploding gradients)
 2. Verify data pipeline (shuffling, normalization)
-3. Try overfitting a small batch (if can't overfit, model is too small or data有问题)
+3. Try overfitting a small batch (if can't overfit, model is too small or data)
 4. Monitor gradient norms and parameter updates
 5. Check for implementation bugs
+::::
 
 ## Hands-On Exploration: Optimization in Practice
 
+:::{.callout-note}
+
+:::
+:::: {.content-hidden when-format="revealjs"}
 ### Comparing Optimization Algorithms
 
 Implement and compare on Iris classification:
@@ -406,9 +505,12 @@ Show how different regularization strategies affect:
 - Feature weights
 - Generalization performance
 - Model simplicity vs complexity trade-off
+::::
 
 ## Mission: Mastering Optimization Strategies
-
+:::{.callout-note}
+:::
+:::: {.content-hidden when-format="revealjs"}
 ### Assignment 1: The Optimization Explorer
 
 Implement three different optimization algorithms from scratch:
@@ -448,3 +550,4 @@ Compare:
 - Resource requirements
 - Practical recommendations for different scenarios
 
+::::

@@ -37,12 +37,28 @@ execute:
 
 ## The Mathematics of Change and Improvement
 
+:::{.callout-note}
+### Calculus will serve as:
+
+1. Tool that makes learning possible
+2. Transform static models to dynamic learner
+:::
+
+:::: {.content-hidden when-format="revealjs"}
 Welcome to our exploration of calculus, the second pillar of artificial intelligence that provides the fundamental mechanism for learning and adaptation. If linear algebra gives us the language to describe intelligent systems, then calculus gives us the tools to make them learn and improve. Calculus is the mathematical engine that transforms static models into dynamic learners, turning data into intelligence through the principled mathematics of change.
 
 In this session, we will uncover how derivatives, gradients, and the chain rule enable machines to learn from their mistakes, optimize their performance, and adapt to new information. We will see how centuries-old mathematical concepts provide the foundation for the most advanced learning algorithms of our time.
+::::
 
 ## The Derivative: Measuring Sensitivity and Change
 
+- Instantaneous rate of change
+- Measure of rate of increase/ decrease of function
+- Properties
+- Critcial points and its meaning
+
+
+:::: {.content-hidden when-format="revealjs"}
 ### The Foundation: Instantaneous Rate of Change
 
 The derivative of a function at a point measures how sensitive the output is to small changes in the input:
@@ -68,9 +84,15 @@ $$
 $$
 
 Each partial derivative $\frac{\partial \mathcal{L}}{\partial w_j}$ tells us how changing weight $w_j$ affects the overall classification error. The collection of all these partial derivatives forms the gradient.
+::::
 
 ## The Gradient: The Learning Compass
 
+- The direction of maximum increase
+- Ortogonal direction to the surface landscape
+
+
+:::: {.content-hidden when-format="revealjs"}
 ### The Gradient Vector
 
 The gradient collects all partial derivatives into a single vector:
@@ -91,8 +113,18 @@ This vector points in the direction of steepest ascent of the loss function. Its
 Imagine our loss function as a mountainous landscape. The height at each point represents how bad our model performs with particular parameters. We start at a random point in this landscape and want to find the lowest valley.
 
 The gradient at our current position tells us which direction is uphill. Therefore, $-\nabla\mathcal{L}(\mathbf{w})$ points downhill—the direction we should move to reduce our loss. This geometric intuition transforms abstract mathematics into a concrete navigation strategy.
+::::
+
 
 ## Gradient Descent: The Learning Algorithm
+
+- Iterative algorithm to global minimum
+- Simple definition: $\theta^{n+1}=\theta^n-\eta \nabla \mathcal{L}(\theta^n)$
+- Different types of Grradient Descent 
+- The first algorithm to minimize loss in classical ML
+
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### The Update Rule
 
@@ -115,9 +147,14 @@ The learning rate $\eta$ controls how far we move in the gradient direction. Its
 ### Visualizing Gradient Descent
 
 For our Iris classifier, we can visualize gradient descent as a path through parameter space. The algorithm starts with random weights and gradually moves toward regions where the classifier makes fewer mistakes. Each step is determined by the local gradient, creating a path that follows the topography of the loss landscape.
+::::
 
 ## The Chain Rule: The Foundation of Deep Learning
 
+- Measure the combosit change
+- The workhorse of back propagation in ML
+
+:::: {.content-hidden when-format="revealjs"}
 ### Composing Functions
 
 The chain rule tells us how to differentiate composite functions:
@@ -152,9 +189,15 @@ $$
 $$
 
 This systematic application of the chain rule allows gradients to flow backward through the network, enabling learning in deep architectures.
+::::
 
 ## Loss Functions: Quantifying What We Want to Improve
 
+- Loss function or cost function as the cost of approaximation
+- Formation of loss function
+- Different types of loss functions
+
+:::: {.content-hidden when-format="revealjs"}
 ### Common Loss Functions
 
 Different problems require different ways of measuring "wrongness":
@@ -182,9 +225,20 @@ Each loss function has different gradient properties that affect how learning pr
 - **Non-convex functions** (like neural networks): Have multiple local minima, convergence to global minimum not guaranteed
 
 Understanding the loss landscape helps us choose appropriate optimization strategies.
+::::
 
 ## Advanced Optimization Algorithms
 
+- Better optimize the loss with experience of gradients
+- Modern optimizors
+  - momentum
+- Adaptive family
+  - RMSProp
+  - Adagrad
+  - Adam
+  - Adamw
+
+:::: {.content-hidden when-format="revealjs"}
 ### Momentum: Learning with Inertia
 
 Momentum adds a velocity term to gradient descent:
@@ -208,8 +262,14 @@ $$
 
 These methods often converge faster and require less tuning of the learning rate.
 
+::::
+
 ## Teaching Calculus with Intuition
 
+- Use anlogies
+- Identiy the best hack to introduce tough ideas like back propagation
+
+:::: {.content-hidden when-format="revealjs"}
 ### The "Hiker in the Fog" Analogy for Gradient Descent
 
 Imagine you're a hiker in thick fog, trying to find the valley below. You can't see the entire landscape, but you can feel the slope beneath your feet. The gradient is this "feeling of the slope." Each step you take downhill is like a gradient descent update. The learning rate is how big your steps are—too small and you'll take forever, too big and you might overshoot the valley.
@@ -221,8 +281,16 @@ Think of a neural network as a factory assembly line. Raw materials (input data)
 ### The "Thermostat" Analogy for Learning Rate
 
 The learning rate is like a thermostat control. If the room is too cold, you might turn up the heat a lot (high learning rate). But if you overshoot and it gets too hot, you might need to make smaller adjustments (low learning rate). Some advanced thermostats learn from past adjustments, just like adaptive learning rate algorithms.
+::::
 
 ## Calculus in Modern Architectures
+
+- $A(Q,K,V)$- the attention gate of gradient contribution 
+- Gradient in Min-Max game like losses in GAN
+- Gradient aware activations
+- Gradent aware coposit losses
+
+:::: {.content-hidden when-format="revealjs"}
 
 ### Attention Mechanisms and Gradients
 
@@ -243,9 +311,15 @@ $$
 $$
 
 The careful balance of gradients between these competing networks enables the generation of realistic data.
+::::
 
 ## Common Student Challenges and Solutions
 
+- Why calculus in AI?
+- Why do we learn chain rule if we have functions to calculate gradient?
+- How can I confirm a minimum point as local or global?
+
+:::: {.content-hidden when-format="revealjs"}
 ### Challenge 1: "Why do we need calculus? Can't we just try different parameters randomly?"
 
 **Solution:** Use the "searching for keys" analogy. Searching randomly in a dark room for your keys might eventually work, but it's incredibly inefficient. Using gradients is like having a metal detector that beeps louder as you get closer—it gives you directional information that dramatically speeds up the search.
@@ -257,9 +331,14 @@ The careful balance of gradients between these competing networks enables the ge
 ### Challenge 3: "How do we know we're finding the global minimum and not just a local minimum?"
 
 **Solution:** Acknowledge that for non-convex problems, we can't guarantee finding the global minimum. However, in practice, many local minima in deep learning are "good enough," and techniques like random initialization, batch normalization, and ensemble methods help us find good solutions.
+::::
 
 ## Hands-On Exploration: Seeing Learning Happen
 
+- Visualization of learning using the gradient flow
+- Demonstrating the role of learning rate by visualizations
+
+:::: {.content-hidden when-format="revealjs"}
 ### Visualizing Gradient Descent
 
 We can create visualizations that show:
@@ -276,12 +355,19 @@ By plotting loss curves and gradient norms during training, we can diagnose prob
 - Learning rate too low (very slow decrease)
 - Vanishing gradients (gradient norms decreasing too rapidly)
 - Exploding gradients (gradient norms increasing)
+::::
 
 ## Mission: Mastering the Learning Process
 
+- Develop a gradent visualizer for common convex functions
+- Design a simple neural network and develop an easy method to demonstrate the back propagation updates
+- Compare and contrast at least three widely used optimizers in ML
+
+:::: {.content-hidden when-format="revealjs"}
 ### Assignment 1: The Gradient Explorer
 
 Implement gradient descent for a simple linear regression problem on the Iris dataset. Create a visualization that shows:
+
 - The loss surface
 - The path taken by gradient descent
 - How the gradient direction changes along the path
@@ -290,6 +376,7 @@ Implement gradient descent for a simple linear regression problem on the Iris da
 ### Assignment 2: The Backpropagation Storyteller
 
 Choose a simple neural network architecture. Create a step-by-step explanation of how backpropagation works, showing:
+
 - The forward pass computations
 - The backward pass gradients
 - How each layer's parameters get updated
@@ -304,4 +391,4 @@ Compare three different optimization algorithms (e.g., SGD, Momentum, Adam) on a
 - Sensitivity to learning rate
 - Computational requirements
 - When you might choose each algorithm
-
+::::

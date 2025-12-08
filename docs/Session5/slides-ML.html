@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.7.31">
 
   <meta name="author" content="Siju Swamy">
-  <title>Training of Trainees Master Class – Session 5: Optimization - The Strategy of Search</title>
+  <title>Training of Trainers Master Class – Session 5: Optimization - The Strategy of Search</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -154,351 +154,230 @@ Siju Swamy <a href="https://orcid.org/0009-0004-1983-5574" class="quarto-title-a
 </section>
 <section id="the-art-and-science-of-finding-the-best" class="slide level2">
 <h2>The Art and Science of Finding the Best</h2>
-<p>Welcome to our exploration of optimization, the fourth and final pillar of artificial intelligence. While linear algebra provides the language, calculus the learning mechanism, and probability the framework for uncertainty, optimization provides the strategic intelligence for finding the best solutions in complex, high-dimensional spaces. Optimization is the mathematical discipline that transforms the question “How can we improve?” into the actionable strategy “Here’s how to find the best improvement.”</p>
-<p>In this session, we will uncover how optimization theory provides the algorithms and strategies that enable AI systems to navigate complex landscapes, balance competing objectives, and converge toward optimal solutions. From the simple elegance of gradient descent to the sophisticated strategies of constrained optimization, we will see how mathematical optimization forms the strategic backbone of all learning systems.</p>
 </section>
 <section id="the-optimization-framework" class="slide level2">
 <h2>The Optimization Framework</h2>
-<h3 id="the-general-optimization-problem">The General Optimization Problem</h3>
-<p>Most machine learning problems can be framed as optimization problems:</p>
-<p><span class="math display">\[
-\min_{\mathbf{w} \in \mathcal{W}} f(\mathbf{w})
-\]</span></p>
-<p>where:</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
 <ul>
-<li><span class="math inline">\(\mathbf{w}\)</span> are the parameters we want to optimize</li>
-<li><span class="math inline">\(f(\mathbf{w})\)</span> is the objective function (typically loss function)</li>
-<li><span class="math inline">\(\mathcal{W}\)</span> is the feasible set (possible parameter values)</li>
+<li>Most ML problems can be modelled as optimization problems</li>
+<li>Ultimate aim is to minimize the error in decision</li>
+<li>Convex and non-convex optimization</li>
+<li>Basic ideas from calculus based optimization</li>
 </ul>
-<p>For our Iris classification problem, this becomes:</p>
-<p><span class="math display">\[
-\min_{\mathbf{w}} \frac{1}{n}\sum_{i=1}^n \ell(y_i, \mathbf{w}^T\mathbf{x}_i) + \lambda R(\mathbf{w})
-\]</span></p>
-<p>where <span class="math inline">\(\ell\)</span> is the loss function and <span class="math inline">\(R(\mathbf{w})\)</span> is a regularization term.</p>
-<h3 id="convex-vs-non-convex-optimization">Convex vs Non-Convex Optimization</h3>
-<p>The nature of the optimization landscape dramatically affects our strategy:</p>
-<p><strong>Convex Optimization:</strong></p>
-<ul>
-<li><span class="math inline">\(f(\mathbf{w})\)</span> is convex: <span class="math inline">\(f(\theta\mathbf{w} + (1-\theta)\mathbf{v}) \leq \theta f(\mathbf{w}) + (1-\theta)f(\mathbf{v})\)</span></li>
-<li>Has single global minimum</li>
-<li>Guaranteed convergence to optimum</li>
-<li>Examples: Linear regression, logistic regression</li>
-</ul>
-<p><strong>Non-Convex Optimization:</strong></p>
-<ul>
-<li>Multiple local minima</li>
-<li>No convergence guarantees to global optimum</li>
-<li>Requires careful initialization and strategies</li>
-<li>Examples: Neural networks, mixture models</li>
-</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="first-order-methods-following-the-gradient" class="slide level2">
 <h2>First-Order Methods: Following the Gradient</h2>
-<h3 id="gradient-descent-and-its-variants">Gradient Descent and Its Variants</h3>
-<p>The foundation of first-order methods is gradient descent:</p>
-<p><strong>Batch Gradient Descent:</strong> <span class="math display">\[
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \nabla f(\mathbf{w}^{(t)})
-\]</span></p>
-<p><strong>Stochastic Gradient Descent (SGD):</strong> <span class="math display">\[
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \nabla f_i(\mathbf{w}^{(t)})
-\]</span> where <span class="math inline">\(f_i\)</span> is the loss for a single data point</p>
-<p><strong>Mini-batch Gradient Descent:</strong> <span class="math display">\[
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta_t \frac{1}{B} \sum_{i=1}^B \nabla f_i(\mathbf{w}^{(t)})
-\]</span></p>
-<h3 id="momentum-methods">Momentum Methods</h3>
-<p>Momentum helps accelerate convergence and dampen oscillations:</p>
-<p><strong>Classical Momentum:</strong> <span class="math display">\[
-\begin{aligned}
-\mathbf{v}^{(t+1)} &amp;= \gamma \mathbf{v}^{(t)} + \eta \nabla f(\mathbf{w}^{(t)}) \\\\
-\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
-\end{aligned}
-\]</span></p>
-<p><strong>Nesterov Accelerated Gradient:</strong> <span class="math display">\[
-\begin{aligned}
-\mathbf{v}^{(t+1)} &amp;= \gamma \mathbf{v}^{(t)} + \eta \nabla f(\mathbf{w}^{(t)} - \gamma \mathbf{v}^{(t)}) \\\\
-\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \mathbf{v}^{(t+1)}
-\end{aligned}
-\]</span></p>
-<h3 id="adaptive-learning-rate-methods">Adaptive Learning Rate Methods</h3>
-<p>These methods adapt learning rates per parameter:</p>
-<p><strong>AdaGrad:</strong> <span class="math display">\[
-\begin{aligned}
-\mathbf{g}^{(t)} &amp;= \nabla f(\mathbf{w}^{(t)}) \\\\
-\mathbf{G}^{(t)} &amp;= \mathbf{G}^{(t-1)} + \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
-\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\mathbf{G}^{(t)} + \epsilon}} \odot \mathbf{g}^{(t)}
-\end{aligned}
-\]</span></p>
-<p><strong>RMSProp:</strong> <span class="math display">\[
-\begin{aligned}
-\mathbf{g}^{(t)} &amp;= \nabla f(\mathbf{w}^{(t)}) \\\\
-\mathbf{G}^{(t)} &amp;= \beta \mathbf{G}^{(t-1)} + (1-\beta) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
-\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\mathbf{G}^{(t)} + \epsilon}} \odot \mathbf{g}^{(t)}
-\end{aligned}
-\]</span></p>
-<p><strong>Adam (Adaptive Moment Estimation):</strong> <span class="math display">\[
-\begin{aligned}
-\mathbf{m}^{(t)} &amp;= \beta_1 \mathbf{m}^{(t-1)} + (1-\beta_1) \mathbf{g}^{(t)} \\\\
-\mathbf{v}^{(t)} &amp;= \beta_2 \mathbf{v}^{(t-1)} + (1-\beta_2) \mathbf{g}^{(t)} \odot \mathbf{g}^{(t)} \\\\
-\hat{\mathbf{m}}^{(t)} &amp;= \frac{\mathbf{m}^{(t)}}{1-\beta_1^t}, \quad \hat{\mathbf{v}}^{(t)} = \frac{\mathbf{v}^{(t)}}{1-\beta_2^t} \\\\
-\mathbf{w}^{(t+1)} &amp;= \mathbf{w}^{(t)} - \frac{\eta}{\sqrt{\hat{\mathbf{v}}^{(t)}} + \epsilon} \hat{\mathbf{m}}^{(t)}
-\end{aligned}
-\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Gradient as a best direction of increase/ decrease</li>
+<li>Gradient descent method as a conqure and win minimization model</li>
+<li>Variants of Gradient descend method</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="second-order-methods-using-curvature-information" class="slide level2">
 <h2>Second-Order Methods: Using Curvature Information</h2>
-<h3 id="newtons-method">Newton’s Method</h3>
-<p>Newton’s method uses second derivative information for faster convergence:</p>
-<p><span class="math display">\[
-\mathbf{w}^{(t+1)} = \mathbf{w}^{(t)} - \eta [\nabla^2 f(\mathbf{w}^{(t)})]^{-1} \nabla f(\mathbf{w}^{(t)})
-\]</span></p>
-<p>Where <span class="math inline">\(\nabla^2 f(\mathbf{w})\)</span> is the Hessian matrix containing second derivatives.</p>
-<h3 id="quasi-newton-methods">Quasi-Newton Methods</h3>
-<p>Since computing the full Hessian is expensive, quasi-Newton methods approximate it:</p>
-<p><strong>BFGS (Broyden-Fletcher-Goldfarb-Shanno):</strong> <span class="math display">\[
-\begin{aligned}
-\mathbf{s}^{(t)} &amp;= \mathbf{w}^{(t+1)} - \mathbf{w}^{(t)} \\\\
-\mathbf{y}^{(t)} &amp;= \nabla f(\mathbf{w}^{(t+1)}) - \nabla f(\mathbf{w}^{(t)}) \\\\
-\mathbf{B}^{(t+1)} &amp;= \mathbf{B}^{(t)} + \frac{\mathbf{y}^{(t)} \mathbf{y}^{(t)^T}}{\mathbf{y}^{(t)^T} \mathbf{s}^{(t)}} - \frac{\mathbf{B}^{(t)} \mathbf{s}^{(t)} \mathbf{s}^{(t)^T} \mathbf{B}^{(t)}}{\mathbf{s}^{(t)^T} \mathbf{B}^{(t)} \mathbf{s}^{(t)}}
-\end{aligned}
-\]</span></p>
-<p><strong>L-BFGS (Limited-memory BFGS):</strong> Stores only last m vectors to approximate inverse Hessian</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Based on second derivative of the loss function</li>
+<li>Classical methods
+<ul>
+<li>Newton’s method</li>
+<li>Quasi-Newton’s method</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="constrained-optimization" class="slide level2">
 <h2>Constrained Optimization</h2>
-<h3 id="lagrange-multipliers">Lagrange Multipliers</h3>
-<p>For problems with constraints, we use Lagrange multipliers:</p>
-<p><span class="math display">\[
-\mathcal{L}(\mathbf{w}, \lambda) = f(\mathbf{w}) + \lambda^T g(\mathbf{w})
-\]</span></p>
-<p>where <span class="math inline">\(g(\mathbf{w}) \leq 0\)</span> are the constraints.</p>
-<h3 id="karush-kuhn-tucker-kkt-conditions">Karush-Kuhn-Tucker (KKT) Conditions</h3>
-<p>The necessary conditions for optimality in constrained optimization:</p>
-<ol type="1">
-<li><strong>Stationarity:</strong> <span class="math inline">\(\nabla f(\mathbf{w}^*) + \sum \lambda_i \nabla g_i(\mathbf{w}^*) = 0\)</span></li>
-<li><strong>Primal feasibility:</strong> <span class="math inline">\(g_i(\mathbf{w}^*) \leq 0\)</span></li>
-<li><strong>Dual feasibility:</strong> <span class="math inline">\(\lambda_i \geq 0\)</span></li>
-<li><strong>Complementary slackness:</strong> <span class="math inline">\(\lambda_i g_i(\mathbf{w}^*) = 0\)</span></li>
-</ol>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="regularization-and-constrained-formulations" class="slide level2">
 <h2>Regularization and Constrained Formulations</h2>
-<h3 id="l1-and-l2-regularization">L1 and L2 Regularization</h3>
-<p>Regularization can be viewed as constrained optimization:</p>
-<p><strong>L2 Regularization (Ridge):</strong> <span class="math display">\[
-\min_{\mathbf{w}} f(\mathbf{w}) + \lambda \|\mathbf{w}\|_2^2
-\]</span> Equivalent to: <span class="math inline">\(\min_{\mathbf{w}} f(\mathbf{w})\)</span> subject to <span class="math inline">\(\|\mathbf{w}\|_2^2 \leq C\)</span></p>
-<p><strong>L1 Regularization (Lasso):</strong> <span class="math display">\[
-\min_{\mathbf{w}} f(\mathbf{w}) + \lambda \|\mathbf{w}\|_1
-\]</span> Equivalent to: <span class="math inline">\(\min_{\mathbf{w}} f(\mathbf{w})\)</span> subject to <span class="math inline">\(\|\mathbf{w}\|_1 \leq C\)</span></p>
-<h3 id="proximal-operators">Proximal Operators</h3>
-<p>For non-smooth optimization problems like L1 regularization:</p>
-<p><span class="math display">\[
-\text{prox}_{\lambda h}(\mathbf{w}) = \arg\min_{\mathbf{z}} \left\{ h(\mathbf{z}) + \frac{1}{2\lambda} \|\mathbf{z} - \mathbf{w}\|_2^2 \right\}
-\]</span></p>
-<p>For L1 regularization: <span class="math inline">\(\text{prox}_{\lambda \|\cdot\|_1}(\mathbf{w}) = \text{sign}(\mathbf{w}) \max(|\mathbf{w}| - \lambda, 0)\)</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="global-optimization-methods" class="slide level2">
 <h2>Global Optimization Methods</h2>
-<h3 id="when-local-methods-fail">When Local Methods Fail</h3>
-<p>For highly non-convex problems, we need global optimization strategies:</p>
-<p><strong>Simulated Annealing:</strong></p>
-<ul>
-<li>Inspired by metallurgical annealing</li>
-<li>Occasionally accepts worse solutions to escape local minima</li>
-<li>Temperature parameter controls exploration vs exploitation</li>
-</ul>
-<p><strong>Genetic Algorithms:</strong></p>
-<ul>
-<li>Population-based search</li>
-<li>Uses crossover and mutation operators</li>
-<li>Maintains diversity to explore search space</li>
-</ul>
-<p><strong>Bayesian Optimization:</strong></p>
-<ul>
-<li>Builds probabilistic model of objective function</li>
-<li>Uses acquisition function to decide where to sample next</li>
-<li>Particularly useful for expensive black-box functions</li>
-</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="hyperparameter-optimization" class="slide level2">
 <h2>Hyperparameter Optimization</h2>
-<h3 id="the-outer-optimization-loop">The Outer Optimization Loop</h3>
-<p>While model parameters are learned via gradient descent, hyperparameters require different strategies:</p>
-<ul>
-<li><strong>Grid Search:</strong> Exhaustive search over predefined hyperparameter grid</li>
-<li><strong>Random Search:</strong> More efficient than grid search for high dimensions</li>
-<li><strong>Bayesian Optimization:</strong> Adaptive sampling based on previous results</li>
-</ul>
-<h3 id="multi-fidelity-optimization">Multi-Fidelity Optimization</h3>
-<p>Using cheaper approximations to guide search:</p>
-<ul>
-<li><strong>Learning curve extrapolation:</strong> Predict final performance from early training</li>
-<li><strong>Successive halving:</strong> Allocate more resources to promising configurations</li>
-<li><strong>Hyperband:</strong> Adaptive resource allocation strategy</li>
-</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="optimization-in-deep-learning" class="slide level2">
 <h2>Optimization in Deep Learning</h2>
-<h3 id="challenges-in-deep-learning-optimization">Challenges in Deep Learning Optimization</h3>
-<p>Deep neural networks present unique optimization challenges:</p>
-<p><strong>Vanishing/Exploding Gradients:</strong></p>
-<ul>
-<li>Gradients become extremely small or large through many layers</li>
-<li>Solved with careful initialization, batch normalization, residual connections</li>
-</ul>
-<p><strong>Saddle Points:</strong></p>
-<ul>
-<li>More problematic than local minima in high dimensions</li>
-<li>Second-order methods can help identify and escape</li>
-</ul>
-<p><strong>Ill-conditioning:</strong></p>
-<ul>
-<li>Hessian matrix has large condition number</li>
-<li>Adaptive methods like Adam help mitigate this</li>
-</ul>
-<h3 id="optimization-for-specific-architectures">Optimization for Specific Architectures</h3>
-<ul>
-<li><strong>CNNs:</strong> Spatial structure enables efficient convolutional operations</li>
-<li><strong>RNNs:</strong> Backpropagation through time, gradient clipping for stability</li>
-<li><strong>Transformers:</strong> Careful initialization, learning rate warmup</li>
-</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="teaching-optimization-with-intuition" class="slide level2">
 <h2>Teaching Optimization with Intuition</h2>
-<h3 id="the-mountain-descent-analogy-for-optimization-methods">The “Mountain Descent” Analogy for Optimization Methods</h3>
-<ul>
-<li><strong>Gradient Descent:</strong> Like walking straight downhill, following the steepest slope</li>
-<li><strong>Momentum:</strong> Like a ball rolling downhill - builds speed in consistent directions</li>
-<li><strong>Adam:</strong> Like an experienced hiker with different step sizes for different terrains</li>
-<li><strong>Newton’s Method:</strong> Like using a topographic map to find the valley directly</li>
-</ul>
-<h3 id="the-restaurant-menu-analogy-for-regularization">The “Restaurant Menu” Analogy for Regularization</h3>
-<p>Think of model complexity like a restaurant menu:</p>
-<ul>
-<li><strong>No regularization:</strong> Huge menu with every possible dish (overfits to customer preferences)</li>
-<li><strong>L2 regularization:</strong> Reasonable-sized menu with popular dishes</li>
-<li><strong>L1 regularization:</strong> Small menu with only essential, popular dishes (feature selection)</li>
-</ul>
-<h3 id="the-resource-allocation-analogy-for-hyperparameter-optimization">The “Resource Allocation” Analogy for Hyperparameter Optimization</h3>
-<p>Like a venture capitalist funding startups:</p>
-<ul>
-<li><strong>Grid search:</strong> Fund every possible combination equally</li>
-<li><strong>Random search:</strong> Fund random combinations, see which show promise</li>
-<li><strong>Bayesian optimization:</strong> Learn from previous investments, fund most promising directions</li>
-</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="convergence-analysis" class="slide level2">
 <h2>Convergence Analysis</h2>
-<h3 id="rates-of-convergence">Rates of Convergence</h3>
-<p>Different algorithms have different convergence guarantees:</p>
-<ul>
-<li><strong>Gradient Descent:</strong> <span class="math inline">\(O(1/\epsilon)\)</span> iterations for <span class="math inline">\(\epsilon\)</span>-accuracy on smooth convex functions</li>
-<li><strong>Accelerated Gradient:</strong> <span class="math inline">\(O(1/\sqrt{\epsilon})\)</span> iterations</li>
-<li><strong>Newton’s Method:</strong> Quadratic convergence near optimum</li>
-</ul>
-<h3 id="practical-convergence-diagnostics">Practical Convergence Diagnostics</h3>
-<p>In practice, we monitor:</p>
-<ul>
-<li><strong>Loss curve:</strong> Should decrease and stabilize</li>
-<li><strong>Gradient norm:</strong> Should approach zero</li>
-<li><strong>Parameter changes:</strong> Should become small</li>
-<li><strong>Validation performance:</strong> Should improve then stabilize</li>
-</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="common-student-challenges-and-solutions" class="slide level2">
 <h2>Common Student Challenges and Solutions</h2>
-<h3 id="challenge-1-which-optimizer-should-i-use">Challenge 1: “Which optimizer should I use?”</h3>
-<p><strong>Solution:</strong> Provide a decision framework:</p>
-<ul>
-<li>Start with Adam for most problems (robust, little tuning needed)</li>
-<li>Use SGD with momentum if you need the best possible performance (with careful tuning)</li>
-<li>Consider second-order methods for small-to-medium convex problems</li>
-<li>Use specialized optimizers for specific architectures</li>
-</ul>
-<h3 id="challenge-2-how-do-i-set-the-learning-rate">Challenge 2: “How do I set the learning rate?”</h3>
-<p><strong>Solution:</strong> Recommend strategies:</p>
-<ul>
-<li>Use learning rate finder (train with increasing learning rates, find where loss decreases fastest)</li>
-<li>Use cyclical learning rates</li>
-<li>Start with common defaults (Adam: 0.001, SGD: 0.1) and adjust based on loss curve</li>
-<li>Use learning rate scheduling (step decay, cosine annealing)</li>
-</ul>
-<h3 id="challenge-3-my-model-isnt-converging---whats-wrong">Challenge 3: “My model isn’t converging - what’s wrong?”</h3>
-<p><strong>Solution:</strong> Systematic debugging:</p>
-<ol type="1">
-<li>Check gradient flow (vanishing/exploding gradients)</li>
-<li>Verify data pipeline (shuffling, normalization)</li>
-<li>Try overfitting a small batch (if can’t overfit, model is too small or data有问题)</li>
-<li>Monitor gradient norms and parameter updates</li>
-<li>Check for implementation bugs</li>
-</ol>
+<div class="callout callout-caution callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Caution</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="hands-on-exploration-optimization-in-practice" class="slide level2">
 <h2>Hands-On Exploration: Optimization in Practice</h2>
-<h3 id="comparing-optimization-algorithms">Comparing Optimization Algorithms</h3>
-<p>Implement and compare on Iris classification:</p>
-<ul>
-<li>SGD with and without momentum</li>
-<li>Adam, RMSProp, AdaGrad</li>
-<li>Visualize optimization paths in 2D parameter space</li>
-<li>Compare convergence rates and final performance</li>
-</ul>
-<h3 id="hyperparameter-optimization-demo">Hyperparameter Optimization Demo</h3>
-<p>Set up Bayesian optimization for a neural network:</p>
-<ul>
-<li>Define search space for learning rate, hidden units, regularization</li>
-<li>Use tools like Optuna or Hyperopt</li>
-<li>Compare with random search and grid search</li>
-<li>Analyze trade-off between computation time and performance</li>
-</ul>
-<h3 id="regularization-effects-visualization">Regularization Effects Visualization</h3>
-<p>Show how different regularization strategies affect:</p>
-<ul>
-<li>Decision boundaries</li>
-<li>Feature weights</li>
-<li>Generalization performance</li>
-<li>Model simplicity vs complexity trade-off</li>
-</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </section>
 <section id="mission-mastering-optimization-strategies" class="slide level2">
 <h2>Mission: Mastering Optimization Strategies</h2>
-<h3 id="assignment-1-the-optimization-explorer">Assignment 1: The Optimization Explorer</h3>
-<p>Implement three different optimization algorithms from scratch:</p>
-<ul>
-<li>Vanilla gradient descent</li>
-<li>Momentum</li>
-<li>Adam</li>
-</ul>
-<p>Apply them to logistic regression on Iris data and:</p>
-<ul>
-<li>Plot convergence curves</li>
-<li>Visualize optimization paths</li>
-<li>Compare sensitivity to learning rate</li>
-<li>Analyze when each method works best</li>
-</ul>
-<h3 id="assignment-2-the-regularization-analyst">Assignment 2: The Regularization Analyst</h3>
-<p>Compare L1, L2, and elastic net regularization:</p>
-<ul>
-<li>Implement proximal gradient descent for L1</li>
-<li>Analyze effect on feature selection</li>
-<li>Compare generalization performance</li>
-<li>Create visualizations of regularization paths</li>
-</ul>
-<h3 id="assignment-3-the-hyperparameter-strategist">Assignment 3: The Hyperparameter Strategist</h3>
-<p>Optimize hyperparameters for a neural network using:</p>
-<ul>
-<li>Grid search</li>
-<li>Random search<br>
-</li>
-<li>Bayesian optimization</li>
-</ul>
-<p>Compare:</p>
-<ul>
-<li>Time to find good configurations</li>
-<li>Best performance found</li>
-<li>Resource requirements</li>
-<li>Practical recommendations for different scenarios</li>
-</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 
 
 </section>
