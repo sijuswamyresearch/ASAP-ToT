@@ -73,6 +73,10 @@ Together, these four pillars create a complete framework for building, understan
 :::: {.content-hidden when-format="revealjs"}
 ### Linear Regression Through the Four Lenses
 
+<div style="text-align: center;">
+  <img src="Linear-regression-modern-approach.png" alt="A detailed infographic about Quarto webpage contents" style="width: 650px; height: auto; display: block; margin: 0 auto;">
+</div>
+
 Let us examine how these four pillars work together by analyzing one of the simplest machine learning algorithms: linear regression. This deconstruction will reveal the hidden mathematical structure that powers even the most sophisticated AI systems.
 
 *The Linear Algebra Perspective:* Data as Mathematical Objects
