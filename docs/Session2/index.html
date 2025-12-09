@@ -197,7 +197,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Session 2 — Linear Algebra - The Language of Data and Transformations</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../Session2/index.html">The Language of AI</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -232,6 +232,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../Session1/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Four Pillers of AI</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session2/index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">The Language of AI</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -306,7 +312,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/sijuswamyresearch/ASAP-ToT/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div><div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="slides-ML.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -368,7 +374,7 @@ Key points
 </div>
 </div>
 <p>Welcome to our deep exploration of Linear Algebra, the first and most fundamental pillar of artificial intelligence. If we consider AI as a new form of architecture, then linear algebra provides both the blueprint and the building materials. Every intelligent system, from the simplest classifier to the most complex large language model, is fundamentally built upon the principles we will explore today.</p>
-<p>Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI (<span class="citation" data-cites="deisenroth2020mathematics">Deisenroth, Faisal, and Ong (<a href="#ref-deisenroth2020mathematics" role="doc-biblioref">2020</a>)</span>, <span class="citation" data-cites="strang2022introduction">(<a href="#ref-strang2022introduction" role="doc-biblioref"><strong>strang2022introduction?</strong></a>)</span>).</p>
+<p>Linear algebra gives us the mathematical language to describe, manipulate, and transform data. It provides the structural framework that allows us to move from individual data points to meaningful patterns, from isolated measurements to comprehensive understanding. In this session, we will uncover how vectors, matrices, and linear transformations form the invisible scaffolding that supports all of modern AI (<span class="citation" data-cites="deisenroth2020mathematics">Deisenroth, Faisal, and Ong (<a href="#ref-deisenroth2020mathematics" role="doc-biblioref">2020</a>)</span>), (<span class="citation" data-cites="strang2022introduction">(<a href="#ref-strang2022introduction" role="doc-biblioref"><strong>strang2022introduction?</strong></a>)</span>).</p>
 </section>
 <section id="the-vector-the-fundamental-unit-of-intelligence" class="level2">
 <h2 class="anchored" data-anchor-id="the-vector-the-fundamental-unit-of-intelligence">The Vector: The Fundamental Unit of Intelligence</h2>
@@ -384,7 +390,7 @@ Key points
 </ul>
 <section id="best-introduction-of-vectors-from-data-science" class="level3">
 <h3 class="anchored" data-anchor-id="best-introduction-of-vectors-from-data-science">Best introduction of vectors from data science</h3>
-<div id="ab228fff" class="cell" data-execution_count="1">
+<div id="8ae52ea0" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> load_iris</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -758,7 +764,7 @@ Deisenroth, Marc Peter, A Aldo Faisal, and Cheng Soon Ong. 2020. <em>Mathematics
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/github\.com\/sijuswamyresearch\/Graph-Theory-Workshop-SBCE");
+        var filterRegex = new RegExp("hhttps:\/\/sijuswamyresearch\.github\.io\/ASAP-ToT\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1090,4 +1096,4 @@ Deisenroth, Marc Peter, A Aldo Faisal, and Cheng Soon Ong. 2020. <em>Mathematics
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sijuswamyresearch/ASAP-ToT/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

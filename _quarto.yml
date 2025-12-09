@@ -3,8 +3,8 @@ project:
   output-dir: docs
 website:
   title: "Training of Trainers Master Class"
-  site-url: https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE
-  repo-url: https://github.com/sijuswamyresearch/Graph-Theory-Workshop-SBCE
+  site-url: hhttps://sijuswamyresearch.github.io/ASAP-ToT/
+  repo-url: https://github.com/sijuswamyresearch/ASAP-ToT
   repo-branch: main
   repo-actions: [issue]
   navbar:
@@ -25,8 +25,8 @@ website:
         text: Home
       - href: Session1/index.qmd
         text: Four Pillers of AI
-#      - href: Session2/index.qmd
-#        text: The Language of AI
+      - href: Session2/index.qmd
+        text: The Language of AI
 #      - href: Session3/index.qmd
 #        text: The Engine of Learning
 #      - href: Session4/index.qmd
