@@ -27,10 +27,10 @@ website:
         text: Four Pillers of AI
       - href: Session2/index.qmd
         text: The Language of AI
-#      - href: Session3/index.qmd
-#        text: The Engine of Learning
-#      - href: Session4/index.qmd
-#        text: The Science of Uncertainty
+      - href: Session3/index.qmd
+        text: The Engine of Learning
+ #     - href: Session4/index.qmd
+ #       text: The Science of Uncertainty
 #      - href: Session5/index.qmd
 #        text: The Strategy of Search 
 #      - href: Session6/index.qmd
