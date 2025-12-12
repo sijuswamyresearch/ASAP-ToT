@@ -106,6 +106,51 @@ For multiple random variables, we have:
 - **Marginal Probability:** $P(X=x) = \sum_y P(X=x, Y=y)$ - probability of one event regardless of others
 - **Conditional Probability:** $P(X=x|Y=y) = \frac{P(X=x, Y=y)}{P(Y=y)}$ - probability of one event given another
 
+>**Python Example**
+
+## Exploratory Data Analysis with the Iris Dataset
+
+A glimps of the datset is shown below:
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Load iris dataset
+df = sns.load_dataset("iris")
+
+# Display first rows
+df.head()
+```
+
+A summary of the dataset is shown below:
+
+```{python}
+df.describe()
+```
+
+>Pairwise Relationships
+```{python}
+sns.pairplot(df, hue='species')
+plt.show()
+```
+
+> Feature Distributions
+
+```{python}
+df.hist(figsize=(8,6), bins=10)
+plt.suptitle("Distribution of Features in Iris Dataset")
+plt.show()
+```
+>Correlation Heatmap
+
+```{python}
+sns.heatmap(df.corr(numeric_only=True), annot=True)
+plt.title("Correlation Matrix")
+plt.show()
+```
+
 ::::
 
 ## Bayesian Inference: Updating Beliefs with Evidence
