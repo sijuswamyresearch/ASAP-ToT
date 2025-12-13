@@ -31,12 +31,12 @@ website:
         text: The Engine of Learning
       - href: Session4/index.qmd
         text: The Science of Uncertainty
-#      - href: Session5/index.qmd
-#        text: The Strategy of Search 
-#      - href: Session6/index.qmd
-#        text: Pillars in Practice
-#      - href: session7/index.qmd
-#        text: Synthesis & Teaching Excellence
+      - href: Session5/index.qmd
+        text: The Strategy of Search 
+      - href: Session6/index.qmd
+        text: Pillars in Practice
+      - href: session7/index.qmd
+        text: Synthesis & Teaching Excellence
 
       - about.qmd
 

@@ -237,6 +237,24 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../Session5/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Strategy of Search</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Session6/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pillars in Practice</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../session7/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Synthesis &amp; Teaching Excellence</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../about.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">About</span></a>
   </div>
@@ -435,7 +453,7 @@ p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
 <section id="exploratory-data-analysis-with-the-iris-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis-with-the-iris-dataset">Exploratory Data Analysis with the Iris Dataset</h2>
 <p>A glimps of the datset is shown below:</p>
-<div id="79c7581a" class="cell" data-execution_count="1">
+<div id="ebdd5f8c" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -508,7 +526,7 @@ p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
 </div>
 </div>
 <p>A summary of the dataset is shown below:</p>
-<div id="cf51a0a2" class="cell" data-execution_count="2">
+<div id="da9dbde0" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.describe()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div>
@@ -590,7 +608,7 @@ p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
 <blockquote class="blockquote">
 <p>Pairwise Relationships</p>
 </blockquote>
-<div id="8ae67aa9" class="cell" data-execution_count="3">
+<div id="64fa8413" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df, hue<span class="op">=</span><span class="st">'species'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -604,7 +622,7 @@ p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
 <blockquote class="blockquote">
 <p>Feature Distributions</p>
 </blockquote>
-<div id="c0b1feba" class="cell" data-execution_count="4">
+<div id="805c7688" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.hist(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">6</span>), bins<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>plt.suptitle(<span class="st">"Distribution of Features in Iris Dataset"</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -619,7 +637,7 @@ p(x|\mathbf{p}) = \prod_{k=1}^K p_k^{\mathbb{I}(x=k)}
 <blockquote class="blockquote">
 <p>Correlation Heatmap</p>
 </blockquote>
-<div id="3441bb57" class="cell" data-execution_count="5">
+<div id="3149a044" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(df.corr(numeric_only<span class="op">=</span><span class="va">True</span>), annot<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Correlation Matrix"</span>)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
